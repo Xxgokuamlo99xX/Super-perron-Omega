@@ -102,4 +102,6 @@ scale = Vector2(0.382719, 0.382719)
 text = "Stamina:"
 horizontal_alignment = 1
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=810209383]
+
 [connection signal="timeout" from="Stamina_recover" to="." method="_on_stamina_recover_timeout"]
