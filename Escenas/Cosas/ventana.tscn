@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://clqodbfg5qbgo"]
+
+[ext_resource type="Script" uid="uid://cfurellyipia2" path="res://Scripts/ventana.gd" id="1_hdd5l"]
+[ext_resource type="PackedScene" uid="uid://co1olhh4sltk" path="res://Escenas/Cosas/area_interactuable.tscn" id="1_kihkg"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_1pk86"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_hdd5l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1pk86"]
+
+[sub_resource type="Resource" id="Resource_rsrye"]
+script = ExtResource("3_hdd5l")
+duration = 1.0
+transition = 10
+ease = 2
+
+[node name="Ventana" type="Node2D"]
+script = ExtResource("1_hdd5l")
+
+[node name="area_interaccion" parent="." instance=ExtResource("1_kihkg")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area_interaccion"]
+shape = SubResource("RectangleShape2D_1pk86")
+
+[node name="cam" type="Node2D" parent="."]
+script = ExtResource("2_1pk86")
+zoom = Vector2(1.2, 1.2)
+tween_resource = SubResource("Resource_rsrye")
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[connection signal="body_exited" from="area_interaccion" to="." method="_on_area_interaccion_body_exited"]
+[connection signal="interactuo" from="area_interaccion" to="." method="_on_area_interaccion_interactuo"]

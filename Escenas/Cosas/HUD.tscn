@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://c2a5epensab4u"]
+
+[ext_resource type="Script" uid="uid://sgnc7tls1yxg" path="res://Scripts/hud.gd" id="1_xbpho"]
+
+[node name="HUD" type="CanvasLayer" unique_id=675501275]
+layer = 3
+script = ExtResource("1_xbpho")
+
+[node name="C" type="CanvasLayer" parent="." unique_id=1532549605]
+layer = 2
+
+[node name="fps" type="Label" parent="C" unique_id=798735385]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Fps: "
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=594473686]
+offset_left = 437.0
+offset_top = 6.0
+offset_right = 569.0
+offset_bottom = 102.0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=407239398]
+disable_3d = true
+handle_input_locally = false
+use_taa = true
+size = Vector2i(132, 96)
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="SubViewportContainer/SubViewport" unique_id=1739015442]
+light_mask = 3
+visibility_layer = 3
+zoom = Vector2(0.1, 0.1)

@@ -1,0 +1,123 @@
+[gd_scene load_steps=13 format=3 uid="uid://njyxrox56q6u"]
+
+[ext_resource type="Script" uid="uid://dj6irja7wahx1" path="res://Scripts/sombro_coso_nose.gd" id="1_bb6jw"]
+[ext_resource type="Shader" uid="uid://pmjvtkkkolgj" path="res://Scripts/shaders/glow.gdshader" id="2_ikbbm"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ikbbm"]
+light_mode = 2
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bb6jw"]
+radius = 140.572
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bb6jw"]
+height = 20.0
+
+[sub_resource type="Gradient" id="Gradient_dcsre"]
+colors = PackedColorArray(1, 1, 1, 0, 0, 0, 0, 0.380392)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_bb6jw"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ikbbm"]
+width = 16
+height = 16
+color_ramp = SubResource("Gradient_dcsre")
+noise = SubResource("FastNoiseLite_bb6jw")
+
+[sub_resource type="Gradient" id="Gradient_o4fr0"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kyki8"]
+gradient = SubResource("Gradient_o4fr0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_u0xdr"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(10, 1, 1)
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector3(0, -98, 0)
+color_ramp = SubResource("GradientTexture1D_kyki8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o4fr0"]
+shader = ExtResource("2_ikbbm")
+shader_parameter/rect_size = Vector2(0.2, 0.2)
+shader_parameter/bness = 1.065
+shader_parameter/fall_off_scale = 3.04
+shader_parameter/b_offset = 0.07
+
+[node name="sombro coso nose" type="CharacterBody2D"]
+material = SubResource("CanvasItemMaterial_ikbbm")
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_bb6jw")
+
+[node name="deteccion_raycast" type="Node2D" parent="."]
+scale = Vector2(1.5, 1.5)
+
+[node name="derecha" type="RayCast2D" parent="deteccion_raycast"]
+rotation = -1.5708
+target_position = Vector2(0.542347, 96.0193)
+
+[node name="centro" type="RayCast2D" parent="deteccion_raycast"]
+rotation = -1.5708
+target_position = Vector2(0, 98)
+collision_mask = 128
+
+[node name="izquierda" type="RayCast2D" parent="deteccion_raycast"]
+rotation = -1.5708
+target_position = Vector2(-0.542347, 96.0193)
+
+[node name="Deteccion" type="Area2D" parent="deteccion_raycast"]
+visible = false
+rotation = -1.5708
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="deteccion_raycast/Deteccion"]
+scale = Vector2(2, 2)
+polygon = PackedVector2Array(0, 49, 28, 39, 0, 0, -28, 39)
+
+[node name="rango_seguir" type="Area2D" parent="deteccion_raycast"]
+visible = false
+rotation = -1.5708
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="deteccion_raycast/rango_seguir"]
+shape = SubResource("CircleShape2D_bb6jw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("CapsuleShape2D_bb6jw")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
+simplify_path = true
+simplify_epsilon = 5.0
+debug_enabled = true
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+use_parent_material = true
+amount = 20
+texture = SubResource("NoiseTexture2D_ikbbm")
+process_material = SubResource("ParticleProcessMaterial_u0xdr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_o4fr0")
+offset_left = -5.0
+offset_top = -5.0
+offset_right = -1.0
+offset_bottom = -3.0
+color = Color(1, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_o4fr0")
+offset_left = 1.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = -3.0
+color = Color(1, 0, 0, 1)
+
+[node name="RecalcTimer" type="Timer" parent="."]
+
+[connection signal="body_exited" from="deteccion_raycast/rango_seguir" to="." method="_on_rango_seguir_body_exited"]
+[connection signal="timeout" from="RecalcTimer" to="." method="_on_RecalcTimer_timeout"]

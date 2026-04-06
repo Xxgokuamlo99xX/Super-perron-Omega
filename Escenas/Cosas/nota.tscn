@@ -1,0 +1,90 @@
+[gd_scene load_steps=6 format=3 uid="uid://cs5cyucnxwvaf"]
+
+[ext_resource type="Script" uid="uid://dfksbtapyrapt" path="res://Scripts/nota.gd" id="1_5ka5g"]
+[ext_resource type="PackedScene" uid="uid://co1olhh4sltk" path="res://Escenas/Cosas/area_interactuable.tscn" id="2_j0asg"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_j0asg"]
+light_mode = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j0asg"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_5ka5g"]
+
+[node name="Nota" type="Node2D"]
+material = SubResource("CanvasItemMaterial_j0asg")
+script = ExtResource("1_5ka5g")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+visible = false
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -148.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 182.0
+offset_top = 25.0
+offset_right = -38.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/ColorRect"]
+layout_mode = 0
+offset_right = 208.0
+offset_bottom = 269.0
+
+[node name="Titulo" type="Label" parent="CanvasLayer/Control/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Nota"
+horizontal_alignment = 1
+
+[node name="Cuerpo" type="RichTextLabel" parent="CanvasLayer/Control/ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "hoasdjnjhbcbrskresg
+d
+asd
+as
+da
+sd
+asd
+a
+sd
+asd
+"
+
+[node name="Area2D" parent="." instance=ExtResource("2_j0asg")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_j0asg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.454902, 0.85098, 0.552941, 1)
+texture_filter = 1
+use_parent_material = true
+position = Vector2(-4.76837e-07, 4.76837e-07)
+scale = Vector2(16, 16)
+texture = SubResource("PlaceholderTexture2D_5ka5g")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -54.0
+offset_top = -45.0
+offset_right = 60.0
+offset_bottom = -22.0
+text = "Interactuar = Z"
+
+[connection signal="interactuo" from="Area2D" to="." method="_on_area_2d_interactuo"]

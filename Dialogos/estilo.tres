@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="DialogicStyle" format=3 uid="uid://bb4172mc2hvrt"]
+
+[ext_resource type="Script" uid="uid://bwg6yncmh2cml" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="1_gsac5"]
+[ext_resource type="PackedScene" uid="uid://ccw2rqumugsku" path="res://Dialogos/DefaultLayoutBase/custom_default_layout_base.tscn" id="1_yt5ip"]
+[ext_resource type="Script" uid="uid://dv08k6ljua6fm" path="res://addons/dialogic/Resources/dialogic_style.gd" id="2_xyxek"]
+[ext_resource type="PackedScene" uid="uid://b3k85ig21rpl2" path="res://Dialogos/Text_box.tscn" id="3_k04nk"]
+[ext_resource type="PackedScene" uid="uid://4w2pwi666jvx" path="res://Dialogos/portrait_layer.tscn" id="4_yt5ip"]
+
+[sub_resource type="Resource" id="Resource_k04nk"]
+script = ExtResource("1_gsac5")
+scene = ExtResource("1_yt5ip")
+overrides = {
+"follow_viewport": "false"
+}
+
+[sub_resource type="Resource" id="Resource_yt5ip"]
+script = ExtResource("1_gsac5")
+scene = ExtResource("3_k04nk")
+overrides = {
+"name_label_box_offset": "Vector2(1, -7)",
+"name_label_custom_font_size": "25.0",
+"name_label_use_global_font_size": "false",
+"text_size": "22.0",
+"text_use_global_size": "false"
+}
+
+[sub_resource type="Resource" id="Resource_r7lug"]
+script = ExtResource("1_gsac5")
+scene = ExtResource("4_yt5ip")
+overrides = {
+"portrait_size_mode": "3"
+}
+
+[resource]
+script = ExtResource("2_xyxek")
+name = "estilo"
+layer_list = Array[String](["11", "10"])
+layer_info = {
+"": SubResource("Resource_k04nk"),
+"10": SubResource("Resource_yt5ip"),
+"11": SubResource("Resource_r7lug")
+}
+metadata/_latest_layer = ""

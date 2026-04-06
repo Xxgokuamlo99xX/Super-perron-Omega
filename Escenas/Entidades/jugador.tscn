@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://cs55jipu83bs5"]
+
+[ext_resource type="Script" uid="uid://582f041jfxet" path="res://Scripts/Jugador.gd" id="1_t81sm"]
+[ext_resource type="PackedScene" uid="uid://c2a5epensab4u" path="res://Escenas/Cosas/HUD.tscn" id="2_qdjoc"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_t3oky"]
+[ext_resource type="Texture2D" uid="uid://b4b24fsqn26k3" path="res://Recursos/luz.png" id="3_2lxrj"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_e3bpe"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="6_e3bpe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qdjoc"]
+radius = 11.0
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_2lxrj"]
+
+[sub_resource type="Resource" id="Resource_l8pit"]
+script = ExtResource("3_e3bpe")
+transition = 2
+
+[node name="Jugador" type="CharacterBody2D" unique_id=398366218 groups=["jugador"]]
+collision_layer = 17
+script = ExtResource("1_t81sm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=33148630]
+shape = SubResource("CircleShape2D_qdjoc")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1399704559]
+visible = false
+color = Color(1, 1, 0.776471, 1)
+shadow_enabled = true
+shadow_item_cull_mask = 3
+texture = ExtResource("3_2lxrj")
+texture_scale = 1.9
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=784241139]
+modulate = Color(1, 1, 0, 1)
+texture_filter = 1
+position = Vector2(-3.57628e-07, 0)
+scale = Vector2(20, 20)
+texture = SubResource("PlaceholderTexture2D_2lxrj")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=576395431]
+physics_interpolation_mode = 1
+process_callback = 0
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=105613702]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("6_e3bpe")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="PhantomCamera2D" type="Node2D" parent="Camera2D" unique_id=1987033856 node_paths=PackedStringArray("follow_target")]
+top_level = true
+script = ExtResource("2_t3oky")
+priority = 1
+follow_mode = 5
+follow_target = NodePath("../..")
+tween_resource = SubResource("Resource_l8pit")
+dead_zone_width = 0.2
+dead_zone_height = 0.2
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="HUD" parent="." unique_id=362444943 node_paths=PackedStringArray("jugador") instance=ExtResource("2_qdjoc")]
+jugador = NodePath("..")
+
+[node name="Stamina_recover" type="Timer" parent="." unique_id=1883772049]
+wait_time = 3.0
+one_shot = true
+
+[node name="Stamina_delay" type="Timer" parent="." unique_id=1018818149]
+one_shot = true
+
+[node name="debug" type="Node2D" parent="." unique_id=1791289637]
+z_index = 100
+
+[node name="ProgressBar" type="ProgressBar" parent="debug" unique_id=621564702]
+modulate = Color(0, 0.988235, 0, 1)
+offset_left = -27.0
+offset_top = -12.0
+offset_right = -22.0
+offset_bottom = 42.0
+rotation = -1.5708
+value = 22.0
+rounded = true
+fill_mode = 2
+show_percentage = false
+
+[node name="Label" type="Label" parent="debug" unique_id=1510221504]
+offset_left = -43.0
+offset_top = -36.0
+offset_right = 112.0
+offset_bottom = -13.0
+scale = Vector2(0.568653, 0.568653)
+text = "Cansado:"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="debug" unique_id=1645432449]
+offset_left = -54.0
+offset_top = -20.0
+offset_right = 14.0
+offset_bottom = 3.0
+scale = Vector2(0.382719, 0.382719)
+text = "Stamina:"
+horizontal_alignment = 1
+
+[connection signal="timeout" from="Stamina_recover" to="." method="_on_stamina_recover_timeout"]

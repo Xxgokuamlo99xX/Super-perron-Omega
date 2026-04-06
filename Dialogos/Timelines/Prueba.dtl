@@ -1,0 +1,13 @@
+join Prota leftmost
+Prota: Hola?
+join prota_img2 rightmost
+prota_img2: Hola
+Prota: aaaaaaaa!
+Prota: que miedo\
+(Porque es un juego de terror) xd
+update prota_img2 right [length="1.5"]
+update Prota left [length="0.1"]
+De mas cerca tal vez?
+prota_img2: Copia barata
+Prota (xd): Si claro
+prota_img2 (duda): ?
