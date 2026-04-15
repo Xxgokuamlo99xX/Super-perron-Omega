@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c2a5epensab4u"]
 
-[ext_resource type="Script" uid="uid://sgnc7tls1yxg" path="res://Scripts/hud.gd" id="1_xbpho"]
+[ext_resource type="Script" uid="uid://sgnc7tls1yxg" path="res://Scripts/jugador/hud.gd" id="1_xbpho"]
 
 [node name="HUD" type="CanvasLayer" unique_id=675501275]
 layer = 3
@@ -25,6 +25,7 @@ stretch = true
 disable_3d = true
 handle_input_locally = false
 use_taa = true
+canvas_cull_mask = 4294966273
 size = Vector2i(132, 96)
 render_target_update_mode = 4
 

@@ -1,42 +1,284 @@
 [gd_scene format=3 uid="uid://cs55jipu83bs5"]
 
-[ext_resource type="Script" uid="uid://582f041jfxet" path="res://Scripts/Jugador.gd" id="1_t81sm"]
+[ext_resource type="Script" uid="uid://582f041jfxet" path="res://Scripts/jugador/Jugador.gd" id="1_t81sm"]
 [ext_resource type="PackedScene" uid="uid://c2a5epensab4u" path="res://Escenas/Cosas/HUD.tscn" id="2_qdjoc"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_t3oky"]
-[ext_resource type="Texture2D" uid="uid://b4b24fsqn26k3" path="res://Recursos/luz.png" id="3_2lxrj"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_e3bpe"]
+[ext_resource type="Script" uid="uid://brauggkrlldp5" path="res://addons/projectiles_plugin/2d/patterns/pattern_shooter2d.gd" id="4_8q352"]
+[ext_resource type="Script" uid="uid://u32nbmpvccw8" path="res://addons/projectiles_plugin/2d/patterns/pattern_elem2d.gd" id="5_fyhg8"]
+[ext_resource type="Script" uid="uid://8i7rscyqvam4" path="res://addons/projectiles_plugin/2d/trajectories/linear_trajectory2d.gd" id="6_aiwfa"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="6_e3bpe"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_qdjoc"]
-radius = 11.0
+[ext_resource type="PackedScene" uid="uid://cffcrykvmyb51" path="res://Escenas/Cosas/projectil_basico.tscn" id="6_fyhg8"]
+[ext_resource type="PackedScene" uid="uid://b5r13i8g858dn" path="res://Escenas/Cosas/hitbox_atq_jugador.tscn" id="6_l8pit"]
+[ext_resource type="Texture2D" uid="uid://dib8fpy48w8df" path="res://Recursos/Slashes_espada.png" id="7_l8pit"]
+[ext_resource type="Script" uid="uid://bo7affgktoy0b" path="res://addons/projectiles_plugin/2d/patterns/pattern2d.gd" id="7_poib6"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_2lxrj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yk3el"]
+radius = 11.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e3bpe"]
+size = Vector2(10, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l8pit"]
+size = Vector2(27.5, 33.25)
+
+[sub_resource type="Resource" id="Resource_3lihj"]
+script = ExtResource("6_aiwfa")
+
+[sub_resource type="Resource" id="Resource_0vdxu"]
+script = ExtResource("5_fyhg8")
+projectile = ExtResource("6_fyhg8")
+trajectory = SubResource("Resource_3lihj")
+speed = 200.0
+range = 1000.0
+
+[sub_resource type="Resource" id="Resource_jleo5"]
+script = ExtResource("7_poib6")
+data = Array[ExtResource("5_fyhg8")]([SubResource("Resource_0vdxu")])
+metadata/_custom_type_script = "uid://bo7affgktoy0b"
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_e3bpe"]
 
 [sub_resource type="Resource" id="Resource_l8pit"]
 script = ExtResource("3_e3bpe")
 transition = 2
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l8pit"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(1, 0, 0, 0.4)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
+[sub_resource type="Animation" id="Animation_yk3el"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Posicion ataque/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Posicion ataque/melee_hitbox:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Posicion ataque/melee_hitbox:monitorable")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Posicion ataque/melee_hitbox:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:atacando")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Posicion ataque/Sprite2D:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_sd788"]
+resource_name = "ataque"
+length = 0.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Posicion ataque/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Posicion ataque/melee_hitbox:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Posicion ataque/melee_hitbox:monitorable")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Posicion ataque/melee_hitbox:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:atacando")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Posicion ataque/Sprite2D:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vro3i"]
+_data = {
+&"RESET": SubResource("Animation_yk3el"),
+&"ataque": SubResource("Animation_sd788")
+}
+
 [node name="Jugador" type="CharacterBody2D" unique_id=398366218 groups=["jugador"]]
-collision_layer = 17
 script = ExtResource("1_t81sm")
+vel = 300
+melee_damage = 5.0
+range_damage = 3.0
+range_pierce = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=33148630]
-shape = SubResource("CircleShape2D_qdjoc")
-
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1399704559]
-visible = false
-color = Color(1, 1, 0.776471, 1)
-shadow_enabled = true
-shadow_item_cull_mask = 3
-texture = ExtResource("3_2lxrj")
-texture_scale = 1.9
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=784241139]
+[node name="Sprite" type="Sprite2D" parent="." unique_id=784241139]
 modulate = Color(1, 1, 0, 1)
 texture_filter = 1
 position = Vector2(-3.57628e-07, 0)
 scale = Vector2(20, 20)
 texture = SubResource("PlaceholderTexture2D_2lxrj")
+
+[node name="colision_entorno" type="CollisionShape2D" parent="." unique_id=632919085]
+shape = SubResource("CircleShape2D_yk3el")
+
+[node name="hurtbox" type="Area2D" parent="." unique_id=1280826457 groups=["jugador_hurtbox"]]
+collision_layer = 8
+collision_mask = 0
+
+[node name="colision" type="CollisionShape2D" parent="hurtbox" unique_id=33148630]
+shape = SubResource("RectangleShape2D_e3bpe")
+debug_color = Color(0.99215686, 1, 0, 0.41960785)
+
+[node name="Posicion ataque" type="Node2D" parent="." unique_id=2054680370]
+rotation = -3.117913
+
+[node name="Marker2D" type="Marker2D" parent="Posicion ataque" unique_id=768860566]
+position = Vector2(26, 0)
+
+[node name="melee_hitbox" parent="Posicion ataque" unique_id=1856167177 instance=ExtResource("6_l8pit")]
+visible = false
+position = Vector2(26, 0)
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Posicion ataque/melee_hitbox" unique_id=172056925]
+shape = SubResource("RectangleShape2D_l8pit")
+debug_color = Color(0.29803923, 1, 0, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="Posicion ataque" unique_id=1250604948]
+visible = false
+texture_filter = 1
+position = Vector2(25, 0)
+texture = ExtResource("7_l8pit")
+hframes = 5
+vframes = 3
+frame = 2
+
+[node name="PatternShooter2D" type="Node2D" parent="Posicion ataque" unique_id=1755422649]
+position = Vector2(26, 0)
+script = ExtResource("4_8q352")
+pattern = SubResource("Resource_jleo5")
+metadata/_custom_type_script = "uid://brauggkrlldp5"
+
+[node name="_icono_mapa" type="Sprite2D" parent="." unique_id=1324566890]
+visible = false
+light_mask = 0
+visibility_layer = 1024
+texture_filter = 1
+position = Vector2(-1.9073486e-06, -1)
+scale = Vector2(78.99999, 73.99999)
+texture = SubResource("PlaceholderTexture2D_e3bpe")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=576395431]
 physics_interpolation_mode = 1
@@ -69,6 +311,15 @@ one_shot = true
 [node name="Stamina_delay" type="Timer" parent="." unique_id=1018818149]
 one_shot = true
 
+[node name="atq_delay_melee" type="Timer" parent="." unique_id=1944371431]
+autostart = true
+
+[node name="atq_delay_rango" type="Timer" parent="." unique_id=564049087]
+autostart = true
+
+[node name="i frames" type="Timer" parent="." unique_id=530172596]
+one_shot = true
+
 [node name="debug" type="Node2D" parent="." unique_id=1791289637]
 z_index = 100
 
@@ -83,15 +334,17 @@ value = 22.0
 rounded = true
 fill_mode = 2
 show_percentage = false
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="debug" unique_id=1510221504]
-offset_left = -43.0
-offset_top = -36.0
-offset_right = 112.0
-offset_bottom = -13.0
+offset_left = -47.0
+offset_top = 5.9999995
+offset_right = 108.0
+offset_bottom = 29.0
 scale = Vector2(0.568653, 0.568653)
 text = "Cansado:"
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="debug" unique_id=1645432449]
 offset_left = -54.0
@@ -101,7 +354,29 @@ offset_bottom = 3.0
 scale = Vector2(0.382719, 0.382719)
 text = "Stamina:"
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ProgressBar2" type="ProgressBar" parent="debug" unique_id=610393341]
+offset_left = -26.000002
+offset_top = -26.999998
+offset_right = 226.38095
+scale = Vector2(0.21, 0.21)
+theme_override_colors/font_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_styles/fill = SubResource("StyleBoxFlat_l8pit")
+show_percentage = false
+
+[node name="Label3" type="Label" parent="debug" unique_id=2095935864]
+offset_left = -43.0
+offset_top = -28.0
+offset_right = 3.0
+offset_bottom = -5.0
+scale = Vector2(0.39, 0.39)
+text = "Vida:"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=810209383]
+libraries/ = SubResource("AnimationLibrary_vro3i")
 
+[connection signal="jugador_hit" from="." to="." method="_on_jugador_hit"]
 [connection signal="timeout" from="Stamina_recover" to="." method="_on_stamina_recover_timeout"]
+[connection signal="timeout" from="atq_delay_melee" to="." method="_on_atq_delay_melee_timeout"]
+[connection signal="timeout" from="atq_delay_rango" to="." method="_on_atq_delay_rango_timeout"]

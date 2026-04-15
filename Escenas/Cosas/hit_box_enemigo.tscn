@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://caisb0rnk1s0g"]
+
+[ext_resource type="Script" uid="uid://52jjrxrf7f6m" path="res://Scripts/enemigos/hit_box_enemigo.gd" id="1_ybfi3"]
+
+[node name="hit_box_enemigo" type="Area2D" unique_id=2055006096]
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+script = ExtResource("1_ybfi3")

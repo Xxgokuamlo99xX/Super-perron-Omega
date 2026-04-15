@@ -23,7 +23,7 @@ config/icon="res://icon.svg"
 
 ControllerIcons="*res://addons/controller_icons/ControllerIcons.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
-Global="*res://Scripts/Global.gd"
+Global="*res://Scripts/varios/Global.gd"
 PhantomCameraManager="*uid://duq6jhf6unyis"
 
 [dialogic]
@@ -88,11 +88,14 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/controller_icons/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
+enabled=PackedStringArray("res://addons/controller_icons/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/projectiles_plugin/plugin.cfg")
 
 [global_group]
 
 jugador="jugador xd"
+jugador_hurtbox="es la que se usa para aplicar el daño al jugador"
+jugador_hitbox="es la que se usa para que el jugador aplique el daño a un enemigo"
+enemigo="aqui van los nodos que interactuan con los enemigos"
 
 [input]
 
@@ -144,7 +147,11 @@ dialogic_default_action={
 2d_physics/layer_1="Solido"
 2d_physics/layer_2="Puerta"
 2d_physics/layer_3="Deteccion"
+2d_physics/layer_4="atq_enemigo"
+2d_physics/layer_5="atq_jugador"
+2d_physics/layer_9="separacion_enemigos"
 
 [physics]
 
+2d/default_gravity=0.0
 common/physics_interpolation=true

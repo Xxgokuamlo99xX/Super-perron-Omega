@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://co1olhh4sltk"]
+[gd_scene format=3 uid="uid://co1olhh4sltk"]
 
 [ext_resource type="Script" uid="uid://r62jgcmacbru" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="1_c4go8"]
-[ext_resource type="Script" uid="uid://bks84nfh8nfyp" path="res://Scripts/area_interactuable.gd" id="1_hc2fh"]
+[ext_resource type="Script" uid="uid://bks84nfh8nfyp" path="res://Scripts/varios/area_interactuable.gd" id="1_hc2fh"]
 
 [sub_resource type="Texture2D" id="Texture2D_hc2fh"]
 resource_local_to_scene = false

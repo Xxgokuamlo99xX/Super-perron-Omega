@@ -1,4 +1,3 @@
-res://Escenas/Niveles/Debug_lvl.tscn
 res://Dialogos/estilo.tres
 res://addons/phantom_camera/themes/theme.tres
 res://Recursos/debug_tilemap.tres
@@ -6,4 +5,3 @@ res://Scripts/shaders/glitch.gdshader
 res://Scripts/shaders/sobra.gdshader
 res://Scripts/shaders/luz.gdshader
 res://Scripts/shaders/glow.gdshader
-res://Escenas/Entidades/jugador.tscn

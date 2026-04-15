@@ -34,7 +34,7 @@ func get_icon_path() -> String:
 			return button.icon.path
 	return ""
 
-func grab_focus() -> void:
+func grab_focus(use_visual_focus: bool = false) -> void:
 	pass
 
 func _input(event):

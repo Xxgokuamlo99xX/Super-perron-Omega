@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://rajk1vi3mvgy"]
+
+[ext_resource type="PackedScene" uid="uid://caisb0rnk1s0g" path="res://Escenas/Cosas/hit_box_enemigo.tscn" id="1_4wmpc"]
+[ext_resource type="Script" uid="uid://cjisl41hyci1t" path="res://Scripts/enemigos/enemigo_platilla_debug.gd" id="1_esxcy"]
+[ext_resource type="Texture2D" uid="uid://ch1bdafkgoyha" path="res://Recursos/1618601765268.png" id="2_wrbud"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x8cke"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wrbud"]
+size = Vector2(12, 12)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x8cke"]
+radius = 12.5842705
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wrbud"]
+radius = 2.247191
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wrbud"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(1, 0, 0, 0.4)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
+[node name="enemigo_platillla_debug" type="CharacterBody2D" unique_id=2086595903]
+scale = Vector2(2.225, 2.225)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_esxcy")
+vida_max = 35.0
+vel = 100
+
+[node name="hurtbox" type="Area2D" parent="." unique_id=1472544042 groups=["enemigo"]]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox" unique_id=437879810]
+shape = SubResource("RectangleShape2D_x8cke")
+debug_color = Color(0.3426862, 0.6212354, 0, 0.41960785)
+
+[node name="i_frames" type="Timer" parent="." unique_id=1848385669]
+wait_time = 0.1
+one_shot = true
+
+[node name="hit_box_enemigo" parent="." unique_id=2055006096 node_paths=PackedStringArray("enemigo") instance=ExtResource("1_4wmpc")]
+enemigo = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hit_box_enemigo" unique_id=542936310]
+shape = SubResource("RectangleShape2D_wrbud")
+debug_color = Color(0.9882353, 0, 0, 0.6156863)
+
+[node name="detector_separacion" type="Area2D" parent="." unique_id=891813508]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detector_separacion" unique_id=1321716472]
+shape = SubResource("CircleShape2D_x8cke")
+debug_color = Color(1, 0.003921569, 0.99607843, 0.41960785)
+
+[node name="colision_entorno" type="CollisionShape2D" parent="." unique_id=1346618108]
+shape = SubResource("CircleShape2D_wrbud")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=151513208]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_wrbud")
+flip_h = true
+
+[node name="Debug" type="Node2D" parent="." unique_id=955831661]
+
+[node name="ProgressBar" type="ProgressBar" parent="Debug" unique_id=847221610]
+offset_left = -14.0
+offset_top = -16.0
+offset_right = 175.99997
+offset_bottom = 11.0
+scale = Vector2(0.15, 0.15)
+theme_override_colors/font_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_styles/fill = SubResource("StyleBoxFlat_wrbud")
+
+[node name="Label" type="Label" parent="Debug" unique_id=2003612386]
+offset_left = -25.000002
+offset_top = -17.0
+offset_right = 20.999998
+offset_bottom = 6.0
+scale = Vector2(0.272176, 0.23545922)
+text = "Vida:"
+
+[connection signal="enemigo_hit" from="." to="." method="_on_enemigo_hit"]

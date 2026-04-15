@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cffcrykvmyb51"]
+
+[ext_resource type="Script" uid="uid://bpjfhopbh2loj" path="res://addons/projectiles_plugin/2d/projectiles/projectile2d.gd" id="1_dis6t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8dlvx"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_5qakb"]
+
+[node name="projectil_basico" type="Area2D" unique_id=301238557]
+collision_layer = 0
+collision_mask = 17
+script = ExtResource("1_dis6t")
+metadata/_custom_type_script = "uid://bpjfhopbh2loj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=74354085]
+shape = SubResource("CircleShape2D_8dlvx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1782968616]
+texture_filter = 1
+position = Vector2(1.1920929e-07, 0)
+scale = Vector2(12.75, 12.25)
+texture = SubResource("PlaceholderTexture2D_5qakb")

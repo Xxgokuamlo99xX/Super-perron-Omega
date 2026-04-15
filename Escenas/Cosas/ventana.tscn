@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://clqodbfg5qbgo"]
+[gd_scene format=3 uid="uid://clqodbfg5qbgo"]
 
-[ext_resource type="Script" uid="uid://cfurellyipia2" path="res://Scripts/ventana.gd" id="1_hdd5l"]
+[ext_resource type="Script" uid="uid://cfurellyipia2" path="res://Scripts/varios/ventana.gd" id="1_hdd5l"]
 [ext_resource type="PackedScene" uid="uid://co1olhh4sltk" path="res://Escenas/Cosas/area_interactuable.tscn" id="1_kihkg"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_1pk86"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_hdd5l"]

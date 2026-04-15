@@ -1,9 +1,9 @@
-res://Escenas/Niveles
-res://Scripts
-res://Escenas/Cosas
-res://Dialogos
+res://Escenas/Cosas/
+res://Scripts/
+res://Escenas/Entidades/
+res://Escenas/Niveles/
+res://Dialogos/
 res://
-res://Dialogos/CustomIntento5
-res://Scripts/shaders
-res://Escenas/Entidades
-res://Recursos
+res://Dialogos/CustomIntento5/
+res://Scripts/shaders/
+res://Recursos/

@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdxsilqdnwysr"]
+[gd_scene format=3 uid="uid://bdxsilqdnwysr"]
 
-[ext_resource type="Script" uid="uid://gbrx11udcfpf" path="res://Scripts/dialogo_trigger.gd" id="1_b0jm0"]
+[ext_resource type="Script" uid="uid://gbrx11udcfpf" path="res://Scripts/varios/dialogo_trigger.gd" id="1_b0jm0"]
 [ext_resource type="PackedScene" uid="uid://co1olhh4sltk" path="res://Escenas/Cosas/area_interactuable.tscn" id="2_y77y5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b0jm0"]

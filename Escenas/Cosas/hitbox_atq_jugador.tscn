@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b5r13i8g858dn"]
+
+[ext_resource type="Script" uid="uid://cskcp5clylcft" path="res://Scripts/jugador/hitbox_atq_jugador.gd" id="1_wfjww"]
+
+[node name="hitbox_atq_jugador" type="Area2D" unique_id=1856167177 groups=["jugador_hitbox"]]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("1_wfjww")

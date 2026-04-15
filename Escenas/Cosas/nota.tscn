@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cs5cyucnxwvaf"]
+[gd_scene format=3 uid="uid://cs5cyucnxwvaf"]
 
-[ext_resource type="Script" uid="uid://dfksbtapyrapt" path="res://Scripts/nota.gd" id="1_5ka5g"]
+[ext_resource type="Script" uid="uid://dfksbtapyrapt" path="res://Scripts/varios/nota.gd" id="1_5ka5g"]
 [ext_resource type="PackedScene" uid="uid://co1olhh4sltk" path="res://Escenas/Cosas/area_interactuable.tscn" id="2_j0asg"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_j0asg"]
