@@ -44,8 +44,6 @@ func calcular_vector_separacion() -> Vector2:
 			direccion_empuje += diff.normalized()
 			
 	return direccion_empuje.normalized()
-func hola(a):
-	print("hola", a)
 
 func _on_enemigo_hit(damage_recibido) -> void:
 	if !i_frames.is_stopped():

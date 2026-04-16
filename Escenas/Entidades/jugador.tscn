@@ -39,6 +39,9 @@ script = ExtResource("7_poib6")
 data = Array[ExtResource("5_fyhg8")]([SubResource("Resource_0vdxu")])
 metadata/_custom_type_script = "uid://bo7affgktoy0b"
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fyhg8"]
+size = Vector2(20, 20)
+
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_e3bpe"]
 
 [sub_resource type="Resource" id="Resource_l8pit"]
@@ -216,6 +219,7 @@ _data = {
 }
 
 [node name="Jugador" type="CharacterBody2D" unique_id=398366218 groups=["jugador"]]
+collision_layer = 129
 script = ExtResource("1_t81sm")
 vel = 300
 melee_damage = 5.0
@@ -241,7 +245,6 @@ shape = SubResource("RectangleShape2D_e3bpe")
 debug_color = Color(0.99215686, 1, 0, 0.41960785)
 
 [node name="Posicion ataque" type="Node2D" parent="." unique_id=2054680370]
-rotation = -3.117913
 
 [node name="Marker2D" type="Marker2D" parent="Posicion ataque" unique_id=768860566]
 position = Vector2(26, 0)
@@ -270,6 +273,13 @@ position = Vector2(26, 0)
 script = ExtResource("4_8q352")
 pattern = SubResource("Resource_jleo5")
 metadata/_custom_type_script = "uid://brauggkrlldp5"
+
+[node name="Sprite2D2" type="Sprite2D" parent="Posicion ataque" unique_id=1698765250]
+modulate = Color(1, 0, 1, 1)
+self_modulate = Color(0, 0, 1, 1)
+texture_filter = 1
+position = Vector2(64, 0)
+texture = SubResource("PlaceholderTexture2D_fyhg8")
 
 [node name="_icono_mapa" type="Sprite2D" parent="." unique_id=1324566890]
 visible = false

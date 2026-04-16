@@ -149,6 +149,7 @@ dialogic_default_action={
 2d_physics/layer_3="Deteccion"
 2d_physics/layer_4="atq_enemigo"
 2d_physics/layer_5="atq_jugador"
+2d_physics/layer_8="colision_entorno_enemigos"
 2d_physics/layer_9="separacion_enemigos"
 
 [physics]

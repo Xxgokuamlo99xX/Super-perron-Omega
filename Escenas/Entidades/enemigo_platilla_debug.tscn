@@ -30,10 +30,10 @@ corner_detail = 6
 [node name="enemigo_platillla_debug" type="CharacterBody2D" unique_id=2086595903]
 scale = Vector2(2.225, 2.225)
 collision_layer = 0
-collision_mask = 0
+collision_mask = 128
 script = ExtResource("1_esxcy")
 vida_max = 35.0
-vel = 100
+vel = 20
 
 [node name="hurtbox" type="Area2D" parent="." unique_id=1472544042 groups=["enemigo"]]
 collision_layer = 16
@@ -88,5 +88,7 @@ offset_right = 20.999998
 offset_bottom = 6.0
 scale = Vector2(0.272176, 0.23545922)
 text = "Vida:"
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=558283973]
 
 [connection signal="enemigo_hit" from="." to="." method="_on_enemigo_hit"]

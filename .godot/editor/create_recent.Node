@@ -1,5 +1,6 @@
-Projectile2D
+NavigationAgent2D
 Sprite2D
+Projectile2D
 CollisionShape2D
 PatternShooter2D
 Node2D
@@ -12,4 +13,3 @@ ProgressBar
 TextureProgressBar
 Node
 Timer
-StaticBody2D
