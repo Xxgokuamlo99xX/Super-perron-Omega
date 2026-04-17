@@ -7,5 +7,5 @@ res://Scripts/shaders/sobra.gdshader
 res://Scripts/shaders/luz.gdshader
 res://Scripts/shaders/glow.gdshader
 res://Escenas/Entidades/enemigo_platilla_debug.tscn
+res://Scripts/shaders/green_screen.gdshader
 res://Escenas/Entidades/jugador.tscn
-res://Scripts/enemigos/sombro_coso_nose.gd

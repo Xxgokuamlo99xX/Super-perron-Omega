@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cs5cyucnxwvaf" path="res://Escenas/Cosas/nota.tscn" id="5_unhpo"]
 [ext_resource type="PackedScene" uid="uid://bdxsilqdnwysr" path="res://Escenas/Cosas/dialogo_trigger.tscn" id="6_obbab"]
 [ext_resource type="Resource" uid="uid://vydnggbkhegb" path="res://Dialogos/Timelines/Prueba.dtl" id="7_0nx45"]
+[ext_resource type="PackedScene" uid="uid://dahg471noql4f" path="res://Escenas/Cosas/teleport.tscn" id="8_t0xsg"]
+[ext_resource type="PackedScene" uid="uid://bt76g0uul7mob" path="res://Escenas/Niveles/debug_lvl_2.tscn" id="9_qiy0t"]
 
 [node name="debug" type="Node" unique_id=1454939437]
 
@@ -50,6 +52,19 @@ offset_top = -42.0
 offset_right = 59.0
 offset_bottom = -19.0
 text = "Dialogo_Trigger"
+
+[node name="teleport" parent="varios" unique_id=326423999 instance=ExtResource("8_t0xsg")]
+position = Vector2(308, 178)
+escena_cambio = ExtResource("9_qiy0t")
+
+[node name="Label" type="Label" parent="varios/teleport" unique_id=39146400]
+offset_left = -46.0
+offset_top = -76.0
+offset_right = 52.0
+offset_bottom = -27.0
+text = "teleport
+zona jugable"
+horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="varios" unique_id=363220300]
 offset_left = 729.00006

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dahg471noql4f"]
+
+[ext_resource type="Script" uid="uid://dgex7au4qgaqr" path="res://Scripts/varios/teleport.gd" id="1_8kr7t"]
+[ext_resource type="PackedScene" uid="uid://co1olhh4sltk" path="res://Escenas/Cosas/area_interactuable.tscn" id="1_rks2q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8kr7t"]
+radius = 24.020824
+
+[node name="teleport" type="Node2D" unique_id=326423999]
+script = ExtResource("1_8kr7t")
+
+[node name="area_interaccion" parent="." unique_id=977020198 instance=ExtResource("1_rks2q")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area_interaccion" unique_id=2088188455]
+shape = SubResource("CircleShape2D_8kr7t")
+
+[connection signal="interactuo" from="area_interaccion" to="." method="_on_area_interaccion_interactuo"]

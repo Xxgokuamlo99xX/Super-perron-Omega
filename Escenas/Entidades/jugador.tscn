@@ -219,7 +219,7 @@ _data = {
 }
 
 [node name="Jugador" type="CharacterBody2D" unique_id=398366218 groups=["jugador"]]
-collision_layer = 129
+collision_layer = 641
 script = ExtResource("1_t81sm")
 vel = 300
 melee_damage = 5.0
@@ -307,6 +307,7 @@ priority = 1
 follow_mode = 5
 follow_target = NodePath("../..")
 tween_resource = SubResource("Resource_l8pit")
+tween_on_load = false
 dead_zone_width = 0.2
 dead_zone_height = 0.2
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
@@ -325,6 +326,7 @@ one_shot = true
 autostart = true
 
 [node name="atq_delay_rango" type="Timer" parent="." unique_id=564049087]
+wait_time = 0.5
 autostart = true
 
 [node name="i frames" type="Timer" parent="." unique_id=530172596]

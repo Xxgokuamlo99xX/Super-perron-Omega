@@ -17,7 +17,8 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="prototipo juego Jam"
 run/main_scene="uid://5rxpteddwu4y"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+run/max_fps=120
+config/icon="uid://cwxogvbq0ixjm"
 
 [autoload]
 
@@ -25,6 +26,7 @@ ControllerIcons="*res://addons/controller_icons/ControllerIcons.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 Global="*res://Scripts/varios/Global.gd"
 PhantomCameraManager="*uid://duq6jhf6unyis"
+cambio_escena="*uid://c4n5pv5h2ecax"
 
 [dialogic]
 
@@ -85,6 +87,7 @@ window/size/viewport_height=324
 window/size/window_width_override=1080
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
+window/vsync/vsync_mode=0
 
 [editor_plugins]
 
@@ -151,6 +154,7 @@ dialogic_default_action={
 2d_physics/layer_5="atq_jugador"
 2d_physics/layer_8="colision_entorno_enemigos"
 2d_physics/layer_9="separacion_enemigos"
+2d_physics/layer_10="interaccion jugador"
 
 [physics]
 

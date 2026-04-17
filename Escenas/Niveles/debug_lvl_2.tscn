@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bt76g0uul7mob"]
+
+[ext_resource type="PackedScene" uid="uid://cs55jipu83bs5" path="res://Escenas/Entidades/jugador.tscn" id="1_3d1t3"]
+
+[node name="Debug_lvl2" type="Node" unique_id=2015702833]
+
+[node name="Jugador" parent="." unique_id=398366218 instance=ExtResource("1_3d1t3")]
+position = Vector2(350, 119)
+range_pierce = 4
