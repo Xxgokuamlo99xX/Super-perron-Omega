@@ -1,0 +1,6 @@
+[gd_resource type="Resource" format=3 uid="uid://jkuh20bm637j"]
+
+[ext_resource type="Script" uid="uid://ctufs3rvoocnw" path="res://Scripts/enemigos/Spawner_setup.gd" id="1_m1mfy"]
+
+[resource]
+script = ExtResource("1_m1mfy")

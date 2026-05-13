@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://dcol4dlrodrpu"]
+
+[ext_resource type="Script" uid="uid://6nhxl12qs53a" path="res://Scripts/varios/moneda.gd" id="1_lqlvv"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_lqlvv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lqlvv"]
+
+[sub_resource type="Gradient" id="Gradient_88opy"]
+interpolation_color_space = 2
+colors = PackedColorArray(1, 1, 1, 1, 0.41568628, 0.41568628, 0.41568628, 0.37254903)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_pb6yl"]
+noise_type = 2
+seed = 7
+frequency = 0.0186
+offset = Vector3(57.14, 0, 0)
+cellular_distance_function = 3
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_51w7k"]
+width = 5
+height = 5
+noise = SubResource("FastNoiseLite_pb6yl")
+color_ramp = SubResource("Gradient_88opy")
+
+[sub_resource type="Gradient" id="Gradient_lqlvv"]
+colors = PackedColorArray(1, 1, 0.5294118, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_88opy"]
+gradient = SubResource("Gradient_lqlvv")
+
+[sub_resource type="Curve" id="Curve_pb6yl"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_51w7k"]
+curve = SubResource("Curve_pb6yl")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_11lpd"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(5, 5, 1)
+emission_shape = 1
+emission_sphere_radius = 1.0
+angular_velocity_min = 248.49998
+angular_velocity_max = 248.49998
+gravity = Vector3(0, 0, 0)
+scale_min = 0.7
+scale_curve = SubResource("CurveTexture_51w7k")
+color_ramp = SubResource("GradientTexture1D_88opy")
+hue_variation_min = -0.09000002
+hue_variation_max = 0.13999997
+
+[node name="moneda" type="Area2D" unique_id=1344270058]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("1_lqlvv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=159999268]
+modulate = Color(1, 0, 1, 1)
+self_modulate = Color(1, 1, 0.38431373, 1)
+texture_filter = 1
+scale = Vector2(10, 10)
+texture = SubResource("PlaceholderTexture2D_lqlvv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=25092752]
+shape = SubResource("CircleShape2D_lqlvv")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=163237255]
+texture_filter = 1
+amount = 25
+texture = SubResource("NoiseTexture2D_51w7k")
+preprocess = 1.0
+process_material = SubResource("ParticleProcessMaterial_11lpd")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

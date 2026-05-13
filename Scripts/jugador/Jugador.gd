@@ -7,8 +7,8 @@ extends CharacterBody2D
 @export var melee_damage : float
 @export var range_damage : float
 @export var range_pierce : int = 1
-@export var atacando : bool = false
 #----------------------------------------------
+var atacando : bool = false
 var direction : Vector2
 var cansado : bool = false
 var recovery : bool = false
@@ -32,9 +32,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	posicion_ataque.look_at(get_global_mouse_position())
 	if get_global_mouse_position().x < global_position.x:
-		$"Posicion ataque/Sprite2D".flip_v = true    # Voltear verticalmente si está a la izquierda
+		$"Posicion ataque/slash".flip_v = true    # Voltear verticalmente si está a la izquierda
 	else:
-		$"Posicion ataque/Sprite2D".flip_v = false
+		$"Posicion ataque/slash".flip_v = false
 	
 	#region debug
 	$debug/ProgressBar.value = stamina

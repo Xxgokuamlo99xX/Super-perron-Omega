@@ -1,9 +1,96 @@
-[gd_scene format=3 uid="uid://bt76g0uul7mob"]
+[gd_scene format=4 uid="uid://bt76g0uul7mob"]
 
 [ext_resource type="PackedScene" uid="uid://cs55jipu83bs5" path="res://Escenas/Entidades/jugador.tscn" id="1_3d1t3"]
+[ext_resource type="TileSet" uid="uid://dcmslla17xih0" path="res://Recursos/debug_tilemap.tres" id="2_g3sg5"]
+[ext_resource type="PackedScene" uid="uid://dvw3ge7qodu7s" path="res://Escenas/Cosas/Spawner.tscn" id="3_0yrul"]
+[ext_resource type="Script" uid="uid://ctufs3rvoocnw" path="res://Scripts/enemigos/Spawner_setup.gd" id="4_q24jd"]
+[ext_resource type="PackedScene" uid="uid://rajk1vi3mvgy" path="res://Escenas/Entidades/enemigo_platilla_debug.tscn" id="5_g3sg5"]
+[ext_resource type="Script" uid="uid://cjisl41hyci1t" path="res://Scripts/enemigos/enemigo_platilla_debug.gd" id="6_i547o"]
+[ext_resource type="PackedScene" uid="uid://caisb0rnk1s0g" path="res://Escenas/Cosas/hit_box_enemigo.tscn" id="7_ahc1h"]
+[ext_resource type="Shader" uid="uid://bmawvvj1v0v8x" path="res://Scripts/shaders/green_screen.gdshader" id="8_qfwbl"]
+[ext_resource type="VideoStream" uid="uid://byfg1lvg3bmmt" path="res://Recursos/Gegagedigedago-Green-Screen.ogv" id="9_3lpd2"]
+
+[sub_resource type="Resource" id="Resource_2inx0"]
+script = ExtResource("4_q24jd")
+enemigo = ExtResource("5_g3sg5")
+cantidad = 3
+metadata/_custom_type_script = "uid://ctufs3rvoocnw"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x8cke"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wrbud"]
+size = Vector2(12, 12)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x8cke"]
+radius = 12.5842705
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wrbud"]
+radius = 2.247191
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wrbud"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(1, 0, 0, 0.4)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lmupg"]
+shader = ExtResource("8_qfwbl")
+shader_parameter/key_color = Color(0, 1, 0, 1)
+shader_parameter/similarity = 0.4
+shader_parameter/smoothness = 0.08
+shader_parameter/spill = 0.1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lmupg"]
+radius = 140.572
+
+[sub_resource type="PackedScene" id="PackedScene_4uahk"]
+_bundled = {
+"conn_count": 3,
+"conns": PackedInt32Array(1073741845, 1073741844, 101, 100, 2, 0, 0, 1073741847, 1073741846, 103, 102, 2, 0, 0, 1073741849, 1073741848, 105, 104, 2, 0, 0),
+"editable_instances": [],
+"id_paths": [PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array()],
+"names": PackedStringArray("enemigo_platillla_debug", "CharacterBody2D", "scale", "collision_layer", "collision_mask", "script", "vida_max", "vel", "hurtbox", "Area2D", "enemigo", "collision_layer", "collision_mask", "CollisionShape2D", "CollisionShape2D", "shape", "debug_color", "i_frames", "Timer", "wait_time", "one_shot", "hit_box_enemigo", "enemigo", "CollisionShape2D", "CollisionShape2D", "shape", "debug_color", "detector_separacion", "Area2D", "collision_layer", "collision_mask", "CollisionShape2D", "CollisionShape2D", "shape", "debug_color", "colision_entorno", "CollisionShape2D", "shape", "Debug", "Node2D", "ProgressBar", "ProgressBar", "offset_left", "offset_top", "offset_right", "offset_bottom", "scale", "theme_override_colors/font_color", "theme_override_styles/fill", "Label", "Label", "offset_left", "offset_top", "offset_right", "offset_bottom", "scale", "text", "NavigationAgent2D", "NavigationAgent2D", "debug_enabled", "VideoStreamPlayer", "VideoStreamPlayer", "material", "offset_left", "offset_top", "offset_right", "offset_bottom", "scale", "mouse_filter", "stream", "volume_db", "autoplay", "loop", "deteccion_raycast", "Node2D", "scale", "centro", "RayCast2D", "rotation", "target_position", "collision_mask", "Deteccion", "Area2D", "rotation", "collision_layer", "collision_mask", "CollisionPolygon2D", "CollisionPolygon2D", "scale", "polygon", "rango_seguir", "Area2D", "rotation", "collision_layer", "collision_mask", "CollisionShape2D", "CollisionShape2D", "shape", "RecalcTimer", "Timer", "_on_enemigo_hit", "enemigo_hit", "_on_rango_seguir_body_exited", "body_exited", "_on_RecalcTimer_timeout", "timeout"),
+"node_count": 21,
+"node_ids": PackedInt32Array(2086595903, 1472544042, 437879810, 1848385669, 2055006096, 542936310, 891813508, 1321716472, 1346618108, 955831661, 847221610, 2003612386, 558283973, 508231061, 831934158, 67136917, 844212302, 394681495, 1266812941, 994676437, 193436246),
+"node_paths": [NodePath("."), NodePath("./hurtbox"), NodePath("."), NodePath("."), NodePath("./hit_box_enemigo"), NodePath("."), NodePath("./detector_separacion"), NodePath("."), NodePath("."), NodePath("./Debug"), NodePath("./Debug"), NodePath("."), NodePath("."), NodePath("."), NodePath("./deteccion_raycast"), NodePath("./deteccion_raycast"), NodePath("./deteccion_raycast/Deteccion"), NodePath("./deteccion_raycast"), NodePath("./deteccion_raycast/rango_seguir"), NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("deteccion_raycast/rango_seguir"), NodePath("."), NodePath("RecalcTimer")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 6, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 0, 1073741824, 0, 9, 8, -1, 2, 11, 6, 12, 7, 1, 10, 1073741825, 0, 14, 13, -1, 2, 15, 8, 16, 9, 0, 1073741826, 0, 18, 17, -1, 2, 19, 10, 20, 11, 0, 1073741827, 0, 2147483647, 21, 12, 1, 1073741846, 13, 0, 1073741828, 0, 24, 23, -1, 2, 25, 14, 26, 15, 0, 1073741829, 0, 28, 27, -1, 2, 29, 16, 30, 17, 0, 1073741830, 0, 32, 31, -1, 2, 33, 18, 34, 19, 0, 1073741831, 0, 36, 35, -1, 1, 37, 20, 0, 1073741832, 0, 39, 38, -1, 0, 0, 1073741833, 0, 41, 40, -1, 7, 42, 21, 43, 22, 44, 23, 45, 24, 46, 25, 47, 26, 48, 27, 0, 1073741834, 0, 50, 49, -1, 6, 51, 28, 52, 29, 53, 30, 54, 31, 55, 32, 56, 33, 0, 1073741835, 0, 58, 57, -1, 1, 59, 34, 0, 1073741836, 0, 61, 60, -1, 11, 62, 35, 63, 36, 64, 37, 65, 38, 66, 39, 67, 40, 68, 41, 69, 42, 70, 43, 71, 44, 72, 45, 0, 1073741837, 0, 74, 73, -1, 1, 75, 46, 0, 1073741838, 0, 77, 76, -1, 3, 78, 47, 79, 48, 80, 49, 0, 1073741839, 0, 82, 81, -1, 3, 83, 50, 84, 51, 85, 52, 0, 1073741840, 0, 87, 86, -1, 2, 88, 53, 89, 54, 0, 1073741841, 0, 91, 90, -1, 3, 92, 55, 93, 56, 94, 57, 0, 1073741842, 0, 96, 95, -1, 1, 97, 58, 0, 1073741843, 0, 99, 98, -1, 0, 0),
+"variants": [Vector2(2.225, 2.225), 0, 128, ExtResource("6_i547o"), 35.0, 20, 16, 0, SubResource("RectangleShape2D_x8cke"), Color(0.3426862, 0.6212354, 0, 0.41960785), 0.00999999999999999, true, ExtResource("7_ahc1h"), NodePath(".."), SubResource("RectangleShape2D_wrbud"), Color(0.9882353, 0, 0, 0.6156863), 256, 256, SubResource("CircleShape2D_x8cke"), Color(1, 0.003921569, 0.99607843, 0.41960785), SubResource("CircleShape2D_wrbud"), -14.0, -16.0, 175.99997, 11.0, Vector2(0.15, 0.15), Color(0.95, 0.95, 0.95, 1), SubResource("StyleBoxFlat_wrbud"), -25.000002, -17.0, 20.999998, 6.0, Vector2(0.272176, 0.23545922), "Vida:", true, SubResource("ShaderMaterial_lmupg"), -13.932586, -13.033709, 346.0674, 386.96628, Vector2(0.07694254, 0.063179575), 2, ExtResource("9_3lpd2"), -43.399998, true, true, Vector2(1.5, 1.5), -1.5708, Vector2(0, 98), 128, -1.5708, 0, 4, Vector2(2, 2), PackedVector2Array(0, 49, 28, 39, 0, 0, -28, 39), -1.5708, 0, 4, SubResource("CircleShape2D_lmupg")],
+"version": 3
+}
+
+[sub_resource type="Resource" id="Resource_xll7e"]
+script = ExtResource("4_q24jd")
+enemigo = SubResource("PackedScene_4uahk")
+cantidad = 4
+oleada = 2
+metadata/_custom_type_script = "uid://ctufs3rvoocnw"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7rb5j"]
+radius = 143.01399
 
 [node name="Debug_lvl2" type="Node" unique_id=2015702833]
 
+[node name="tilemap" type="Node2D" parent="." unique_id=2120908339]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="tilemap" unique_id=376142698]
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAcAAAAAAAAAAAABAAAAAAAAAAAAAAABAAEAAAAAAAAAAAABAAIAAAAAAAAAAAABAAMAAAAAAAAAAAABAAQAAAAAAAAAAAABAAUAAAAAAAAAAAABAAYAAAAAAAAAAAABAAcAAAAAAAAAAAACAAAAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAACAAMAAAAAAAAAAAACAAQAAAAAAAAAAAACAAUAAAAAAAAAAAACAAYAAAAAAAAAAAACAAcAAAAAAAAAAAADAAAAAAAAAAAAAAADAAEAAAAAAAAAAAADAAIAAAAAAAAAAAADAAMAAAAAAAAAAAADAAQAAAAAAAAAAAADAAUAAAAAAAAAAAADAAYAAAAAAAAAAAADAAcAAAAAAAAAAAAEAAAAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAIAAAAAAAAAAAAEAAMAAAAAAAAAAAAEAAQAAAAAAAAAAAAEAAUAAAAAAAAAAAAEAAYAAAAAAAAAAAAEAAcAAAAAAAAAAAAFAAAAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAIAAAAAAAAAAAAFAAMAAAAAAAAAAAAFAAQAAAAAAAAAAAAFAAUAAAAAAAAAAAAFAAYAAAAAAAAAAAAFAAcAAAAAAAAAAAAGAAAAAAAAAAAAAAAGAAEAAAAAAAAAAAAGAAIAAAAAAAAAAAAGAAMAAAAAAAAAAAAGAAQAAAAAAAAAAAAGAAUAAAAAAAAAAAAGAAYAAAAAAAAAAAAGAAcAAAAAAAAAAAAHAAAAAAAAAAAAAAAHAAEAAAAAAAAAAAAHAAIAAAAAAAAAAAAHAAMAAAAAAAAAAAAHAAQAAAAAAAAAAAAHAAUAAAAAAAAAAAAHAAYAAAAAAAAAAAAHAAcAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAAEAAAAAAAAAAAAIAAIAAAAAAAAAAAAIAAMAAAAAAAAAAAAIAAQAAAAAAAAAAAAIAAUAAAAAAAAAAAAIAAYAAAAAAAAAAAAIAAcAAAAAAAAAAAAJAAAAAAAAAAAAAAAJAAEAAAAAAAAAAAAJAAIAAAAAAAAAAAAJAAMAAAAAAAAAAAAJAAQAAAAAAAAAAAAJAAUAAAAAAAAAAAAJAAYAAAAAAAAAAAAJAAcAAAAAAAAAAAAKAAAAAAAAAAAAAAAKAAEAAAAAAAAAAAAKAAIAAAAAAAAAAAAKAAMAAAAAAAAAAAAKAAQAAAAAAAAAAAAKAAUAAAAAAAAAAAAKAAYAAAAAAAAAAAAKAAcAAAAAAAAAAAALAAAAAAAAAAAAAAALAAEAAAAAAAAAAAALAAIAAAAAAAAAAAALAAMAAAAAAAAAAAALAAQAAAAAAAAAAAALAAUAAAAAAAAAAAALAAYAAAAAAAAAAAALAAcAAAAAAAAAAAAMAAAAAAAAAAAAAAAMAAEAAAAAAAAAAAAMAAIAAAAAAAAAAAAMAAMAAAAAAAAAAAAMAAQAAAAAAAAAAAAMAAUAAAAAAAAAAAAMAAYAAAAAAAAAAAAMAAcAAAAAAAAAAAANAAAAAAAAAAAAAAANAAEAAAAAAAAAAAANAAIAAAAAAAAAAAANAAMAAAAAAAAAAAANAAQAAAAAAAAAAAANAAUAAAAAAAAAAAANAAYAAAAAAAAAAAANAAcAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAkAAAAAAAAAAAABAAgAAAAAAAAAAAABAAkAAAAAAAAAAAACAAgAAAAAAAAAAAACAAkAAAAAAAAAAAADAAgAAAAAAAAAAAADAAkAAAAAAAAAAAAEAAgAAAAAAAAAAAAEAAkAAAAAAAAAAAAFAAgAAAAAAAAAAAAFAAkAAAAAAAAAAAAGAAgAAAAAAAAAAAAGAAkAAAAAAAAAAAAHAAgAAAAAAAAAAAAHAAkAAAAAAAAAAAAIAAgAAAAAAAAAAAAIAAkAAAAAAAAAAAAJAAgAAAAAAAAAAAAJAAkAAAAAAAAAAAAKAAgAAAAAAAAAAAAKAAkAAAAAAAAAAAALAAgAAAAAAAAAAAALAAkAAAAAAAAAAAAMAAgAAAAAAAAAAAAMAAkAAAAAAAAAAAANAAgAAAAAAAAAAAANAAkAAAAAAAAAAAAOAAAAAAAAAAAAAAAOAAEAAAAAAAAAAAAOAAIAAAAAAAAAAAAOAAMAAAAAAAAAAAAOAAQAAAAAAAAAAAAOAAUAAAAAAAAAAAAOAAYAAAAAAAAAAAAOAAcAAAAAAAAAAAAOAAgAAAAAAAAAAAAOAAkAAAAAAAAAAAAPAAAAAAAAAAAAAAAPAAEAAAAAAAAAAAAPAAIAAAAAAAAAAAAPAAMAAAAAAAAAAAAPAAQAAAAAAAAAAAAPAAUAAAAAAAAAAAAPAAYAAAAAAAAAAAAPAAcAAAAAAAAAAAAPAAgAAAAAAAAAAAAPAAkAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAEAAAAAAAAAAAAQAAIAAAAAAAAAAAAQAAMAAAAAAAAAAAAQAAQAAAAAAAAAAAAQAAUAAAAAAAAAAAAQAAYAAAAAAAAAAAAQAAcAAAAAAAAAAAAQAAgAAAAAAAAAAAAQAAkAAAAAAAAAAAARAAAAAAAAAAAAAAARAAEAAAAAAAAAAAARAAIAAAAAAAAAAAARAAMAAAAAAAAAAAARAAQAAAAAAAAAAAARAAUAAAAAAAAAAAARAAYAAAAAAAAAAAARAAcAAAAAAAAAAAARAAgAAAAAAAAAAAARAAkAAAAAAAAAAAA=")
+tile_set = ExtResource("2_g3sg5")
+
+[node name="Spawner" parent="." unique_id=601345958 node_paths=PackedStringArray("area_spawn") instance=ExtResource("3_0yrul")]
+enemigos = Array[ExtResource("4_q24jd")]([SubResource("Resource_2inx0"), SubResource("Resource_xll7e")])
+area_spawn = NodePath("CollisionShape2D")
+oleadas = 2
+delay = 3
+color_linea = Color(1, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner" unique_id=1936740382]
+position = Vector2(87, 80)
+shape = SubResource("CircleShape2D_7rb5j")
+
 [node name="Jugador" parent="." unique_id=398366218 instance=ExtResource("1_3d1t3")]
-position = Vector2(350, 119)
-range_pierce = 4

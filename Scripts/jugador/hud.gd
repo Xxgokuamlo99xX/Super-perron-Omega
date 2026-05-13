@@ -8,6 +8,7 @@ var mil_seg : int = 0
 func _process(delta: float) -> void:
 	$C/fps.text = "Fps:" + str(Engine.get_frames_per_second())
 	$SubViewportContainer/SubViewport/Camera2D.position = jugador.position
+	$"C/El dinero".text = "Dinero: " + str(Global.dinero) 
 
 func _ready() -> void:
 	$SubViewportContainer/SubViewport.world_2d = get_viewport().world_2d
