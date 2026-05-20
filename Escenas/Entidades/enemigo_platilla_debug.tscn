@@ -44,6 +44,7 @@ collision_layer = 0
 collision_mask = 128
 script = ExtResource("1_esxcy")
 vida_max = 35.0
+vel = 90
 dinero = 5
 
 [node name="hurtbox" type="Area2D" parent="." unique_id=1472544042 groups=["enemigo"]]
@@ -96,6 +97,8 @@ scale = Vector2(0.272176, 0.23545922)
 text = "Vida:"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=558283973]
+path_postprocessing = 1
+simplify_path = true
 debug_enabled = true
 
 [node name="deteccion_raycast" type="Node2D" parent="." unique_id=831934158]
@@ -135,7 +138,7 @@ offset_bottom = 386.96628
 scale = Vector2(0.07694254, 0.063179575)
 mouse_filter = 2
 stream = ExtResource("3_wrbud")
-volume_db = -43.39999
+volume_db = -80.0
 autoplay = true
 loop = true
 

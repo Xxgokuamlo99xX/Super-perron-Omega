@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cs55jipu83bs5"]
 
 [ext_resource type="Script" uid="uid://582f041jfxet" path="res://Scripts/jugador/Jugador.gd" id="1_t81sm"]
+[ext_resource type="Texture2D" uid="uid://bsgtroovh27b2" path="res://Recursos/Sprite/Prota_Naranja/Naranja_Base.png" id="2_aiwfa"]
 [ext_resource type="PackedScene" uid="uid://c2a5epensab4u" path="res://Escenas/Cosas/HUD.tscn" id="2_qdjoc"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_t3oky"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_e3bpe"]
@@ -12,8 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://b5r13i8g858dn" path="res://Escenas/Cosas/hitbox_atq_jugador.tscn" id="6_l8pit"]
 [ext_resource type="Texture2D" uid="uid://dib8fpy48w8df" path="res://Recursos/Slashes_espada.png" id="7_l8pit"]
 [ext_resource type="Script" uid="uid://bo7affgktoy0b" path="res://addons/projectiles_plugin/2d/patterns/pattern2d.gd" id="7_poib6"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_2lxrj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yk3el"]
 radius = 11.0
@@ -223,15 +222,15 @@ collision_layer = 517
 script = ExtResource("1_t81sm")
 vel = 300
 melee_damage = 5.0
-range_damage = 50.0
+range_damage = 5.0
 range_pierce = 2
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=784241139]
 modulate = Color(1, 1, 0, 1)
 texture_filter = 1
 position = Vector2(-3.57628e-07, 0)
-scale = Vector2(20, 20)
-texture = SubResource("PlaceholderTexture2D_2lxrj")
+scale = Vector2(2, 2)
+texture = ExtResource("2_aiwfa")
 
 [node name="colision_entorno" type="CollisionShape2D" parent="." unique_id=632919085]
 shape = SubResource("CircleShape2D_yk3el")

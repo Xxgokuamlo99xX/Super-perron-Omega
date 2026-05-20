@@ -12,7 +12,7 @@ extends CharacterBody2D
 @export var ia : bool = true
 @onready var agent: NavigationAgent2D = $NavigationAgent2D
 
-var siguiendo : bool = false
+var siguiendo : bool = true
 @onready var centro: RayCast2D = $deteccion_raycast/centro
 @onready var deteccion: Area2D = $deteccion_raycast/Deteccion
 
@@ -31,12 +31,12 @@ func _process(delta: float) -> void:
 	
 
 func _physics_process(delta: float) -> void:
-	for i in deteccion.get_overlapping_bodies():
-		if i.is_in_group("jugador") and ia:
-			if centro.is_colliding() and !siguiendo:
-				#move_and_slide()
-				continue
-			siguiendo = true
+	#for i in deteccion.get_overlapping_bodies():
+		#if i.is_in_group("jugador") and ia:
+			#if centro.is_colliding() and !siguiendo:
+				##move_and_slide()
+				#continue
+			#siguiendo = true
 			
 	$deteccion_raycast.look_at(jugador.global_position)
 	if agent.is_navigation_finished():
@@ -63,9 +63,9 @@ func calcular_vector_separacion() -> Vector2:
 	if areas_solapadas.size() > 0:
 		for area in areas_solapadas:
 			var diff = global_position - area.get_parent().global_position
-			if diff == Vector2.ZERO:
+			if diff == Vector2.ZERO:#ESTO NO HACE NADA AL PARECER XDDDD
 				diff = Vector2(randf_range(-100, 100), randf_range(-100, 100))
-				print(areas_solapadas)
+				#print(areas_solapadas)
 			direccion_empuje += diff.normalized()
 			
 	return direccion_empuje.normalized()
@@ -87,7 +87,7 @@ func _on_RecalcTimer_timeout():
 	if jugador and siguiendo:
 		agent.target_position = jugador.global_position
 	
-func _on_rango_seguir_body_exited(body: Node2D) -> void:
-	siguiendo = false
-	recalc_timer.autostart = false
-	agent.target_position = global_position
+#func _on_rango_seguir_body_exited(body: Node2D) -> void:
+	#siguiendo = false
+	#recalc_timer.autostart = false
+	#agent.target_position = global_position

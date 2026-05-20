@@ -4,10 +4,12 @@ extends Area2D
 @export var area_spawn : CollisionShape2D
 @export var oleadas : int
 @export var delay : int
+var iniciado : bool = false
 var oleada_act : int = 1
 var oleada_curso = false
 var enemigos_activos: Array[Node] = []
 signal oleada_fin
+signal quede_seco
 @onready var oleada_delay: Timer = $oleada_delay
 @export_category("Debug")
 @export var color_linea: Color = Color.CYAN
@@ -18,9 +20,6 @@ func _draw():
 		var centro = area_spawn.position
 		var radio = area_spawn.shape.radius
 		draw_arc(centro, radio, 0, TAU, 64, color_linea, grosor, true)
-
-func _ready() -> void:
-	oleada_delay.start(2)
 
 func spawn(escena: PackedScene, pos: Vector2):
 	var inst = escena.instantiate()
@@ -48,8 +47,8 @@ func generar():
 		
 func _on_oleada_fin() -> void:
 	oleada_delay.start(delay)
-	if oleada_act > oleadas:
-		return
+	if oleada_act >= oleadas:
+		quede_seco.emit()
 	#print("check 3")
 	oleada_act += 1
 	print(oleada_act)
@@ -61,3 +60,10 @@ func _on_enemigo_muerto(referencia_enemigo):
 	enemigos_activos.erase(referencia_enemigo)
 	if enemigos_activos.is_empty():
 		oleada_fin.emit()
+
+
+func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
+	if !iniciado:
+		print("hola")
+		oleada_delay.start(2)
+		iniciado = true

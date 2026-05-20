@@ -1,9 +1,12 @@
-res://Escenas/Cosas/moneda.tscn
+res://Escenas/Niveles/Debug_lvl.tscn
 res://Dialogos/estilo.tres
 res://addons/phantom_camera/themes/theme.tres
+res://Scripts/shaders/liquido.gdshader
 res://Recursos/debug_tilemap.tres
 res://Scripts/shaders/green_screen.gdshader
 res://Scripts/shaders/glitch.gdshader
 res://Scripts/shaders/sobra.gdshader
 res://Scripts/shaders/luz.gdshader
 res://Scripts/shaders/glow.gdshader
+res://Scripts/jugador/hud.gd
+res://Escenas/Niveles/debug_lvl_3.tscn
