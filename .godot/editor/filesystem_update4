@@ -1,3 +1,4 @@
+res://Escenas/Niveles/Level2_Congeladores.tscn
 res://Dialogos/estilo.tres
 res://addons/phantom_camera/themes/theme.tres
 res://Scripts/shaders/liquido.gdshader
@@ -7,3 +8,7 @@ res://Scripts/shaders/glitch.gdshader
 res://Scripts/shaders/sobra.gdshader
 res://Scripts/shaders/luz.gdshader
 res://Scripts/shaders/glow.gdshader
+res://Escenas/Niveles/Level1_Fruteria.tscn
+res://Escenas/Niveles/Level3_Panaderia.tscn
+res://Escenas/Niveles/Level4_Lactios.tscn
+res://Escenas/Niveles/Level5_Botanas.tscn
