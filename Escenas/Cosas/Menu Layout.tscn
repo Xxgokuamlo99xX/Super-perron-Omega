@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dl0i56s3sv871"]
+
+[node name="Node" type="Node" unique_id=1558201457]
+
+[node name="Button" type="Button" parent="." unique_id=1992172529]
+offset_left = 152.0
+offset_top = 226.0
+offset_right = 441.0
+offset_bottom = 281.0
+text = "No me gusto el jueguito, adios (salir)"
+
+[node name="Button3" type="Button" parent="." unique_id=1115076735]
+offset_left = 230.0
+offset_top = 73.0
+offset_right = 365.0
+offset_bottom = 128.0
+text = "Jugar"
+
+[node name="Button2" type="Button" parent="." unique_id=1548370558]
+offset_left = 229.0
+offset_top = 147.0
+offset_right = 364.0
+offset_bottom = 202.0
+text = "Opciones"
+
+[node name="Label" type="Label" parent="." unique_id=1199789505]
+offset_left = 230.0
+offset_top = 19.0
+offset_right = 369.0
+offset_bottom = 94.0
+text = "NOMBRE PERRON"

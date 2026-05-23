@@ -1,6 +1,7 @@
+Label
+Button
 Node
 VisibleOnScreenNotifier2D
-Label
 TextureRect
 WorldEnvironment
 Area2D
@@ -11,4 +12,3 @@ Sprite2D
 TileMapLayer
 Node2D
 Timer
-NavigationAgent2D
