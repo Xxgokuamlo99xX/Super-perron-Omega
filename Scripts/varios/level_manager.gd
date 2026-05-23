@@ -13,4 +13,5 @@ func _on_spawner_oleadas_terminadas():
 		abrir_puerta()
 
 func abrir_puerta():
+	Global.dinero += Global.dinero_temp
 	pass

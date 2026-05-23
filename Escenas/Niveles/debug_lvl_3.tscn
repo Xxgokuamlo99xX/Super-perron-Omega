@@ -2,10 +2,14 @@
 
 [ext_resource type="Script" uid="uid://bctgkct3hu8ha" path="res://Scripts/varios/level_manager.gd" id="1_xmoci"]
 [ext_resource type="TileSet" uid="uid://dcmslla17xih0" path="res://Recursos/debug_tilemap.tres" id="2_410ah"]
+[ext_resource type="Shader" uid="uid://cjticauql6o5q" path="res://Scripts/shaders/galaxia.gdshader" id="2_sfwfq"]
 [ext_resource type="PackedScene" uid="uid://dvw3ge7qodu7s" path="res://Escenas/Cosas/Spawner.tscn" id="3_sfwfq"]
 [ext_resource type="Script" uid="uid://ctufs3rvoocnw" path="res://Scripts/enemigos/Spawner_setup.gd" id="4_q2wtk"]
 [ext_resource type="PackedScene" uid="uid://rajk1vi3mvgy" path="res://Escenas/Entidades/enemigo_platilla_debug.tscn" id="5_i2hvf"]
 [ext_resource type="PackedScene" uid="uid://cs55jipu83bs5" path="res://Escenas/Entidades/jugador.tscn" id="6_ggegt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q2wtk"]
+shader = ExtResource("2_sfwfq")
 
 [sub_resource type="Resource" id="Resource_2inx0"]
 script = ExtResource("4_q2wtk")
@@ -26,6 +30,13 @@ radius = 143.01399
 [node name="Debug_lvl2" type="Node" unique_id=2015702833 node_paths=PackedStringArray("lista_de_spawners")]
 script = ExtResource("1_xmoci")
 lista_de_spawners = [NodePath("spawners/Spawner"), NodePath("spawners/Spawner2"), NodePath("spawners/Spawner3"), NodePath("spawners/Spawner4"), NodePath("spawners/Spawner5"), NodePath("spawners/Spawner6")]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=784796963]
+material = SubResource("ShaderMaterial_q2wtk")
+offset_left = -2445.0
+offset_top = -976.0
+offset_right = 4422.0
+offset_bottom = 3129.0
 
 [node name="tilemap" type="Node2D" parent="." unique_id=2120908339]
 

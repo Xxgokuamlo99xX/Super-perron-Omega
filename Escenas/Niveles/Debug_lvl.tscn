@@ -23,6 +23,9 @@ tile_set = ExtResource("1_l8jde")
 
 [node name="Jugador" parent="." unique_id=795976724 instance=ExtResource("1_vt7hm")]
 position = Vector2(573, 181)
+stamina = 100.0
+vida = 20.0
+vida_max = 25.0
 range_pierce = 4
 
 [node name="varios" type="Node" parent="." unique_id=1235840410]

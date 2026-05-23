@@ -1,0 +1,160 @@
+[gd_scene format=3 uid="uid://brjugeonmbmq4"]
+
+[ext_resource type="Script" uid="uid://b4o3lvg7ifbud" path="res://Scripts/Varios/pausa.gd" id="1_00pje"]
+[ext_resource type="FontFile" uid="uid://yd8xk01ffqtm" path="res://Recursos/ZeldaOracles.ttf" id="3_fc8ke"]
+[ext_resource type="Script" uid="uid://dmcbf4lrsi7nw" path="res://Scripts/Varios/Volume_bar.gd" id="4_6evri"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_obm2r"]
+font = ExtResource("3_fc8ke")
+font_size = 47
+outline_color = Color(0, 0, 0, 1)
+
+[node name="pausa" type="CanvasLayer" unique_id=292408731]
+process_mode = 3
+layer = 10
+script = ExtResource("1_00pje")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1434263124]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="PanelContainer" unique_id=91846138]
+layout_mode = 2
+color = Color(0, 0, 0, 0.517647)
+
+[node name="Label" type="Label" parent="." unique_id=1900751067]
+texture_filter = 1
+offset_top = 66.0
+offset_right = 576.0
+offset_bottom = 119.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+text = "PAUSA"
+label_settings = SubResource("LabelSettings_obm2r")
+horizontal_alignment = 1
+
+[node name="Volumenscrols" type="Node2D" parent="." unique_id=1873678361]
+position = Vector2(-39.000008, -19.000015)
+scale = Vector2(0.6986978, 0.6986978)
+
+[node name="Master" type="HSlider" parent="Volumenscrols" unique_id=153022734]
+offset_left = 128.0
+offset_top = 305.0
+offset_right = 301.0
+offset_bottom = 342.0
+max_value = 1.0
+step = 0.001
+script = ExtResource("4_6evri")
+bus_name = "Master"
+
+[node name="Label" type="Label" parent="Volumenscrols/Master" unique_id=1414305542]
+layout_mode = 0
+offset_left = 31.0
+offset_top = -36.0
+offset_right = 101.0
+offset_bottom = -12.0
+scale = Vector2(1.545, 1.545)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "Master"
+horizontal_alignment = 1
+
+[node name="Musica" type="HSlider" parent="Volumenscrols" unique_id=656396564]
+offset_left = 129.0
+offset_top = 366.0
+offset_right = 302.0
+offset_bottom = 403.0
+max_value = 1.0
+step = 0.001
+script = ExtResource("4_6evri")
+bus_name = "Musica"
+
+[node name="Label" type="Label" parent="Volumenscrols/Musica" unique_id=307470865]
+layout_mode = 0
+offset_left = 31.0
+offset_top = -36.0
+offset_right = 101.0
+offset_bottom = -12.0
+scale = Vector2(1.545, 1.545)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "Musica"
+horizontal_alignment = 1
+
+[node name="SFX" type="HSlider" parent="Volumenscrols" unique_id=99854504]
+offset_left = 128.0
+offset_top = 428.0
+offset_right = 301.0
+offset_bottom = 465.0
+max_value = 1.0
+step = 0.001
+script = ExtResource("4_6evri")
+bus_name = "SFX"
+
+[node name="Label" type="Label" parent="Volumenscrols/SFX" unique_id=1417892688]
+layout_mode = 0
+offset_left = 31.0
+offset_top = -36.0
+offset_right = 101.0
+offset_bottom = -12.0
+scale = Vector2(1.545, 1.545)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "SFX"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Volumenscrols" unique_id=1283451820]
+offset_left = 136.0
+offset_top = 216.0
+offset_right = 206.0
+offset_bottom = 240.0
+scale = Vector2(2.195, 2.195)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "Volumen"
+
+[node name="botones" type="Node2D" parent="." unique_id=968465150]
+position = Vector2(-107, 0)
+
+[node name="Fullscreen" type="CheckButton" parent="botones" unique_id=31557961]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 480.0
+offset_top = 256.0
+offset_right = 681.0
+offset_bottom = 322.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Fullscreen"
+alignment = 1
+
+[node name="salir" type="Button" parent="botones" unique_id=523556887]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 347.0
+offset_top = 192.00002
+offset_right = 389.0
+offset_bottom = 223.00002
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.5, 2.5)
+text = "Salir
+"
+
+[connection signal="value_changed" from="Volumenscrols/Master" to="Volumenscrols/Master" method="_on_value_changed"]
+[connection signal="value_changed" from="Volumenscrols/Musica" to="Volumenscrols/Musica" method="_on_value_changed"]
+[connection signal="value_changed" from="Volumenscrols/SFX" to="Volumenscrols/SFX" method="_on_value_changed"]
+[connection signal="toggled" from="botones/Fullscreen" to="." method="_on_fullscreen_toggled"]
+[connection signal="mouse_entered" from="botones/salir" to="." method="_on_button_2_mouse_entered"]
+[connection signal="mouse_exited" from="botones/salir" to="." method="_on_button_2_mouse_exited"]
+[connection signal="pressed" from="botones/salir" to="." method="_on_button_2_pressed"]

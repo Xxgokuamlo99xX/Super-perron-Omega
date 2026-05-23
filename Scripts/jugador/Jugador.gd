@@ -19,6 +19,8 @@ var invulnerable : bool = false
 @onready var posicion_ataque: Node2D = $"Posicion ataque"
 @onready var i_frames: Timer = $"i frames"
 @onready var hurtbox: Area2D = $hurtbox
+@onready var atq_delay_melee: Timer = $atq_delay_melee
+@onready var atq_delay_rango: Timer = $atq_delay_rango
 @onready var melee_hitbox: Area2D = $"Posicion ataque/melee_hitbox"
 @onready var animation: AnimationPlayer = $AnimationPlayer
 #----------------------------------------------
@@ -30,11 +32,16 @@ func _ready() -> void:
 
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
+	if vida <= 0:
+		muerte()
+		return
 	posicion_ataque.look_at(get_global_mouse_position())
 	if get_global_mouse_position().x < global_position.x:
 		$"Posicion ataque/slash".flip_v = true    # Voltear verticalmente si está a la izquierda
 	else:
 		$"Posicion ataque/slash".flip_v = false
+	
+	
 	
 	#region debug
 	$debug/ProgressBar.value = stamina
@@ -75,6 +82,14 @@ func _physics_process(delta) -> void:
 		vel = 150
 	#endregion
 	
+func muerte():
+	atq_delay_melee.stop()
+	atq_delay_rango.stop()
+	$pantalla_muerte.show()
+	hurtbox.monitorable = false
+	hurtbox.monitoring = false
+	
+	
 func _on_stamina_recover_timeout() -> void:
 	recovery = false
 
@@ -91,6 +106,7 @@ func _on_jugador_hit(enemigo_damage) -> void:
 	if !i_frames.is_stopped():
 		return
 	i_frames.start()
-	vida -= enemigo_damage
+	var tween = create_tween()
+	tween.tween_property(self, "vida", vida - enemigo_damage, 0.2)
 	#print("invul")
 	print("vida restante -> ",vida)

@@ -37,7 +37,8 @@ func _physics_process(delta: float) -> void:
 				##move_and_slide()
 				#continue
 			#siguiendo = true
-			
+	if jugador.vida <= 0:
+		siguiendo = false
 	$deteccion_raycast.look_at(jugador.global_position)
 	if agent.is_navigation_finished():
 		velocity = Vector2.ZERO

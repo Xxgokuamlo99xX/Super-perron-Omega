@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://cqbe4pth525d2"]
+
+[ext_resource type="Shader" uid="uid://cjticauql6o5q" path="res://Scripts/shaders/galaxia.gdshader" id="1_1fn02"]
+[ext_resource type="Script" uid="uid://5gqqhfw6boh4" path="res://Scripts/varios/mapa.gd" id="1_177oo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_177oo"]
+shader = ExtResource("1_1fn02")
+
+[node name="seleccion_nivel" type="Node2D" unique_id=2116695758]
+script = ExtResource("1_177oo")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=856347132]
+material = SubResource("ShaderMaterial_177oo")
+offset_right = 576.0
+offset_bottom = 324.0
+color = Color(1, 0.9019608, 0.6156863, 1)
+
+[node name="congeladores" type="Button" parent="ColorRect" unique_id=1151204934]
+layout_mode = 0
+offset_left = 352.0
+offset_top = 48.0
+offset_right = 466.0
+offset_bottom = 83.0
+text = "Congeladores"
+
+[node name="cocina" type="Button" parent="ColorRect" unique_id=1423663068]
+layout_mode = 0
+offset_left = 125.0
+offset_top = 41.0
+offset_right = 239.0
+offset_bottom = 76.0
+text = "Cocina"
+
+[node name="embutidos" type="Button" parent="ColorRect" unique_id=1585660566]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 148.0
+offset_right = 161.0
+offset_bottom = 183.0
+text = "Embutidos"
+
+[node name="botanas" type="Button" parent="ColorRect" unique_id=186231445]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 262.0
+offset_right = 160.0
+offset_bottom = 297.0
+text = "Botanas"
+
+[node name="cajas" type="Button" parent="ColorRect" unique_id=1480973421]
+layout_mode = 0
+offset_left = 231.0
+offset_top = 263.0
+offset_right = 345.0
+offset_bottom = 298.0
+text = "Cajas"
+
+[node name="tiendas" type="Button" parent="ColorRect" unique_id=20008666]
+layout_mode = 0
+offset_left = 231.0
+offset_top = 171.0
+offset_right = 345.0
+offset_bottom = 206.0
+text = "Tienda"
+
+[node name="dinero" type="Label" parent="ColorRect" unique_id=925176706]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "dinero: "
+
+[connection signal="pressed" from="ColorRect/congeladores" to="." method="_on_congeladores_pressed"]
+[connection signal="pressed" from="ColorRect/cocina" to="." method="_on_cocina_pressed"]
+[connection signal="pressed" from="ColorRect/embutidos" to="." method="_on_embutidos_pressed"]
+[connection signal="pressed" from="ColorRect/botanas" to="." method="_on_botanas_pressed"]
+[connection signal="pressed" from="ColorRect/cajas" to="." method="_on_cajas_pressed"]
+[connection signal="pressed" from="ColorRect/tiendas" to="." method="_on_tiendas_pressed"]

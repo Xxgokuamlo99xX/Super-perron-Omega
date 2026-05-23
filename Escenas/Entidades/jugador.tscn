@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://b5r13i8g858dn" path="res://Escenas/Cosas/hitbox_atq_jugador.tscn" id="6_l8pit"]
 [ext_resource type="Texture2D" uid="uid://dib8fpy48w8df" path="res://Recursos/Slashes_espada.png" id="7_l8pit"]
 [ext_resource type="Script" uid="uid://bo7affgktoy0b" path="res://addons/projectiles_plugin/2d/patterns/pattern2d.gd" id="7_poib6"]
+[ext_resource type="PackedScene" uid="uid://i1igmj376eev" path="res://Escenas/Cosas/pantalla_muerte.tscn" id="14_3lihj"]
+[ext_resource type="PackedScene" uid="uid://brjugeonmbmq4" path="res://Escenas/Cosas/pausa.tscn" id="14_poib6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yk3el"]
 radius = 11.0
@@ -312,6 +314,7 @@ dead_zone_height = 0.2
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="HUD" parent="." unique_id=362444943 node_paths=PackedStringArray("jugador") instance=ExtResource("2_qdjoc")]
+visible = false
 jugador = NodePath("..")
 
 [node name="Stamina_recover" type="Timer" parent="." unique_id=1883772049]
@@ -386,6 +389,12 @@ text = "Vida:"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=810209383]
 libraries/ = SubResource("AnimationLibrary_vro3i")
+
+[node name="pantalla_muerte" parent="." unique_id=1914953523 instance=ExtResource("14_3lihj")]
+visible = false
+
+[node name="pausa" parent="." unique_id=292408731 instance=ExtResource("14_poib6")]
+visible = false
 
 [connection signal="jugador_hit" from="." to="." method="_on_jugador_hit"]
 [connection signal="timeout" from="Stamina_recover" to="." method="_on_stamina_recover_timeout"]

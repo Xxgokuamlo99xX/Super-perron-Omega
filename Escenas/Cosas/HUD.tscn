@@ -1,19 +1,9 @@
 [gd_scene format=3 uid="uid://c2a5epensab4u"]
 
 [ext_resource type="Script" uid="uid://sgnc7tls1yxg" path="res://Scripts/jugador/hud.gd" id="1_xbpho"]
-[ext_resource type="Shader" uid="uid://i0woi302tlb5" path="res://Scripts/shaders/liquido.gdshader" id="2_slj6y"]
+[ext_resource type="Material" uid="uid://c5tqgqfswjwfm" path="res://Recursos/liquito.tres" id="2_slj6y"]
 [ext_resource type="Texture2D" uid="uid://clyoh20su5glq" path="res://Recursos/prueba_frasco_2.png" id="3_h2pb1"]
 [ext_resource type="Texture2D" uid="uid://cswqeyggtcj15" path="res://Recursos/prueba_frasco_1.png" id="4_hxui1"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_axhii"]
-shader = ExtResource("2_slj6y")
-shader_parameter/health = 0.8400000399
-shader_parameter/liquid_color = Color(0.9490196, 0.3647059, 0, 1)
-shader_parameter/wave_speed = 3.064
-shader_parameter/wave_amplitude = 0.05
-shader_parameter/wave_frequency = 8.155
-shader_parameter/pixel_size = 35.0
-shader_parameter/randomness_strength = 0.21200001007
 
 [node name="HUD" type="CanvasLayer" unique_id=675501275]
 layer = 3
@@ -54,7 +44,7 @@ render_target_update_mode = 0
 
 [node name="vida" type="TextureRect" parent="." unique_id=474596677]
 texture_filter = 1
-material = SubResource("ShaderMaterial_axhii")
+material = ExtResource("2_slj6y")
 offset_left = 2.0000002
 offset_top = 2.0
 offset_right = 42.0

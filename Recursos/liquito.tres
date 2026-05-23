@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://c5tqgqfswjwfm"]
+
+[ext_resource type="Shader" uid="uid://i0woi302tlb5" path="res://Scripts/shaders/liquido.gdshader" id="1_2f3up"]
+
+[resource]
+shader = ExtResource("1_2f3up")
+shader_parameter/health = 0.8400000399
+shader_parameter/liquid_color = Color(0.9490196, 0.3647059, 0, 1)
+shader_parameter/wave_speed = 3.064
+shader_parameter/wave_amplitude = 0.05
+shader_parameter/wave_frequency = 8.155
+shader_parameter/pixel_size = 35.0
+shader_parameter/randomness_strength = 0.21200001007
