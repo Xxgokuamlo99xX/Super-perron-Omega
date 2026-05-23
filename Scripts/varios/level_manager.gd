@@ -1,6 +1,7 @@
 extends Node
 
 @export var lista_de_spawners: Array[Node]
+@export var indice_lvl : int = 1
 var spawners_completados: int = 0
 
 func _ready():
@@ -14,4 +15,5 @@ func _on_spawner_oleadas_terminadas():
 
 func abrir_puerta():
 	Global.dinero += Global.dinero_temp
+	Global.niveles_comp.append(indice_lvl)
 	pass

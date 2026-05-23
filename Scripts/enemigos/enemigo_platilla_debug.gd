@@ -1,9 +1,10 @@
 extends CharacterBody2D
-@export var damage : float = 2
+class_name enemigos
+@export var damage : float = 25
 @export var vida : float = 50
 @export var vida_max : float = 100
 @export var fuerza_empuje = 3000
-@export var vel : int = 50
+@export var vel : int = 90
 @export var dinero : int = 1
 @onready var i_frames: Timer = $i_frames
 @onready var detector = $detector_separacion
@@ -17,7 +18,7 @@ var siguiendo : bool = true
 @onready var deteccion: Area2D = $deteccion_raycast/Deteccion
 
 @onready var recalc_timer: Timer = $RecalcTimer
-
+var next_point
 @warning_ignore("unused_signal")
 signal enemigo_hit
 
@@ -45,7 +46,7 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		return
 
-	var next_point = agent.get_next_path_position()
+	next_point = agent.get_next_path_position()
 	var direction = (next_point - global_position).normalized()
 	velocity = direction * vel
 	velocity += calcular_vector_separacion() * fuerza_empuje * delta
@@ -71,6 +72,13 @@ func calcular_vector_separacion() -> Vector2:
 			
 	return direccion_empuje.normalized()
 
+func morir():
+	for i in dinero:
+		var inst = Global.moneda.instantiate()
+		inst.global_position = global_position
+		get_parent().add_child(inst)
+	queue_free()
+	
 func _on_enemigo_hit(damage_recibido) -> void:
 	if !i_frames.is_stopped():
 		return
@@ -78,11 +86,7 @@ func _on_enemigo_hit(damage_recibido) -> void:
 	vida -= damage_recibido
 	#print("vida enemigo -> ",vida)
 	if vida <= 0:
-		for i in dinero:
-			var inst = Global.moneda.instantiate()
-			inst.global_position = global_position
-			get_parent().add_child(inst)
-		queue_free()
+		morir()
 		
 func _on_RecalcTimer_timeout():
 	if jugador and siguiendo:

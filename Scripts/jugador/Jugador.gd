@@ -2,8 +2,8 @@ extends CharacterBody2D
 @export_category("Stats")
 @export var vel : int = 150
 @export var stamina : float = 100
-@export var vida : float = 20
-@export var vida_max : float = 25
+@export var vida : float = 75
+@export var vida_max : float = 100
 @export var melee_damage : float
 @export var range_damage : float
 @export var range_pierce : int = 1
@@ -22,7 +22,10 @@ var invulnerable : bool = false
 @onready var atq_delay_melee: Timer = $atq_delay_melee
 @onready var atq_delay_rango: Timer = $atq_delay_rango
 @onready var melee_hitbox: Area2D = $"Posicion ataque/melee_hitbox"
-@onready var animation: AnimationPlayer = $AnimationPlayer
+@onready var FX: AnimationPlayer = $FX
+@onready var animacion: AnimationPlayer = $Animacion
+@onready var animtree: AnimationTree = $AnimationTree
+
 #----------------------------------------------
 @warning_ignore("unused_signal")
 signal jugador_hit
@@ -41,8 +44,6 @@ func _process(delta: float) -> void:
 	else:
 		$"Posicion ataque/slash".flip_v = false
 	
-	
-	
 	#region debug
 	$debug/ProgressBar.value = stamina
 	$debug/Label.text = "Cansado: " + str(cansado)
@@ -53,13 +54,15 @@ func _process(delta: float) -> void:
 @warning_ignore("unused_parameter")
 func _physics_process(delta) -> void:
 	# movimiento
+	if vida <= 0:
+		return
 	if Global.puede_mov:
 		direction = Input.get_vector("izq", "der", "arriba", "abajo").normalized()
 		velocity = direction * vel
 	else:
 		velocity = Vector2.ZERO
 	move_and_slide()
-	
+	animaciones()
 	#print(stamina_recover.is_stopped())
 	#region stamina
 	if stamina <= 0 and !cansado:
@@ -89,13 +92,20 @@ func muerte():
 	hurtbox.monitorable = false
 	hurtbox.monitoring = false
 	
-	
+func animaciones():
+	if direction == Vector2.ZERO:
+		animtree.travel("idle")
+	else:
+		animtree.travel("caminar")
+		animacion.set("parameters/idle/blend_position", direction)
+		animacion.set("parameters/caminar/blend_position", direction)
+
 func _on_stamina_recover_timeout() -> void:
 	recovery = false
 
 func _on_atq_delay_melee_timeout() -> void:
 	melee_hitbox.enemigos_golpeados.clear()
-	animation.play("ataque")
+	FX.play("ataque")
 	
 func _on_atq_delay_rango_timeout() -> void:
 	$"Posicion ataque/PatternShooter2D".rotation_degrees = posicion_ataque.rotation_degrees
