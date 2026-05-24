@@ -23,8 +23,8 @@ var invulnerable : bool = false
 @onready var atq_delay_rango: Timer = $atq_delay_rango
 @onready var melee_hitbox: Area2D = $"Posicion ataque/melee_hitbox"
 @onready var FX: AnimationPlayer = $FX
-@onready var animacion: AnimationPlayer = $Animacion
 @onready var animtree: AnimationTree = $AnimationTree
+@onready var anim = $AnimationTree.get("parameters/playback")
 
 #----------------------------------------------
 @warning_ignore("unused_signal")
@@ -39,6 +39,7 @@ func _process(delta: float) -> void:
 		muerte()
 		return
 	posicion_ataque.look_at(get_global_mouse_position())
+	$"Posicion ataque/puntero".global_rotation = 0
 	if get_global_mouse_position().x < global_position.x:
 		$"Posicion ataque/slash".flip_v = true    # Voltear verticalmente si está a la izquierda
 	else:
@@ -61,8 +62,10 @@ func _physics_process(delta) -> void:
 		velocity = direction * vel
 	else:
 		velocity = Vector2.ZERO
-	move_and_slide()
 	animaciones()
+	flip()
+	move_and_slide()
+	
 	#print(stamina_recover.is_stopped())
 	#region stamina
 	if stamina <= 0 and !cansado:
@@ -91,14 +94,24 @@ func muerte():
 	$pantalla_muerte.show()
 	hurtbox.monitorable = false
 	hurtbox.monitoring = false
-	
+
+func flip():
+	if direction.x <= -0.5:
+		$Sprite.flip_h = true
+	if direction.x >= 0.5:
+		$Sprite.flip_h = false	
+	if direction.y and direction.x == 0:
+		$Sprite.flip_h = false	
+		
 func animaciones():
 	if direction == Vector2.ZERO:
-		animtree.travel("idle")
+		anim.travel("idle")
 	else:
-		animtree.travel("caminar")
-		animacion.set("parameters/idle/blend_position", direction)
-		animacion.set("parameters/caminar/blend_position", direction)
+		anim.travel("caminar")
+		animtree.set("parameters/idle/blend_position", direction)
+		animtree.set("parameters/caminar/blend_position", direction)
+		
+	#print(direction)
 
 func _on_stamina_recover_timeout() -> void:
 	recovery = false

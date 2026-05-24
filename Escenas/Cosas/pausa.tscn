@@ -1,13 +1,8 @@
 [gd_scene format=3 uid="uid://brjugeonmbmq4"]
 
-[ext_resource type="Script" uid="uid://b4o3lvg7ifbud" path="res://Scripts/Varios/pausa.gd" id="1_00pje"]
-[ext_resource type="FontFile" uid="uid://yd8xk01ffqtm" path="res://Recursos/ZeldaOracles.ttf" id="3_fc8ke"]
-[ext_resource type="Script" uid="uid://dmcbf4lrsi7nw" path="res://Scripts/Varios/Volume_bar.gd" id="4_6evri"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_obm2r"]
-font = ExtResource("3_fc8ke")
-font_size = 47
-outline_color = Color(0, 0, 0, 1)
+[ext_resource type="Script" uid="uid://b4o3lvg7ifbud" path="res://Scripts/varios/pausa.gd" id="1_00pje"]
+[ext_resource type="LabelSettings" uid="uid://ceb6kk1oydnlq" path="res://Recursos/fuente_platilla.tres" id="2_rdp4r"]
+[ext_resource type="Script" uid="uid://dmcbf4lrsi7nw" path="res://Scripts/varios/Volume_bar.gd" id="4_6evri"]
 
 [node name="pausa" type="CanvasLayer" unique_id=292408731]
 process_mode = 3
@@ -34,7 +29,7 @@ offset_bottom = 119.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 text = "PAUSA"
-label_settings = SubResource("LabelSettings_obm2r")
+label_settings = ExtResource("2_rdp4r")
 horizontal_alignment = 1
 
 [node name="Volumenscrols" type="Node2D" parent="." unique_id=1873678361]

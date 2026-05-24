@@ -1,4 +1,4 @@
-res://Escenas/Niveles/Debug_lvl.tscn
+res://Escenas/Entidades/jugador.tscn
 res://Dialogos/estilo.tres
 res://addons/phantom_camera/themes/theme.tres
 res://Scripts/shaders/liquido.gdshader
@@ -9,22 +9,8 @@ res://Scripts/shaders/sobra.gdshader
 res://Scripts/shaders/luz.gdshader
 res://Scripts/shaders/glow.gdshader
 res://Scripts/shaders/galaxia.gdshader
-res://Escenas/Cosas/HUD.tscn
-res://Escenas/Cosas/pantalla_muerte.tscn
-res://Escenas/Cosas/pausa.tscn
-res://Escenas/Entidades/enemigo_platilla_debug.tscn
-res://Escenas/Entidades/jugador.tscn
-res://Escenas/Entidades/miniuva.tscn
-res://Recursos/liquito.tres
-res://Scripts/enemigos/enemigo_platilla_debug.gd
-res://Scripts/enemigos/uvas.gd
-res://Scripts/jugador/hud.gd
 res://Scripts/jugador/Jugador.gd
-res://Scripts/varios/cambiar_escena.gd
-res://Scripts/varios/Global.gd
-res://Scripts/varios/level_manager.gd
-res://Scripts/varios/mapa.gd
-res://Scripts/varios/moneda.gd
-res://Scripts/varios/pantalla_muerte.gd
-res://Scripts/varios/pausa.gd
-res://Scripts/varios/Volume_bar.gd
+res://Escenas/Niveles/Debug_lvl.tscn
+res://Escenas/Cosas/pausa.tscn
+res://Escenas/Niveles/Menu Layout.tscn
+res://Scripts/varios/menu_layout.gd

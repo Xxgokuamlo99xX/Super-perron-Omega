@@ -1,5 +1,5 @@
-AnimationTree
 AnimationPlayer
+AnimationTree
 Sprite2D
 ColorRect
 Button
@@ -12,4 +12,3 @@ TextureRect
 WorldEnvironment
 Area2D
 RigidBody2D
-GPUParticles2D
