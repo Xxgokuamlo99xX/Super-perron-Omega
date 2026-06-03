@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cs55jipu83bs5" path="res://Escenas/Entidades/jugador.tscn" id="1_3d1t3"]
 [ext_resource type="Script" uid="uid://bctgkct3hu8ha" path="res://Scripts/varios/level_manager.gd" id="1_g3sg5"]
-[ext_resource type="TileSet" uid="uid://dcmslla17xih0" path="res://Recursos/debug_tilemap.tres" id="2_g3sg5"]
+[ext_resource type="TileSet" uid="uid://dcmslla17xih0" path="res://Recursos/assets/debug_tilemap.tres" id="2_g3sg5"]
 [ext_resource type="PackedScene" uid="uid://dvw3ge7qodu7s" path="res://Escenas/Cosas/Spawner.tscn" id="3_0yrul"]
 [ext_resource type="Script" uid="uid://ctufs3rvoocnw" path="res://Scripts/enemigos/Spawner_setup.gd" id="4_q24jd"]
 [ext_resource type="PackedScene" uid="uid://rajk1vi3mvgy" path="res://Escenas/Entidades/enemigo_platilla_debug.tscn" id="5_g3sg5"]

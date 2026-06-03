@@ -14,12 +14,12 @@ signal quede_seco
 @export_category("Debug")
 @export var color_linea: Color = Color.CYAN
 @export var grosor: float = 2.0
-
-func _draw():
-	if area_spawn and area_spawn.shape is CircleShape2D:
-		var centro = area_spawn.position
-		var radio = area_spawn.shape.radius
-		draw_arc(centro, radio, 0, TAU, 64, color_linea, grosor, true)
+#
+#func _draw():
+	#if area_spawn and area_spawn.shape is CircleShape2D:
+		#var centro = area_spawn.position
+		#var radio = area_spawn.shape.radius
+		#draw_arc(centro, radio, 0, TAU, 64, color_linea, grosor, true)
 
 func spawn(escena: PackedScene, pos: Vector2):
 	var inst = escena.instantiate()
@@ -46,10 +46,12 @@ func generar():
 		break
 		
 func _on_oleada_fin() -> void:
-	oleada_delay.start(delay)
 	if oleada_act >= oleadas:
 		quede_seco.emit()
 	#print("check 3")
+	if not oleada_delay.is_inside_tree():
+		return
+	oleada_delay.start(delay)
 	oleada_act += 1
 	print(oleada_act)
 	
@@ -61,9 +63,11 @@ func _on_enemigo_muerto(referencia_enemigo):
 	if enemigos_activos.is_empty():
 		oleada_fin.emit()
 
-
 func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
 	if !iniciado:
 		print("hola")
 		oleada_delay.start(2)
 		iniciado = true
+
+func _on_quede_seco() -> void:
+	remove_from_group("spawner")

@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://ceb6kk1oydnlq"]
+
+[ext_resource type="FontFile" uid="uid://yd8xk01ffqtm" path="res://Recursos/literalmente cualquier cosa/ZeldaOracles.ttf" id="1_wfvsn"]
+
+[resource]
+font = ExtResource("1_wfvsn")
+font_size = 47
+outline_color = Color(0, 0, 0, 1)

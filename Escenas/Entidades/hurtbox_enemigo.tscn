@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cqbaft31qj14b"]
+
+[node name="hurtbox_enemigo" type="Area2D" unique_id=784568597 groups=["enemigo"]]
+collision_layer = 16
+collision_mask = 0

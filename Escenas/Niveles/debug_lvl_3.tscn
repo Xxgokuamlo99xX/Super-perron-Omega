@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://bi07lluq3s4gk"]
 
 [ext_resource type="Script" uid="uid://bctgkct3hu8ha" path="res://Scripts/varios/level_manager.gd" id="1_xmoci"]
-[ext_resource type="TileSet" uid="uid://dcmslla17xih0" path="res://Recursos/debug_tilemap.tres" id="2_410ah"]
+[ext_resource type="TileSet" uid="uid://dcmslla17xih0" path="res://Recursos/assets/debug_tilemap.tres" id="2_410ah"]
 [ext_resource type="Shader" uid="uid://cjticauql6o5q" path="res://Scripts/shaders/galaxia.gdshader" id="2_sfwfq"]
 [ext_resource type="PackedScene" uid="uid://dvw3ge7qodu7s" path="res://Escenas/Cosas/Spawner.tscn" id="3_sfwfq"]
 [ext_resource type="Script" uid="uid://ctufs3rvoocnw" path="res://Scripts/enemigos/Spawner_setup.gd" id="4_q2wtk"]
@@ -114,3 +114,8 @@ shape = SubResource("CircleShape2D_7rb5j")
 
 [node name="Jugador" parent="." unique_id=398366218 instance=ExtResource("6_ggegt")]
 position = Vector2(92, 202)
+stamina = null
+vida = null
+vida_max = null
+range_pierce = null
+atacando = false

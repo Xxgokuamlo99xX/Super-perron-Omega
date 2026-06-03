@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://d23ois01eyvkg"]
+
+[ext_resource type="Shader" uid="uid://dvic33ak4nk1s" path="res://Scripts/shaders/radial.gdshader" id="1_bals2"]
+[ext_resource type="Texture2D" uid="uid://dw5an10xhab36" path="res://Recursos/Sprite/Objetos/puto_cuadro_transparente.png" id="2_0donf"]
+
+[resource]
+shader = ExtResource("1_bals2")
+shader_parameter/bg_texture = ExtResource("2_0donf")
+shader_parameter/fill_ratio = 0.7930000376675
+shader_parameter/start_angle = 0.0
+shader_parameter/max_angle = 360.0
+shader_parameter/invert_fill = false
+shader_parameter/reflect_x = false
+shader_parameter/reflect_y = false
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/bg_opacity = 0.5

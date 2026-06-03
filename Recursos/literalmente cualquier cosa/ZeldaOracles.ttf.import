@@ -1,0 +1,41 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://yd8xk01ffqtm"
+path="res://.godot/imported/ZeldaOracles.ttf-b1d61ec645ffa8a4030b5ec42bc616af.fontdata"
+
+[deps]
+
+source_file="res://Recursos/literalmente cualquier cosa/ZeldaOracles.ttf"
+dest_files=["res://.godot/imported/ZeldaOracles.ttf-b1d61ec645ffa8a4030b5ec42bc616af.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+disable_embedded_bitmaps=true
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+modulate_color_glyphs=false
+hinting=1
+subpixel_positioning=4
+keep_rounding_remainders=true
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[{
+"chars": [],
+"glyphs": [],
+"name": "Nueva Configuración",
+"size": Vector2i(16, 0)
+}]
+language_support={}
+script_support={}
+opentype_features={}

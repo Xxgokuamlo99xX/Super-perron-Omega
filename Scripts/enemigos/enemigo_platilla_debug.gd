@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name enemigos
 @export var damage : float = 25
-@export var vida : float = 50
+var vida : float
 @export var vida_max : float = 100
 @export var fuerza_empuje = 3000
 @export var vel : int = 90
@@ -22,6 +22,7 @@ var next_point
 @warning_ignore("unused_signal")
 signal enemigo_hit
 
+@export var sprite : Sprite2D
 
 func _ready() -> void:
 	vida = vida_max
@@ -30,7 +31,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	debug()
 	
-
 func _physics_process(delta: float) -> void:
 	#for i in deteccion.get_overlapping_bodies():
 		#if i.is_in_group("jugador") and ia:
@@ -38,6 +38,8 @@ func _physics_process(delta: float) -> void:
 				##move_and_slide()
 				#continue
 			#siguiendo = true
+	if vida <= 0:
+		return
 	if jugador.vida <= 0:
 		siguiendo = false
 	$deteccion_raycast.look_at(jugador.global_position)
@@ -51,7 +53,6 @@ func _physics_process(delta: float) -> void:
 	velocity = direction * vel
 	velocity += calcular_vector_separacion() * fuerza_empuje * delta
 	move_and_slide()
-	
 		
 func debug():
 	var progress_bar: ProgressBar = $Debug/ProgressBar
@@ -73,6 +74,9 @@ func calcular_vector_separacion() -> Vector2:
 	return direccion_empuje.normalized()
 
 func morir():
+	sprite.hide()
+	$morir.play("default")
+	await $morir.animation_finished
 	for i in dinero:
 		var inst = Global.moneda.instantiate()
 		inst.global_position = global_position
@@ -82,6 +86,7 @@ func morir():
 func _on_enemigo_hit(damage_recibido) -> void:
 	if !i_frames.is_stopped():
 		return
+	$AnimationPlayer.play("hit")
 	i_frames.start()
 	vida -= damage_recibido
 	#print("vida enemigo -> ",vida)

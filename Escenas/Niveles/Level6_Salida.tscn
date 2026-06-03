@@ -1,11 +1,12 @@
 [gd_scene format=4 uid="uid://dhjb31lgbo52r"]
 
 [ext_resource type="Script" uid="uid://bctgkct3hu8ha" path="res://Scripts/varios/level_manager.gd" id="1_ld74m"]
-[ext_resource type="TileSet" uid="uid://dcmslla17xih0" path="res://Recursos/debug_tilemap.tres" id="2_je21o"]
+[ext_resource type="TileSet" uid="uid://dcmslla17xih0" path="res://Recursos/assets/debug_tilemap.tres" id="2_je21o"]
 [ext_resource type="PackedScene" uid="uid://dvw3ge7qodu7s" path="res://Escenas/Cosas/Spawner.tscn" id="3_lh3sl"]
 [ext_resource type="Script" uid="uid://ctufs3rvoocnw" path="res://Scripts/enemigos/Spawner_setup.gd" id="4_1m2be"]
 [ext_resource type="PackedScene" uid="uid://rajk1vi3mvgy" path="res://Escenas/Entidades/enemigo_platilla_debug.tscn" id="5_5742c"]
 [ext_resource type="PackedScene" uid="uid://cs55jipu83bs5" path="res://Escenas/Entidades/jugador.tscn" id="6_4cawq"]
+
 
 [sub_resource type="Resource" id="Resource_2inx0"]
 script = ExtResource("4_1m2be")

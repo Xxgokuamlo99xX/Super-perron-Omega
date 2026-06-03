@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://brjugeonmbmq4"]
 
 [ext_resource type="Script" uid="uid://b4o3lvg7ifbud" path="res://Scripts/varios/pausa.gd" id="1_00pje"]
-[ext_resource type="LabelSettings" uid="uid://ceb6kk1oydnlq" path="res://Recursos/fuente_platilla.tres" id="2_rdp4r"]
+[ext_resource type="LabelSettings" uid="uid://ceb6kk1oydnlq" path="res://Recursos/assets/fuente_platilla.tres" id="2_rdp4r"]
 [ext_resource type="Script" uid="uid://dmcbf4lrsi7nw" path="res://Scripts/varios/Volume_bar.gd" id="4_6evri"]
 
 [node name="pausa" type="CanvasLayer" unique_id=292408731]
@@ -112,44 +112,70 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 text = "Volumen"
 
-[node name="botones" type="Node2D" parent="." unique_id=968465150]
-position = Vector2(-107, 0)
-
-[node name="Fullscreen" type="CheckButton" parent="botones" unique_id=31557961]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 480.0
-offset_top = 256.0
-offset_right = 681.0
-offset_bottom = 322.0
+[node name="botones" type="Control" parent="." unique_id=61420381]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+
+[node name="Fullscreen" type="CheckButton" parent="botones" unique_id=31557961]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 84.0
+offset_top = -69.0
+offset_right = 285.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 0
 text = "Fullscreen"
 alignment = 1
 
 [node name="salir" type="Button" parent="botones" unique_id=523556887]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 347.0
-offset_top = 192.00002
-offset_right = 389.0
-offset_bottom = 223.00002
+offset_left = -48.5
+offset_top = 66.0
+offset_right = 48.5
+offset_bottom = 132.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2.5, 2.5)
+theme_override_font_sizes/font_size = 42
 text = "Salir
+"
+
+[node name="continuar" type="Button" parent="botones" unique_id=955265242]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.5
+offset_top = -15.0
+offset_right = 48.5
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+text = "Continuar
 "
 
 [connection signal="value_changed" from="Volumenscrols/Master" to="Volumenscrols/Master" method="_on_value_changed"]
 [connection signal="value_changed" from="Volumenscrols/Musica" to="Volumenscrols/Musica" method="_on_value_changed"]
 [connection signal="value_changed" from="Volumenscrols/SFX" to="Volumenscrols/SFX" method="_on_value_changed"]
 [connection signal="toggled" from="botones/Fullscreen" to="." method="_on_fullscreen_toggled"]
-[connection signal="mouse_entered" from="botones/salir" to="." method="_on_button_2_mouse_entered"]
-[connection signal="mouse_exited" from="botones/salir" to="." method="_on_button_2_mouse_exited"]
 [connection signal="pressed" from="botones/salir" to="." method="_on_button_2_pressed"]
+[connection signal="mouse_entered" from="botones/continuar" to="." method="_on_button_2_mouse_entered"]
+[connection signal="mouse_exited" from="botones/continuar" to="." method="_on_button_2_mouse_exited"]
+[connection signal="pressed" from="botones/continuar" to="." method="_on_continuar_pressed"]

@@ -1,114 +1,45 @@
 [gd_scene format=3 uid="uid://dl0i56s3sv871"]
 
-[ext_resource type="Texture2D" uid="uid://blmx63xawimbt" path="res://Recursos/Sprite/Objetos/Logo Serio.png" id="1_7dtwa"]
 [ext_resource type="Script" uid="uid://dxywqahed080g" path="res://Scripts/varios/menu_layout.gd" id="1_ao3qb"]
-[ext_resource type="FontFile" uid="uid://yd8xk01ffqtm" path="res://Recursos/ZeldaOracles.ttf" id="2_ao3qb"]
+[ext_resource type="Texture2D" uid="uid://de816pu6wpqu1" path="res://Recursos/literalmente cualquier cosa/Logo_ELSUPER.png" id="2_0rm14"]
+[ext_resource type="Shader" uid="uid://cjticauql6o5q" path="res://Scripts/shaders/galaxia.gdshader" id="2_72ejy"]
+[ext_resource type="FontFile" uid="uid://yd8xk01ffqtm" path="res://Recursos/literalmente cualquier cosa/ZeldaOracles.ttf" id="2_ao3qb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_33njn"]
+shader = ExtResource("2_72ejy")
 
 [sub_resource type="LabelSettings" id="LabelSettings_0rm14"]
 font = ExtResource("2_ao3qb")
 font_size = 47
-font_color = Color(1, 0, 0, 1)
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_72ejy"]
 font = ExtResource("2_ao3qb")
-font_size = 4
-font_color = Color(0, 0, 0, 1)
+font_size = 13
 outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="Animation" id="Animation_ao3qb"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:label_settings:font_color")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 0, 0, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_0rm14"]
-resource_name = "titulo"
-length = 15.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 14.966666, 15),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 6.2831855, 0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 5.0000005, 10.033334),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.285, 1.285), Vector2(1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:label_settings:font_color")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 2.0333335, 5.033334, 7.866667, 11.033334, 15),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 0, 0, 1), Color(0.98333335, 1, 0, 1), Color(0, 1, 0.51666665, 1), Color(0, 0, 1, 1), Color(1, 0, 0.6666665, 1), Color(1, 0, 0.016666412, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_72ejy"]
-_data = {
-&"RESET": SubResource("Animation_ao3qb"),
-&"titulo": SubResource("Animation_0rm14")
-}
 
 [node name="menu_principal" type="Node" unique_id=1558201457]
 script = ExtResource("1_ao3qb")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=971209172]
+material = SubResource("ShaderMaterial_33njn")
+offset_left = -2445.0
+offset_top = -976.0
+offset_right = 4422.0
+offset_bottom = 3129.0
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=2011298836]
+offset_left = 191.0
+offset_top = 12.0
+offset_right = 393.0
+offset_bottom = 90.0
+color = Color(0, 0, 0, 0.44705883)
+
 [node name="LogoSerio" type="Sprite2D" parent="." unique_id=1309938034]
-position = Vector2(289, 156)
-scale = Vector2(1.1581632, 0.6332703)
-texture = ExtResource("1_7dtwa")
+texture_filter = 1
+position = Vector2(298, 151)
+scale = Vector2(2.5756168, 1.4083177)
+texture = ExtResource("2_0rm14")
 
 [node name="salir" type="Button" parent="." unique_id=1992172529]
 anchors_preset = 7
@@ -116,9 +47,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -144.5
+offset_left = -144.0
 offset_top = -86.0
-offset_right = 144.5
+offset_right = 145.0
 offset_bottom = -31.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -154,15 +85,13 @@ vertical_alignment = 1
 [node name="Label2" type="Label" parent="." unique_id=1733713193]
 texture_filter = 1
 offset_left = 230.0
-offset_top = 27.0
+offset_top = 39.0
 offset_right = 369.0
-offset_bottom = 102.0
+offset_bottom = 114.0
 text = "Y Elsuper dimensional"
 label_settings = SubResource("LabelSettings_72ejy")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=567212224]
-root_node = NodePath("../pablo")
-libraries/ = SubResource("AnimationLibrary_72ejy")
-autoplay = &"titulo"
+[connection signal="pressed" from="salir" to="." method="_on_salir_pressed"]
+[connection signal="pressed" from="jugar" to="." method="_on_jugar_pressed"]

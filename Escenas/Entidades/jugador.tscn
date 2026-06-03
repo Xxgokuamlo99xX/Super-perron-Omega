@@ -6,39 +6,48 @@
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_t3oky"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_e3bpe"]
 [ext_resource type="Script" uid="uid://brauggkrlldp5" path="res://addons/projectiles_plugin/2d/patterns/pattern_shooter2d.gd" id="4_8q352"]
-[ext_resource type="Script" uid="uid://u32nbmpvccw8" path="res://addons/projectiles_plugin/2d/patterns/pattern_elem2d.gd" id="5_fyhg8"]
-[ext_resource type="Script" uid="uid://8i7rscyqvam4" path="res://addons/projectiles_plugin/2d/trajectories/linear_trajectory2d.gd" id="6_aiwfa"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="6_e3bpe"]
-[ext_resource type="PackedScene" uid="uid://cffcrykvmyb51" path="res://Escenas/Cosas/projectil_basico.tscn" id="6_fyhg8"]
 [ext_resource type="PackedScene" uid="uid://b5r13i8g858dn" path="res://Escenas/Cosas/hitbox_atq_jugador.tscn" id="6_l8pit"]
-[ext_resource type="Texture2D" uid="uid://dib8fpy48w8df" path="res://Recursos/Slashes_espada.png" id="7_l8pit"]
-[ext_resource type="Script" uid="uid://bo7affgktoy0b" path="res://addons/projectiles_plugin/2d/patterns/pattern2d.gd" id="7_poib6"]
+[ext_resource type="Resource" uid="uid://tnc40itf7k40" path="res://Recursos/assets/patron_pistola.tres" id="6_poib6"]
+[ext_resource type="Resource" uid="uid://cnkqahi5e7ff4" path="res://Recursos/assets/patron_escopeta.tres" id="7_3lihj"]
+[ext_resource type="Texture2D" uid="uid://dib8fpy48w8df" path="res://Recursos/literalmente cualquier cosa/Slashes_espada.png" id="7_l8pit"]
+[ext_resource type="Script" uid="uid://u32nbmpvccw8" path="res://addons/projectiles_plugin/2d/patterns/pattern_elem2d.gd" id="8_hae1a"]
 [ext_resource type="Texture2D" uid="uid://67m6hyw6w325" path="res://Recursos/Sprite/Objetos/puntero.png" id="9_0vdxu"]
+[ext_resource type="Script" uid="uid://c4jawwtxqismr" path="res://Scripts/jugador/camera.gd" id="9_3lihj"]
+[ext_resource type="PackedScene" uid="uid://b1dku2p24ywjh" path="res://Escenas/Cosas/granada.tscn" id="9_gaojq"]
+[ext_resource type="Script" uid="uid://8i7rscyqvam4" path="res://addons/projectiles_plugin/2d/trajectories/linear_trajectory2d.gd" id="10_6jrxe"]
+[ext_resource type="Script" uid="uid://bo7affgktoy0b" path="res://addons/projectiles_plugin/2d/patterns/pattern2d.gd" id="11_5uoyu"]
 [ext_resource type="PackedScene" uid="uid://i1igmj376eev" path="res://Escenas/Cosas/pantalla_muerte.tscn" id="14_3lihj"]
 [ext_resource type="PackedScene" uid="uid://brjugeonmbmq4" path="res://Escenas/Cosas/pausa.tscn" id="14_poib6"]
+[ext_resource type="AudioStream" uid="uid://b2r4gbatjyq72" path="res://Recursos/Sonidos/SFX/hitHurt.wav" id="16_0vdxu"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_yk3el"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3lihj"]
 radius = 11.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e3bpe"]
 size = Vector2(10, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l8pit"]
-size = Vector2(27.5, 33.25)
+size = Vector2(39.75, 48)
 
-[sub_resource type="Resource" id="Resource_3lihj"]
-script = ExtResource("6_aiwfa")
+[sub_resource type="Curve" id="Curve_4j0g5"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 100), 0.0, 0.0, 0, 0, Vector2(0.3413793, 46.826515), 0.0, 0.0, 0, 0, Vector2(0.49310344, 0), 0.0, 0.0, 0, 0]
+point_count = 3
 
-[sub_resource type="Resource" id="Resource_0vdxu"]
-script = ExtResource("5_fyhg8")
-projectile = ExtResource("6_fyhg8")
-trajectory = SubResource("Resource_3lihj")
-speed = 450.0
-range = 1000.0
+[sub_resource type="Resource" id="Resource_8kj65"]
+script = ExtResource("10_6jrxe")
 
-[sub_resource type="Resource" id="Resource_jleo5"]
-script = ExtResource("7_poib6")
-data = Array[ExtResource("5_fyhg8")]([SubResource("Resource_0vdxu")])
+[sub_resource type="Resource" id="Resource_f237e"]
+script = ExtResource("8_hae1a")
+projectile = ExtResource("9_gaojq")
+trajectory = SubResource("Resource_8kj65")
+speed_ramp = SubResource("Curve_4j0g5")
+range = 50.0
+
+[sub_resource type="Resource" id="Resource_4ox5j"]
+script = ExtResource("11_5uoyu")
+data = Array[ExtResource("8_hae1a")]([SubResource("Resource_f237e")])
 metadata/_custom_type_script = "uid://bo7affgktoy0b"
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_e3bpe"]
@@ -46,18 +55,6 @@ metadata/_custom_type_script = "uid://bo7affgktoy0b"
 [sub_resource type="Resource" id="Resource_l8pit"]
 script = ExtResource("3_e3bpe")
 transition = 2
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l8pit"]
-content_margin_left = 2.0
-content_margin_top = 2.0
-content_margin_right = 2.0
-content_margin_bottom = 2.0
-bg_color = Color(1, 0, 0, 0.4)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-corner_detail = 6
 
 [sub_resource type="Animation" id="Animation_4o2ml"]
 length = 0.001
@@ -195,6 +192,22 @@ tracks/0/keys = {
 "values": [4, 5, 6, 7]
 }
 
+[sub_resource type="Animation" id="Animation_5uoyu"]
+resource_name = "muerte"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [19]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4o2ml"]
 _data = {
 &"RESET": SubResource("Animation_4o2ml"),
@@ -204,7 +217,8 @@ _data = {
 &"idle_abajo": SubResource("Animation_hae1a"),
 &"idle_arriba": SubResource("Animation_gaojq"),
 &"idle_lado": SubResource("Animation_6jrxe"),
-&"izq": SubResource("Animation_4rd11")
+&"izq": SubResource("Animation_4rd11"),
+&"muerte": SubResource("Animation_5uoyu")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3lihj"]
@@ -253,18 +267,112 @@ blend_point_3/node = SubResource("AnimationNodeAnimation_f237e")
 blend_point_3/pos = Vector2(0, -1)
 blend_mode = 1
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4ox5j"]
+animation = &"muerte"
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0vdxu"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jleo5"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3lihj"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_63pxw"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l78iq"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_6jrxe"]
 states/caminar/node = SubResource("AnimationNodeBlendSpace2D_4o2ml")
 states/caminar/position = Vector2(592, 100)
 states/idle/node = SubResource("AnimationNodeBlendSpace2D_3lihj")
 states/idle/position = Vector2(391, 100)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_0vdxu"), "idle", "caminar", SubResource("AnimationNodeStateMachineTransition_jleo5"), "caminar", "idle", SubResource("AnimationNodeStateMachineTransition_3lihj")]
+states/muerte/node = SubResource("AnimationNodeAnimation_4ox5j")
+states/muerte/position = Vector2(757, 100)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_0vdxu"), "idle", "caminar", SubResource("AnimationNodeStateMachineTransition_jleo5"), "caminar", "idle", SubResource("AnimationNodeStateMachineTransition_3lihj"), "caminar", "muerte", SubResource("AnimationNodeStateMachineTransition_63pxw"), "muerte", "End", SubResource("AnimationNodeStateMachineTransition_l78iq")]
+
+[sub_resource type="Animation" id="Animation_4j0g5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../HUD/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../AudioStreamPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_8kj65"]
+resource_name = "hit"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../HUD/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../AudioStreamPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f237e"]
+_data = {
+&"RESET": SubResource("Animation_4j0g5"),
+&"hit": SubResource("Animation_8kj65")
+}
 
 [sub_resource type="Animation" id="Animation_yk3el"]
 length = 0.001
@@ -425,14 +533,22 @@ _data = {
 }
 
 [node name="Jugador" type="CharacterBody2D" unique_id=398366218 groups=["jugador"]]
-collision_layer = 517
+z_index = 1
+collision_layer = 516
 script = ExtResource("1_t81sm")
-vel = 300
-melee_damage = 50.0
-range_damage = 20.0
+explosive_damage = 150.0
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=784241139]
+texture_filter = 1
+position = Vector2(-2, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("2_3lihj")
+offset = Vector2(1, 0)
+hframes = 8
+vframes = 4
 
 [node name="colision_entorno" type="CollisionShape2D" parent="." unique_id=632919085]
-shape = SubResource("CircleShape2D_yk3el")
+shape = SubResource("CapsuleShape2D_3lihj")
 
 [node name="hurtbox" type="Area2D" parent="." unique_id=1280826457 groups=["jugador_hurtbox"]]
 collision_layer = 8
@@ -454,27 +570,41 @@ monitoring = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Posicion ataque/melee_hitbox" unique_id=172056925]
+position = Vector2(6.125, 0)
 shape = SubResource("RectangleShape2D_l8pit")
 debug_color = Color(0.29803923, 1, 0, 0.41960785)
 
 [node name="slash" type="Sprite2D" parent="Posicion ataque" unique_id=1250604948]
 visible = false
 texture_filter = 1
-position = Vector2(25, 0)
+position = Vector2(32, 0)
 texture = ExtResource("7_l8pit")
 hframes = 5
 vframes = 3
 frame = 2
 
-[node name="PatternShooter2D" type="Node2D" parent="Posicion ataque" unique_id=1755422649]
+[node name="pistola" type="Node2D" parent="Posicion ataque" unique_id=1755422649]
 position = Vector2(26, 0)
 script = ExtResource("4_8q352")
-pattern = SubResource("Resource_jleo5")
+pattern = ExtResource("6_poib6")
+metadata/_custom_type_script = "uid://brauggkrlldp5"
+
+[node name="escopeta" type="Node2D" parent="Posicion ataque" unique_id=425171951]
+position = Vector2(26, 0)
+script = ExtResource("4_8q352")
+pattern = ExtResource("7_3lihj")
+metadata/_custom_type_script = "uid://brauggkrlldp5"
+
+[node name="granada" type="Node2D" parent="Posicion ataque" unique_id=805302220]
+position = Vector2(26, 0)
+script = ExtResource("4_8q352")
+pattern = SubResource("Resource_4ox5j")
 metadata/_custom_type_script = "uid://brauggkrlldp5"
 
 [node name="puntero" type="Sprite2D" parent="Posicion ataque" unique_id=1698765250]
 texture_filter = 1
-position = Vector2(64, 0)
+position = Vector2(64, -4.7683716e-07)
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("9_0vdxu")
 
 [node name="_icono_mapa" type="Sprite2D" parent="." unique_id=1324566890]
@@ -489,6 +619,7 @@ texture = SubResource("PlaceholderTexture2D_e3bpe")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=576395431]
 physics_interpolation_mode = 1
 process_callback = 0
+script = ExtResource("9_3lihj")
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=105613702]
 process_priority = 300
@@ -512,94 +643,64 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 visible = false
 jugador = NodePath("..")
 
+[node name="ColorRect" type="ColorRect" parent="HUD" unique_id=691307788]
+modulate = Color(1, 1, 1, 0)
+offset_right = 576.0
+offset_bottom = 327.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+color = Color(1, 0, 0, 0.2901961)
+
 [node name="Stamina_recover" type="Timer" parent="." unique_id=1883772049]
 wait_time = 3.0
 one_shot = true
 
-[node name="Stamina_delay" type="Timer" parent="." unique_id=1018818149]
+[node name="stamina_cooldown" type="Timer" parent="Stamina_recover" unique_id=960872111]
+wait_time = 10.0
+one_shot = true
+
+[node name="curacion_cooldown" type="Timer" parent="." unique_id=1380128690]
+wait_time = 25.0
+one_shot = true
+
+[node name="dash_cooldown" type="Timer" parent="." unique_id=1583464399]
+wait_time = 2.0
+one_shot = true
+
+[node name="granada_cooldown" type="Timer" parent="." unique_id=934448061]
+wait_time = 20.0
 one_shot = true
 
 [node name="atq_delay_melee" type="Timer" parent="." unique_id=1944371431]
 autostart = true
 
-[node name="atq_delay_rango" type="Timer" parent="." unique_id=564049087]
+[node name="atq_delay_pistola" type="Timer" parent="." unique_id=564049087]
 wait_time = 0.5
+autostart = true
+
+[node name="atq_delay_escopeta" type="Timer" parent="." unique_id=1437122741]
+wait_time = 1.2
 autostart = true
 
 [node name="i frames" type="Timer" parent="." unique_id=530172596]
 one_shot = true
-
-[node name="debug" type="Node2D" parent="." unique_id=1791289637]
-z_index = 100
-
-[node name="ProgressBar" type="ProgressBar" parent="debug" unique_id=621564702]
-modulate = Color(0, 0.988235, 0, 1)
-offset_left = -27.0
-offset_top = -12.0
-offset_right = -22.0
-offset_bottom = 42.0
-rotation = -1.5708
-value = 22.0
-rounded = true
-fill_mode = 2
-show_percentage = false
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="debug" unique_id=1510221504]
-offset_left = -47.0
-offset_top = 5.9999995
-offset_right = 108.0
-offset_bottom = 29.0
-scale = Vector2(0.568653, 0.568653)
-text = "Cansado:"
-horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Label2" type="Label" parent="debug" unique_id=1645432449]
-offset_left = -54.0
-offset_top = -20.0
-offset_right = 14.0
-offset_bottom = 3.0
-scale = Vector2(0.382719, 0.382719)
-text = "Stamina:"
-horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="ProgressBar2" type="ProgressBar" parent="debug" unique_id=610393341]
-offset_left = -26.000002
-offset_top = -26.999998
-offset_right = 226.38095
-scale = Vector2(0.21, 0.21)
-theme_override_colors/font_color = Color(0.95, 0.95, 0.95, 1)
-theme_override_styles/fill = SubResource("StyleBoxFlat_l8pit")
-show_percentage = false
-
-[node name="Label3" type="Label" parent="debug" unique_id=2095935864]
-offset_left = -43.0
-offset_top = -28.0
-offset_right = 3.0
-offset_bottom = -5.0
-scale = Vector2(0.39, 0.39)
-text = "Vida:"
-
-[node name="Sprite" type="Sprite2D" parent="." unique_id=784241139]
-texture_filter = 1
-position = Vector2(2, 1)
-scale = Vector2(2, 2)
-texture = ExtResource("2_3lihj")
-hframes = 8
-vframes = 4
 
 [node name="Animacion" type="AnimationPlayer" parent="." unique_id=951333982]
 root_node = NodePath("../FX")
 libraries/ = SubResource("AnimationLibrary_4o2ml")
 
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=18051115]
+active = false
 root_node = NodePath("../FX")
 tree_root = SubResource("AnimationNodeStateMachine_6jrxe")
 anim_player = NodePath("../Animacion")
 parameters/caminar/blend_position = Vector2(0, 0)
-parameters/idle/blend_position = Vector2(0, 0)
+parameters/idle/blend_position = Vector2(-0.00082987547, 0.9336493)
+
+[node name="SFX" type="AnimationPlayer" parent="." unique_id=1709828790]
+root_node = NodePath("../FX")
+libraries/ = SubResource("AnimationLibrary_f237e")
 
 [node name="FX" type="AnimationPlayer" parent="." unique_id=810209383]
 libraries/ = SubResource("AnimationLibrary_vro3i")
@@ -610,7 +711,12 @@ visible = false
 [node name="pausa" parent="." unique_id=292408731 instance=ExtResource("14_poib6")]
 visible = false
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2137667012]
+stream = ExtResource("16_0vdxu")
+bus = &"SFX"
+
 [connection signal="jugador_hit" from="." to="." method="_on_jugador_hit"]
 [connection signal="timeout" from="Stamina_recover" to="." method="_on_stamina_recover_timeout"]
 [connection signal="timeout" from="atq_delay_melee" to="." method="_on_atq_delay_melee_timeout"]
-[connection signal="timeout" from="atq_delay_rango" to="." method="_on_atq_delay_rango_timeout"]
+[connection signal="timeout" from="atq_delay_pistola" to="." method="_on_atq_delay_pistola_timeout"]
+[connection signal="timeout" from="atq_delay_escopeta" to="." method="_on_atq_delay_escopeta_timeout"]

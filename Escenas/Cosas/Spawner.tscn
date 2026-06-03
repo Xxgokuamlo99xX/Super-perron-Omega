@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b3y7140sxokh1" path="res://Scripts/enemigos/area_spawner.gd" id="1_gafyb"]
 
-[node name="Spawner" type="Area2D" unique_id=601345958]
+[node name="Spawner" type="Area2D" unique_id=601345958 groups=["spawner"]]
 collision_layer = 0
 collision_mask = 0
 monitoring = false
@@ -16,5 +16,6 @@ one_shot = true
 rect = Rect2(-135, -135, 270, 270)
 
 [connection signal="oleada_fin" from="." to="." method="_on_oleada_fin"]
+[connection signal="quede_seco" from="." to="." method="_on_quede_seco"]
 [connection signal="timeout" from="oleada_delay" to="." method="_on_oleada_delay_timeout"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]

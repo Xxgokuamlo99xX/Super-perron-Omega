@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://tqjkixrwc2at"]
 
 [ext_resource type="Script" uid="uid://bctgkct3hu8ha" path="res://Scripts/varios/level_manager.gd" id="1_35svm"]
-[ext_resource type="TileSet" uid="uid://dcmslla17xih0" path="res://Recursos/debug_tilemap.tres" id="2_ceuwk"]
+[ext_resource type="TileSet" uid="uid://dcmslla17xih0" path="res://Recursos/assets/debug_tilemap.tres" id="2_ceuwk"]
 [ext_resource type="PackedScene" uid="uid://dvw3ge7qodu7s" path="res://Escenas/Cosas/Spawner.tscn" id="3_gub5h"]
 [ext_resource type="Script" uid="uid://ctufs3rvoocnw" path="res://Scripts/enemigos/Spawner_setup.gd" id="4_i6ec6"]
 [ext_resource type="PackedScene" uid="uid://rajk1vi3mvgy" path="res://Escenas/Entidades/enemigo_platilla_debug.tscn" id="5_8vq1l"]

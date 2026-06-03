@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://5rxpteddwu4y"]
 
-[ext_resource type="TileSet" uid="uid://dcmslla17xih0" path="res://Recursos/debug_tilemap.tres" id="1_l8jde"]
+[ext_resource type="TileSet" uid="uid://dcmslla17xih0" path="res://Recursos/assets/debug_tilemap.tres" id="1_l8jde"]
 [ext_resource type="PackedScene" uid="uid://cs55jipu83bs5" path="res://Escenas/Entidades/jugador.tscn" id="1_vt7hm"]
 [ext_resource type="PackedScene" uid="uid://clqodbfg5qbgo" path="res://Escenas/Cosas/ventana.tscn" id="3_0nx45"]
 [ext_resource type="Script" uid="uid://dv4vvja7al0n5" path="res://Scripts/varios/varios_debug.gd" id="4_t0xsg"]
@@ -23,7 +23,6 @@ tile_set = ExtResource("1_l8jde")
 
 [node name="Jugador" parent="." unique_id=795976724 instance=ExtResource("1_vt7hm")]
 position = Vector2(573, 181)
-vel = 350
 
 [node name="varios" type="Node" parent="." unique_id=1235840410]
 script = ExtResource("4_t0xsg")
@@ -34,24 +33,24 @@ position = Vector2(81, 79)
 titulo = "Hola"
 texto = "no que hueva"
 
-[node name="Ventana" parent="varios" unique_id=234953758 node_paths=PackedStringArray("cam_pos") instance=ExtResource("3_0nx45")]
-position = Vector2(628, 147)
-cam_pos = NodePath("Marker2D")
-
-[node name="Marker2D" type="Marker2D" parent="varios/Ventana" unique_id=1135833918]
-position = Vector2(144, 2)
-
-[node name="Dialogo_trigger" parent="varios/Ventana" unique_id=547737554 instance=ExtResource("6_obbab")]
-position = Vector2(-84, -52)
+[node name="Dialogo_trigger" parent="varios" unique_id=547737554 instance=ExtResource("6_obbab")]
+position = Vector2(544, 95)
 dialogo = ExtResource("7_0nx45")
 
-[node name="g" type="Label" parent="varios/Ventana/Dialogo_trigger" unique_id=1420983686]
+[node name="g" type="Label" parent="varios/Dialogo_trigger" unique_id=1420983686]
 z_index = 1
 offset_left = -61.0
 offset_top = -42.0
 offset_right = 59.0
 offset_bottom = -19.0
 text = "Dialogo_Trigger"
+
+[node name="Ventana" parent="varios" unique_id=234953758 node_paths=PackedStringArray("cam_pos") instance=ExtResource("3_0nx45")]
+position = Vector2(628, 147)
+cam_pos = NodePath("Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="varios/Ventana" unique_id=1135833918]
+position = Vector2(144, 2)
 
 [node name="teleport" parent="varios" unique_id=326423999 instance=ExtResource("8_t0xsg")]
 position = Vector2(308, 178)

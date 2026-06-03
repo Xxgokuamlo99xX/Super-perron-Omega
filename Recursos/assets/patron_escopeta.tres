@@ -1,0 +1,55 @@
+[gd_resource type="Resource" script_class="Pattern2D" format=3 uid="uid://cnkqahi5e7ff4"]
+
+[ext_resource type="Script" uid="uid://u32nbmpvccw8" path="res://addons/projectiles_plugin/2d/patterns/pattern_elem2d.gd" id="1_w7o54"]
+[ext_resource type="PackedScene" uid="uid://cffcrykvmyb51" path="res://Escenas/Cosas/projectil_basico.tscn" id="2_4uprq"]
+[ext_resource type="Script" uid="uid://bo7affgktoy0b" path="res://addons/projectiles_plugin/2d/patterns/pattern2d.gd" id="3_0pdjb"]
+[ext_resource type="Script" uid="uid://8i7rscyqvam4" path="res://addons/projectiles_plugin/2d/trajectories/linear_trajectory2d.gd" id="3_cbhnc"]
+
+[sub_resource type="Resource" id="Resource_0vdxu"]
+script = ExtResource("3_cbhnc")
+metadata/_custom_type_script = "uid://8i7rscyqvam4"
+
+[sub_resource type="Resource" id="Resource_r3p2d"]
+script = ExtResource("1_w7o54")
+projectile = ExtResource("2_4uprq")
+angle = 25.0
+trajectory = SubResource("Resource_0vdxu")
+speed = 450.0
+range = 150.0
+rand_spread = 0.05
+metadata/_custom_type_script = "uid://u32nbmpvccw8"
+
+[sub_resource type="Resource" id="Resource_u67gy"]
+script = ExtResource("1_w7o54")
+projectile = ExtResource("2_4uprq")
+angle = 5.0
+trajectory = SubResource("Resource_0vdxu")
+speed = 450.0
+range = 150.0
+rand_spread = 0.05
+metadata/_custom_type_script = "uid://u32nbmpvccw8"
+
+[sub_resource type="Resource" id="Resource_n6vpj"]
+script = ExtResource("1_w7o54")
+projectile = ExtResource("2_4uprq")
+angle = -5.0
+trajectory = SubResource("Resource_0vdxu")
+speed = 450.0
+range = 150.0
+rand_spread = 0.05
+metadata/_custom_type_script = "uid://u32nbmpvccw8"
+
+[sub_resource type="Resource" id="Resource_26rul"]
+script = ExtResource("1_w7o54")
+projectile = ExtResource("2_4uprq")
+angle = -25.0
+trajectory = SubResource("Resource_0vdxu")
+speed = 450.0
+range = 150.0
+rand_spread = 0.05
+metadata/_custom_type_script = "uid://u32nbmpvccw8"
+
+[resource]
+script = ExtResource("3_0pdjb")
+data = Array[ExtResource("1_w7o54")]([SubResource("Resource_r3p2d"), SubResource("Resource_u67gy"), SubResource("Resource_n6vpj"), SubResource("Resource_26rul")])
+metadata/_custom_type_script = "uid://bo7affgktoy0b"

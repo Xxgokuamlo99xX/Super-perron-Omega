@@ -93,7 +93,6 @@ shape = SubResource("CapsuleShape2D_bb6jw")
 path_postprocessing = 1
 simplify_path = true
 simplify_epsilon = 5.0
-debug_enabled = true
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1774310582]
 use_parent_material = true

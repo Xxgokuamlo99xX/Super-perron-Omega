@@ -1,0 +1,31 @@
+join GerenteTienda right
+GerenteTienda: Bienvenido
+label AbreTienda
+GerenteTienda: ¿Que desea comprar?
+- Escopeta
+	if {Global.dinero} == 375.0:
+		GerenteTienda: Muchas gracias por su compra
+		do Global.comprar("escopeta")
+	else:
+		GerenteTienda: Pinche pobre
+- Cuchillo | [if {Global.armas}.has("pistola")]
+	if {Global.dinero} == 375.0:
+		do Global.comprar("cuchillo")
+	else:
+		GerenteTienda: Pinche pobre
+- Pistola | [if {Global.armas}.has("cuchillo")]
+	if {Global.dinero} == 375.0:
+		do Global.comprar("pistola")
+	else:
+		GerenteTienda: Pinche pobre
+- Escudo
+	if {Global.dinero} == 375.0:
+		GerenteTienda: Muchas gracias por su compra
+	else:
+		GerenteTienda: Pinche pobre
+- Salir
+	GerenteTienda: Hasta luego
+	[wait time="1.0"]
+	do cambio_escena.cambio_escena_str("res://Escenas/Cosas/mapa.tscn")
+	[end_timeline]
+jump AbreTienda

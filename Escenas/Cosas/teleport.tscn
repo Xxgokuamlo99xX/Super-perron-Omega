@@ -2,16 +2,70 @@
 
 [ext_resource type="Script" uid="uid://dgex7au4qgaqr" path="res://Scripts/varios/teleport.gd" id="1_8kr7t"]
 [ext_resource type="PackedScene" uid="uid://co1olhh4sltk" path="res://Escenas/Cosas/area_interactuable.tscn" id="1_rks2q"]
+[ext_resource type="Texture2D" uid="uid://bp82avxeqsd0k" path="res://Recursos/literalmente cualquier cosa/Carrito.png" id="3_bjdfu"]
+[ext_resource type="Shader" uid="uid://crpofaobi8ly5" path="res://Scripts/shaders/teleport.gdshader" id="4_hnei3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8kr7t"]
 radius = 24.020824
 
-[node name="teleport" type="Node2D" unique_id=326423999]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_30aa8"]
+noise_type = 0
+frequency = 0.0418
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_v563h"]
+noise = SubResource("FastNoiseLite_30aa8")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t3jos"]
+shader = ExtResource("4_hnei3")
+shader_parameter/blend_mode = 0
+shader_parameter/noiseTex = SubResource("NoiseTexture2D_v563h")
+shader_parameter/angle = 0.47
+shader_parameter/position = 0.29
+shader_parameter/spread = 0.10400000494
+shader_parameter/cutoff = -0.22499996318750004
+shader_parameter/falloff = 0.2470000117325
+shader_parameter/edge_fade = 0.438000020805
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 58.84
+shader_parameter/ray2_density = 33.55
+shader_parameter/ray2_intensity = 1.0
+shader_parameter/ray_color = Color(1, 0.90083337, 0.65, 0.3019608)
+shader_parameter/hdr = true
+shader_parameter/seed = 5.0
+shader_parameter/pixelSizeScale = 4.1090001476775
+shader_parameter/quantize_colors = true
+shader_parameter/color_levels = 16
+shader_parameter/dither = false
+shader_parameter/dither_strength = 0.5
+shader_parameter/opacity = 1.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1qdhh"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1k8rs"]
+noise = SubResource("FastNoiseLite_1qdhh")
+
+[node name="teleport" type="Node2D" unique_id=326423999 groups=["enemigo"]]
 script = ExtResource("1_8kr7t")
 
 [node name="area_interaccion" parent="." unique_id=977020198 instance=ExtResource("1_rks2q")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="area_interaccion" unique_id=2088188455]
 shape = SubResource("CircleShape2D_8kr7t")
+
+[node name="Carrito" type="Sprite2D" parent="." unique_id=1456942694]
+texture_filter = 1
+position = Vector2(-9.536743e-07, 0)
+scale = Vector2(1.5625, 1.5625)
+texture = ExtResource("3_bjdfu")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1261762775]
+material = SubResource("ShaderMaterial_t3jos")
+offset_left = -174.0
+offset_top = -273.0
+offset_right = 338.0
+offset_bottom = 239.0
+scale = Vector2(0.6665153, 0.6665153)
+texture = SubResource("NoiseTexture2D_1k8rs")
 
 [connection signal="interactuo" from="area_interaccion" to="." method="_on_area_interaccion_interactuo"]

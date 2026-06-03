@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bjtiivv8t0nhf"
+path="res://.godot/imported/deltarune explosion greenscreen.mp3-e93af42c1203a00736f4aaacd6ab4051.mp3str"
+
+[deps]
+
+source_file="res://Recursos/Sprite/Armas/deltarune explosion greenscreen.mp3"
+dest_files=["res://.godot/imported/deltarune explosion greenscreen.mp3-e93af42c1203a00736f4aaacd6ab4051.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

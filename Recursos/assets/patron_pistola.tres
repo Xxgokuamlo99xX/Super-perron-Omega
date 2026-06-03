@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Pattern2D" format=3 uid="uid://tnc40itf7k40"]
+
+[ext_resource type="Script" uid="uid://u32nbmpvccw8" path="res://addons/projectiles_plugin/2d/patterns/pattern_elem2d.gd" id="1_rpcwo"]
+[ext_resource type="Resource" uid="uid://bqih57bkmde36" path="res://Recursos/assets/bala_pistola.tres" id="2_ygvv4"]
+[ext_resource type="Script" uid="uid://bo7affgktoy0b" path="res://addons/projectiles_plugin/2d/patterns/pattern2d.gd" id="3_d7cvn"]
+
+[resource]
+script = ExtResource("3_d7cvn")
+data = Array[ExtResource("1_rpcwo")]([ExtResource("2_ygvv4")])
+metadata/_custom_type_script = "uid://bo7affgktoy0b"

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="PatternElem2D" format=3 uid="uid://c4wv808vva52b"]
+
+[ext_resource type="PackedScene" uid="uid://cffcrykvmyb51" path="res://Escenas/Cosas/projectil_basico.tscn" id="1_414yw"]
+[ext_resource type="Script" uid="uid://u32nbmpvccw8" path="res://addons/projectiles_plugin/2d/patterns/pattern_elem2d.gd" id="2_doeql"]
+[ext_resource type="Script" uid="uid://8i7rscyqvam4" path="res://addons/projectiles_plugin/2d/trajectories/linear_trajectory2d.gd" id="3_npakx"]
+
+[sub_resource type="Resource" id="Resource_0vdxu"]
+script = ExtResource("3_npakx")
+metadata/_custom_type_script = "uid://8i7rscyqvam4"
+
+[resource]
+script = ExtResource("2_doeql")
+projectile = ExtResource("1_414yw")
+trajectory = SubResource("Resource_0vdxu")
+speed = 450.0
+range = 150.0
+rand_spread = 0.15
+metadata/_custom_type_script = "uid://u32nbmpvccw8"

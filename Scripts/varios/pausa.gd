@@ -30,13 +30,8 @@ func _on_fullscreen_toggled(toggled_on):
 	elif toggled_on == false:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 
-
 func _on_button_2_pressed() -> void:
 	get_tree().quit()
 
-
-func _on_button_2_mouse_entered() -> void:
-	$botones/salir.text = "Miedo o que"
-
-func _on_button_2_mouse_exited() -> void:
-	$botones/salir.text = "Salir"
+func _on_continuar_pressed() -> void:
+	_pausa()

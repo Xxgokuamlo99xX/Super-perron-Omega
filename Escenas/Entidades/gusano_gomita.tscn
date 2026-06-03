@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://bnjsv23ohuy11"]
 
 [ext_resource type="Script" uid="uid://cjisl41hyci1t" path="res://Scripts/enemigos/enemigo_platilla_debug.gd" id="1_m5ugj"]
-[ext_resource type="PackedScene" uid="uid://caisb0rnk1s0g" path="res://Escenas/Cosas/hit_box_enemigo.tscn" id="2_cpkih"]
+[ext_resource type="PackedScene" uid="uid://caisb0rnk1s0g" path="res://Escenas/Entidades/hit_box_enemigo.tscn" id="2_cpkih"]
 [ext_resource type="Texture2D" uid="uid://bbe5rcwpgtdq8" path="res://Recursos/Sprite/Enemigos/Gusano_de_gomita.png" id="3_6dcu8"]
+
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x8cke"]
 

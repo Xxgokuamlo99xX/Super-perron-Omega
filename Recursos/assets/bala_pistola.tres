@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="PatternElem2D" format=3 uid="uid://bqih57bkmde36"]
+
+[ext_resource type="PackedScene" uid="uid://cffcrykvmyb51" path="res://Escenas/Cosas/projectil_basico.tscn" id="1_ieqhm"]
+[ext_resource type="Script" uid="uid://u32nbmpvccw8" path="res://addons/projectiles_plugin/2d/patterns/pattern_elem2d.gd" id="2_1dqcy"]
+[ext_resource type="Script" uid="uid://8i7rscyqvam4" path="res://addons/projectiles_plugin/2d/trajectories/linear_trajectory2d.gd" id="3_81dsk"]
+
+[sub_resource type="Resource" id="Resource_3lihj"]
+script = ExtResource("3_81dsk")
+
+[resource]
+script = ExtResource("2_1dqcy")
+projectile = ExtResource("1_ieqhm")
+trajectory = SubResource("Resource_3lihj")
+speed = 450.0
+range = 1000.0

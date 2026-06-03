@@ -1,16 +1,16 @@
-res://Escenas/Entidades/jugador.tscn
+res://Escenas/Entidades/enemigo_platilla_debug.tscn
 res://Dialogos/estilo.tres
 res://addons/phantom_camera/themes/theme.tres
+res://Recursos/assets/bala_pistola.tres
+res://Recursos/assets/patron_escopeta.tres
 res://Scripts/shaders/liquido.gdshader
-res://Recursos/debug_tilemap.tres
+res://Scripts/shaders/radial.gdshader
 res://Scripts/shaders/green_screen.gdshader
+res://Recursos/assets/debug_tilemap.tres
+res://Scripts/shaders/teleport.gdshader
+res://Scripts/shaders/galaxia.gdshader
 res://Scripts/shaders/glitch.gdshader
 res://Scripts/shaders/sobra.gdshader
 res://Scripts/shaders/luz.gdshader
 res://Scripts/shaders/glow.gdshader
-res://Scripts/shaders/galaxia.gdshader
-res://Scripts/jugador/Jugador.gd
-res://Escenas/Niveles/Debug_lvl.tscn
-res://Escenas/Cosas/pausa.tscn
-res://Escenas/Niveles/Menu Layout.tscn
-res://Scripts/varios/menu_layout.gd
+res://Scripts/shaders/vignete.gdshader

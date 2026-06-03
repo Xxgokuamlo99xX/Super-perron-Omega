@@ -14,6 +14,8 @@ var enemigos_golpeados : Array
 var trajectory: Trajectory2D
 var travel_angle: float = 0.0
 
+var alto : bool = false
+
 var dist: float = 0.0
 var rot: bool = false
 var wait_for_delay: bool = false
@@ -38,7 +40,10 @@ func end_path() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	aplicar_atq(jugador.range_damage)
+	if jugador:
+		aplicar_atq(jugador.range_damage)
+	if alto:
+		return
 	if Engine.is_editor_hint() and not run_in_editor:
 		set_physics_process(false)
 		return

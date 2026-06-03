@@ -8,6 +8,7 @@ resource_local_to_scene = false
 resource_name = ""
 script = ExtResource("1_c4go8")
 path = "interactuar"
+force_controller_icon_style = 10
 metadata/_custom_type_script = "uid://r62jgcmacbru"
 
 [node name="area_interaccion" type="Area2D" unique_id=1946445512]

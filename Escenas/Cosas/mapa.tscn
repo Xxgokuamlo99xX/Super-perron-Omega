@@ -15,12 +15,24 @@ offset_right = 576.0
 offset_bottom = 324.0
 color = Color(1, 0.9019608, 0.6156863, 1)
 
+[node name="Label" type="Label" parent="ColorRect" unique_id=365696785]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -116.5
+offset_right = 116.5
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Hasta aqui llega el prototipo :)"
+
 [node name="congeladores" type="Button" parent="ColorRect" unique_id=1151204934]
 layout_mode = 0
 offset_left = 352.0
 offset_top = 48.0
 offset_right = 466.0
 offset_bottom = 83.0
+disabled = true
 text = "Congeladores"
 
 [node name="cocina" type="Button" parent="ColorRect" unique_id=1423663068]
@@ -29,6 +41,7 @@ offset_left = 125.0
 offset_top = 41.0
 offset_right = 239.0
 offset_bottom = 76.0
+disabled = true
 text = "Cocina"
 
 [node name="embutidos" type="Button" parent="ColorRect" unique_id=1585660566]
@@ -37,6 +50,7 @@ offset_left = 47.0
 offset_top = 148.0
 offset_right = 161.0
 offset_bottom = 183.0
+disabled = true
 text = "Embutidos"
 
 [node name="botanas" type="Button" parent="ColorRect" unique_id=186231445]
@@ -45,6 +59,7 @@ offset_left = 46.0
 offset_top = 262.0
 offset_right = 160.0
 offset_bottom = 297.0
+disabled = true
 text = "Botanas"
 
 [node name="cajas" type="Button" parent="ColorRect" unique_id=1480973421]
@@ -53,6 +68,7 @@ offset_left = 231.0
 offset_top = 263.0
 offset_right = 345.0
 offset_bottom = 298.0
+disabled = true
 text = "Cajas"
 
 [node name="tiendas" type="Button" parent="ColorRect" unique_id=20008666]

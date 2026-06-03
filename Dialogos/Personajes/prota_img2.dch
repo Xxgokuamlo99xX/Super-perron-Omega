@@ -19,7 +19,7 @@
 &"portraits": {
 "duda": {
 "export_overrides": {
-"image": "\"res://Recursos/Sprite_nuevo_pj2_duda.png\""
+"image": "\"res://Recursos/literalmente cualquier cosa/Sprite_nuevo_pj2_duda.png\""
 },
 "mirror": true,
 "offset": Vector2(0, 0),
@@ -28,7 +28,7 @@
 },
 "normal": {
 "export_overrides": {
-"image": "\"res://Recursos/Sprite_nuevo_pj2.png\""
+"image": "\"res://Recursos/literalmente cualquier cosa/Sprite_nuevo_pj2.png\""
 },
 "mirror": true,
 "offset": Vector2(0, 0),

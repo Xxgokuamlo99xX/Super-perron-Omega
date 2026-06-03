@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cjqwrbc8tbqym"]
+
+[ext_resource type="Script" uid="uid://cnh1gb6uwjy5g" path="res://Scripts/varios/tienda.gd" id="1_oxt47"]
+[ext_resource type="PackedScene" uid="uid://bdxsilqdnwysr" path="res://Escenas/Cosas/dialogo_trigger.tscn" id="2_36e0f"]
+[ext_resource type="Resource" uid="uid://dqu2tvnpxc5pa" path="res://Dialogos/Timelines/Tienda.dtl" id="3_36e0f"]
+[ext_resource type="Texture2D" uid="uid://jrjknsnvpvkb" path="res://Recursos/Sprite/images.jpeg" id="4_oa7lt"]
+
+[node name="tienda" type="Node" unique_id=205327691]
+script = ExtResource("1_oxt47")
+
+[node name="Dialogo_trigger" parent="." unique_id=972163889 instance=ExtResource("2_36e0f")]
+position = Vector2(-145, -63)
+dialogo = ExtResource("3_36e0f")
+
+[node name="Images" type="Sprite2D" parent="." unique_id=1799274984]
+position = Vector2(295.25, 162.75)
+scale = Vector2(3.0820897, 1.5318725)
+texture = ExtResource("4_oa7lt")
+
+[node name="dinero" type="Label" parent="." unique_id=2023561272]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "dinero: "

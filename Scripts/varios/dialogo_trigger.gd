@@ -3,7 +3,7 @@ extends Node2D
 @export var dialogo : DialogicTimeline
 var hablando : bool
 
-func _on_area_interaccion_interactuo() -> void:
+func empezar_dialogo():
 	if !hablando:
 		Global.puede_mov = false
 		Dialogic.start(dialogo)
@@ -12,4 +12,7 @@ func _on_area_interaccion_interactuo() -> void:
 		await get_tree().create_timer(0.7).timeout
 		hablando = false
 		Global.puede_mov = true
+
+func _on_area_interaccion_interactuo() -> void:
+	empezar_dialogo()
 	

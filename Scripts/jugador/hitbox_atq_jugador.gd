@@ -1,6 +1,6 @@
 extends Area2D
 @onready var jugador = get_tree().get_first_node_in_group("jugador")
-@export_enum("melee","distancia")
+@export_enum("melee","distancia","explosivo")
 var tipo_de_damage : String = "melee"
 var enemigos_golpeados : Array
 	
@@ -11,8 +11,12 @@ func _process(delta: float) -> void:
 				aplicar_atq(jugador.melee_damage)
 		"distancia":
 			aplicar_atq(jugador.range_damage)
+		"explosivo":
+			aplicar_atq(jugador.explosive_damage)
 			
 func aplicar_atq(damage : float):
+	if !monitorable:
+		return
 	for area in get_overlapping_areas():
 		if area.is_in_group("enemigo"):
 			if enemigos_golpeados.has(area):
