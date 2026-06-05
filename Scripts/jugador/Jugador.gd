@@ -18,10 +18,12 @@ var dash : bool = false
 var velocidad_dash_inicial = 750.0
 var tiempo_entre_fantasmas = 0.05 
 var cronometro_fantasmas = 0.0
+var curado : bool = false
 #----------------------------------------------
 @onready var sprite: Sprite2D = $Sprite
 @onready var stamina_recover: Timer = $Stamina_recover
 @onready var stamina_cooldown: Timer = $Stamina_recover/stamina_cooldown
+@onready var curacion_timer: Timer = $curacion_cooldown/curacion_timer
 @onready var curacion_cooldown: Timer = $curacion_cooldown
 @onready var granada_cooldown: Timer = $granada_cooldown
 @onready var dash_cooldown: Timer = $dash_cooldown
@@ -80,7 +82,7 @@ func _process(delta: float) -> void:
 @warning_ignore("unused_parameter")
 func _physics_process(delta) -> void:
 	# movimiento
-	if vida <= 0 or !Global.puede_mov:
+	if vida <= 0:
 		return
 	if Global.puede_mov:
 		if dash:
@@ -93,7 +95,9 @@ func _physics_process(delta) -> void:
 		direction = Input.get_vector("izq", "der", "arriba", "abajo").normalized()
 		velocity = direction * vel
 	else:
+		direction = Vector2.ZERO
 		velocity = Vector2.ZERO
+		
 	animaciones()
 	flip()
 	move_and_slide()
@@ -119,15 +123,24 @@ func swift():
 	vel = 250
 	
 func granada():
+	if !Global.habilidades.has("granada"):
+		return
 	granada_cooldown.start()
 	$"Posicion ataque/granada".rotation_degrees = posicion_ataque.rotation_degrees
 	$"Posicion ataque/granada".fire_pattern()
 	
 func curacion():
+	if !Global.habilidades.has("curacion"):
+		return
+	if curado:
+		return
 	curacion_cooldown.start()
-	vida += 25
+	curacion_timer.start()
+	Global.puede_mov = false
 	
 func hacer_dash():
+	if !Global.habilidades.has("dash"):
+		return
 	if direction == Vector2.ZERO:
 		return 
 		
@@ -179,12 +192,15 @@ func flip():
 		$Sprite.flip_h = false	
 		
 func animaciones():
-	if direction == Vector2.ZERO or !Global.puede_mov:
+	if !Global.puede_mov:
 		anim.travel("idle")
 	else:
-		anim.travel("caminar")
-		animtree.set("parameters/idle/blend_position", direction)
-		animtree.set("parameters/caminar/blend_position", direction)
+		if direction == Vector2.ZERO:
+			anim.travel("idle")
+		else:
+			anim.travel("caminar")
+			animtree.set("parameters/idle/blend_position", direction)
+			animtree.set("parameters/caminar/blend_position", direction)
 		
 	#print(direction)
 
@@ -222,6 +238,8 @@ func _on_atq_delay_escopeta_timeout() -> void:
 func _on_jugador_hit(enemigo_damage) -> void:
 	if !i_frames.is_stopped():
 		return
+	if !curacion_timer.is_stopped():
+		curacion_timer.stop()
 	$Camera2D.apply_shake(10)
 	$SFX.play("hit")
 	i_frames.start()
@@ -229,3 +247,8 @@ func _on_jugador_hit(enemigo_damage) -> void:
 	tween.tween_property(self, "vida", vida - enemigo_damage, 0.2)
 	#print("invul")
 	print("vida restante -> ",vida)
+
+func _on_curacion_timer_timeout() -> void:
+	Global.puede_mov = true
+	vida += 25
+	curado = true

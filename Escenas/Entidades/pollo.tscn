@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://jin22ols8squ"]
+
+[ext_resource type="PackedScene" uid="uid://rajk1vi3mvgy" path="res://Escenas/Entidades/enemigo_platilla_debug.tscn" id="1_x8o2s"]
+[ext_resource type="Texture2D" uid="uid://ive68pocv5fv" path="res://Recursos/Sprite/Enemigos/redisign/Pollo.png" id="2_0af8d"]
+[ext_resource type="PackedScene" uid="uid://cqbaft31qj14b" path="res://Escenas/Entidades/hurtbox_enemigo.tscn" id="3_3vfbv"]
+[ext_resource type="PackedScene" uid="uid://caisb0rnk1s0g" path="res://Escenas/Entidades/hit_box_enemigo.tscn" id="4_oxxxf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3vfbv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oxxxf"]
+size = Vector2(26.067417, 42.696632)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xsx18"]
+size = Vector2(37.75281, 48.539326)
+
+[node name="pollo" unique_id=2086595903 instance=ExtResource("1_x8o2s")]
+damage = 35.0
+vida_max = 300.0
+
+[node name="Pollo" type="Sprite2D" parent="." index="9" unique_id=154388360]
+texture_filter = 1
+position = Vector2(-0.8988764, 0)
+texture = ExtResource("2_0af8d")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="." index="10" unique_id=192312033]
+shape = SubResource("CircleShape2D_3vfbv")
+
+[node name="hit_box_enemigo" parent="." index="11" unique_id=2055006096 instance=ExtResource("4_oxxxf")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hit_box_enemigo" index="0" unique_id=138841589]
+position = Vector2(0, 0.6741573)
+shape = SubResource("RectangleShape2D_oxxxf")
+debug_color = Color(1, 0, 0, 0.42000002)
+
+[node name="hurtbox_enemigo" parent="." index="12" unique_id=784568597 instance=ExtResource("3_3vfbv")]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="hurtbox_enemigo" index="0" unique_id=1303185386]
+position = Vector2(-4.2861768e-07, -8.5723536e-07)
+shape = SubResource("RectangleShape2D_xsx18")
+debug_color = Color(1.9974261e-06, 0.64841115, 0.19150987, 0.41960785)

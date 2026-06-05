@@ -12,7 +12,8 @@ var puede_mov : bool = true
 var moneda = preload("res://Escenas/Cosas/moneda.tscn")
 var pausa : bool = false
 var niveles_comp : Array 
-var armas : Array = ["cuchillo","pistola","escopeta"]
+var armas : Array = ["cuchillo","escopeta"]
+var habilidades : Array = ["sprint"] 
 var control : bool = false
 var arma_act : int = 1
 

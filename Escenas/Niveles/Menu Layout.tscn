@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://dl0i56s3sv871"]
 
 [ext_resource type="Script" uid="uid://dxywqahed080g" path="res://Scripts/varios/menu_layout.gd" id="1_ao3qb"]
-[ext_resource type="Texture2D" uid="uid://de816pu6wpqu1" path="res://Recursos/literalmente cualquier cosa/Logo_ELSUPER.png" id="2_0rm14"]
 [ext_resource type="Shader" uid="uid://cjticauql6o5q" path="res://Scripts/shaders/galaxia.gdshader" id="2_72ejy"]
 [ext_resource type="FontFile" uid="uid://yd8xk01ffqtm" path="res://Recursos/literalmente cualquier cosa/ZeldaOracles.ttf" id="2_ao3qb"]
+[ext_resource type="AudioStream" uid="uid://dlljv8ogoyn45" path="res://Recursos/Sonidos/Musica/psychronic-pixel-booster-362955.wav" id="2_tcni7"]
+[ext_resource type="Texture2D" uid="uid://dcht8x1b0qc2u" path="res://Recursos/Sprite/Objetos/logoelsuper.png" id="3_6gt6a"]
+[ext_resource type="Theme" uid="uid://draw0phrsud7e" path="res://Recursos/assets/ui.tres" id="5_npbjw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_33njn"]
 shader = ExtResource("2_72ejy")
@@ -11,15 +13,18 @@ shader = ExtResource("2_72ejy")
 [sub_resource type="LabelSettings" id="LabelSettings_0rm14"]
 font = ExtResource("2_ao3qb")
 font_size = 47
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_72ejy"]
-font = ExtResource("2_ao3qb")
-font_size = 13
+font_color = Color(1, 0.7313913, 0, 1)
+outline_size = 12
 outline_color = Color(0, 0, 0, 1)
 
 [node name="menu_principal" type="Node" unique_id=1558201457]
 script = ExtResource("1_ao3qb")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1681289470]
+stream = ExtResource("2_tcni7")
+volume_db = -5.932
+autoplay = true
+bus = &"Musica"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=971209172]
 material = SubResource("ShaderMaterial_33njn")
@@ -28,70 +33,82 @@ offset_top = -976.0
 offset_right = 4422.0
 offset_bottom = 3129.0
 
-[node name="ColorRect2" type="ColorRect" parent="." unique_id=2011298836]
-offset_left = 191.0
-offset_top = 12.0
-offset_right = 393.0
-offset_bottom = 90.0
-color = Color(0, 0, 0, 0.44705883)
-
-[node name="LogoSerio" type="Sprite2D" parent="." unique_id=1309938034]
+[node name="LogoSerio" type="TextureRect" parent="." unique_id=1153038951]
 texture_filter = 1
-position = Vector2(298, 151)
-scale = Vector2(2.5756168, 1.4083177)
-texture = ExtResource("2_0rm14")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -142.0
+offset_top = -102.0
+offset_right = 458.0
+offset_bottom = 298.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.45875, 0.45875)
+texture = ExtResource("3_6gt6a")
+expand_mode = 1
+stretch_mode = 5
 
-[node name="salir" type="Button" parent="." unique_id=1992172529]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1733480524]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -144.0
-offset_top = -86.0
-offset_right = 145.0
-offset_bottom = -31.0
+offset_left = -251.0
+offset_top = -85.0
+offset_right = 257.0
+offset_bottom = -25.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "No me gusto el jueguito, adios (salir)"
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 33
+alignment = 1
 
-[node name="jugar" type="Button" parent="." unique_id=1115076735]
-offset_left = 42.0
-offset_top = 6.0
-offset_right = 177.0
-offset_bottom = 61.0
-text = "Jugar"
+[node name="jugar" type="Button" parent="HBoxContainer" unique_id=1115076735]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../salir")
+focus_neighbor_right = NodePath("../opc")
+theme = ExtResource("5_npbjw")
+theme_type_variation = &"jugar"
 
-[node name="opc" type="Button" parent="." unique_id=1548370558]
-offset_left = 400.0
-offset_top = 11.0
-offset_right = 535.0
-offset_bottom = 66.0
-text = "Opciones"
+[node name="opc" type="Button" parent="HBoxContainer" unique_id=1548370558]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../jugar")
+focus_neighbor_right = NodePath("../salir")
+theme = ExtResource("5_npbjw")
+theme_type_variation = &"opc"
+
+[node name="salir" type="Button" parent="HBoxContainer" unique_id=1992172529]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../opc")
+focus_neighbor_right = NodePath("../jugar")
+theme = ExtResource("5_npbjw")
+theme_type_variation = &"salir"
 
 [node name="pablo" type="Label" parent="." unique_id=1199789505]
 texture_filter = 1
-offset_left = 230.0
-offset_top = -2.0
-offset_right = 369.0
-offset_bottom = 73.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -69.5
+offset_right = 69.5
+offset_bottom = 75.0
+grow_horizontal = 2
 pivot_offset = Vector2(66, 42)
-theme_override_colors/font_color = Color(1, 0, 0.4603281, 1)
 text = "Pablo"
 label_settings = SubResource("LabelSettings_0rm14")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="." unique_id=1733713193]
-texture_filter = 1
-offset_left = 230.0
-offset_top = 39.0
-offset_right = 369.0
-offset_bottom = 114.0
-text = "Y Elsuper dimensional"
-label_settings = SubResource("LabelSettings_72ejy")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[connection signal="pressed" from="salir" to="." method="_on_salir_pressed"]
-[connection signal="pressed" from="jugar" to="." method="_on_jugar_pressed"]
+[connection signal="pressed" from="HBoxContainer/jugar" to="." method="_on_jugar_pressed"]
+[connection signal="pressed" from="HBoxContainer/salir" to="." method="_on_salir_pressed"]

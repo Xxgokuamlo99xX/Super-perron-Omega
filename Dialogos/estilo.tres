@@ -11,7 +11,8 @@
 script = ExtResource("1_gsac5")
 scene = ExtResource("1_yt5ip")
 overrides = {
-"follow_viewport": "false"
+"follow_viewport": "false",
+"global_font": "\"res://Recursos/literalmente cualquier cosa/ZeldaOracles.ttf\""
 }
 
 [sub_resource type="Resource" id="Resource_yt5ip"]
@@ -35,6 +36,11 @@ overrides = {
 [sub_resource type="Resource" id="Resource_avccl"]
 script = ExtResource("1_gsac5")
 scene = ExtResource("5_r7lug")
+overrides = {
+"boxes_v_separation": "5.0",
+"choices_custom_button": "\"res://Dialogos/dialogic_node_choice_button.tscn\"",
+"font_custom": "\"res://Recursos/literalmente cualquier cosa/ZeldaOracles.ttf\""
+}
 
 [resource]
 script = ExtResource("2_xyxek")

@@ -34,7 +34,8 @@ shape = SubResource("CircleShape2D_1vw3r")
 shape = SubResource("CircleShape2D_vmfta")
 debug_color = Color(0, 0.64703625, 0.22985777, 0.41960785)
 
-[node name="hit_box_enemigo" parent="." index="9" unique_id=2055006096 instance=ExtResource("2_ysc1l")]
+[node name="hit_box_enemigo" parent="." index="9" unique_id=2055006096 node_paths=PackedStringArray("enemigo") instance=ExtResource("2_ysc1l")]
+enemigo = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hit_box_enemigo" index="0" unique_id=1871751132]
 shape = SubResource("CircleShape2D_xe2hu")

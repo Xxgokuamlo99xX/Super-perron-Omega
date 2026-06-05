@@ -327,10 +327,26 @@ tracks/2/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Sprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_f237e"]
+resource_name = "curar"
 
 [sub_resource type="Animation" id="Animation_8kj65"]
 resource_name = "hit"
-length = 0.3
+length = 0.9
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -367,10 +383,23 @@ tracks/2/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Sprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3, 0.39999998, 0.49999997, 0.59999996, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f237e"]
 _data = {
 &"RESET": SubResource("Animation_4j0g5"),
+&"curar": SubResource("Animation_f237e"),
 &"hit": SubResource("Animation_8kj65")
 }
 
@@ -664,6 +693,10 @@ one_shot = true
 wait_time = 25.0
 one_shot = true
 
+[node name="curacion_timer" type="Timer" parent="curacion_cooldown" unique_id=1195367697]
+wait_time = 2.0
+one_shot = true
+
 [node name="dash_cooldown" type="Timer" parent="." unique_id=1583464399]
 wait_time = 2.0
 one_shot = true
@@ -717,6 +750,7 @@ bus = &"SFX"
 
 [connection signal="jugador_hit" from="." to="." method="_on_jugador_hit"]
 [connection signal="timeout" from="Stamina_recover" to="." method="_on_stamina_recover_timeout"]
+[connection signal="timeout" from="curacion_cooldown/curacion_timer" to="." method="_on_curacion_timer_timeout"]
 [connection signal="timeout" from="atq_delay_melee" to="." method="_on_atq_delay_melee_timeout"]
 [connection signal="timeout" from="atq_delay_pistola" to="." method="_on_atq_delay_pistola_timeout"]
 [connection signal="timeout" from="atq_delay_escopeta" to="." method="_on_atq_delay_escopeta_timeout"]

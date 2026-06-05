@@ -6,6 +6,14 @@ extends CanvasLayer
 @onready var slot_2: TextureRect = $slots2/Panel2/slot_2
 @onready var slot_3: TextureRect = $slots2/Panel3/slot_3
 @onready var slot_4: TextureRect = $slots2/Panel4/slot_4
+@onready var slot_fondo_1: TextureRect = $slots/TextureRect
+@onready var slot_fondo_2: TextureRect = $slots/TextureRect2
+@onready var slot_fondo_3: TextureRect = $slots/TextureRect3
+@onready var slot_fondo_4: TextureRect = $slots/TextureRect4
+@onready var slot_boton_1: Panel = $botones/Panel
+@onready var slot_boton_2: Panel = $botones/Panel2
+@onready var slot_boton_3: Panel = $botones/Panel3
+@onready var slot_boton_4: Panel = $botones/Panel4
 @onready var radial_menu: Control = $Control/RadialMenuAdvanced
 @onready var armas_total : Array = radial_menu.get_children().map(func(hijo): return hijo.name)
 
@@ -26,6 +34,33 @@ func _process(delta: float) -> void:
 	slot_2.material.set_shader_parameter("fill_ratio",(jugador.dash_cooldown.wait_time  - jugador.dash_cooldown.time_left)/ jugador.dash_cooldown.wait_time)
 	slot_3.material.set_shader_parameter("fill_ratio",(jugador.curacion_cooldown.wait_time  - jugador.curacion_cooldown.time_left)/ jugador.curacion_cooldown.wait_time)
 	slot_4.material.set_shader_parameter("fill_ratio",(jugador.granada_cooldown.wait_time  - jugador.granada_cooldown.time_left)/ jugador.granada_cooldown.wait_time)
+	
+	if Global.habilidades.has("dash"):
+		slot_2.get_parent().show()
+		slot_fondo_2.show()
+		slot_boton_2.show()
+	else:
+		slot_2.get_parent().hide()
+		slot_fondo_2.hide()
+		slot_boton_2.hide()
+		
+	if Global.habilidades.has("curacion"):
+		slot_3.get_parent().show()
+		slot_fondo_3.show()
+		slot_boton_3.show()
+	else:
+		slot_3.get_parent().hide()
+		slot_fondo_3.hide()
+		slot_boton_3.hide()
+		
+	if Global.habilidades.has("granada"):
+		slot_4.get_parent().show()
+		slot_fondo_4.show()
+		slot_boton_4.show()
+	else:
+		slot_4.get_parent().hide()
+		slot_fondo_4.hide()
+		slot_boton_4.hide()
 	
 	for i in armas_total:
 		if Global.armas.has(i):

@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://bo8def8nvveoj"]
+
+[ext_resource type="PackedScene" uid="uid://rajk1vi3mvgy" path="res://Escenas/Entidades/enemigo_platilla_debug.tscn" id="1_pk5ab"]
+[ext_resource type="Script" uid="uid://oy46hmsgheyp" path="res://Scripts/enemigos/pulpusio.gd" id="2_brn5o"]
+[ext_resource type="Texture2D" uid="uid://d3clexokjkxg4" path="res://Recursos/Sprite/Enemigos/Tentáculo.png" id="3_qaena"]
+[ext_resource type="PackedScene" uid="uid://cqbaft31qj14b" path="res://Escenas/Entidades/hurtbox_enemigo.tscn" id="4_3flcx"]
+[ext_resource type="PackedScene" uid="uid://caisb0rnk1s0g" path="res://Escenas/Entidades/hit_box_enemigo.tscn" id="4_p4804"]
+[ext_resource type="Texture2D" uid="uid://6q8haafagv7o" path="res://Recursos/Sprite/Objetos/cuidado.png" id="5_3flcx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3flcx"]
+radius = 5.4119525
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jjlli"]
+size = Vector2(18.876406, 45.842697)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p4804"]
+size = Vector2(21.573034, 48.089886)
+
+[node name="pulpusio" unique_id=2086595903 node_paths=PackedStringArray("sprite") instance=ExtResource("1_pk5ab")]
+script = ExtResource("2_brn5o")
+distancia_por_delante = 60.0
+vida_max = 350.0
+sprite = NodePath("sprite")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="9" unique_id=207006480]
+position = Vector2(0, -8.5723536e-07)
+shape = SubResource("CircleShape2D_3flcx")
+
+[node name="sprite" type="Sprite2D" parent="." index="10" unique_id=1628002890]
+texture_filter = 1
+position = Vector2(0, -11.505619)
+texture = ExtResource("3_qaena")
+
+[node name="hit_box_enemigo" parent="." index="11" unique_id=2055006096 node_paths=PackedStringArray("enemigo") instance=ExtResource("4_p4804")]
+position = Vector2(0, -11.505618)
+enemigo = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hit_box_enemigo" index="0" unique_id=469292489]
+position = Vector2(-4.821949e-07, 0.71909714)
+shape = SubResource("RectangleShape2D_jjlli")
+debug_color = Color(0.9873999, 0, 0.31841138, 0.41960785)
+
+[node name="hurtbox_enemigo" parent="." index="12" unique_id=784568597 instance=ExtResource("4_3flcx")]
+position = Vector2(0, -11.505619)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox_enemigo" index="0" unique_id=1899271945]
+position = Vector2(4.2861768e-07, 0)
+shape = SubResource("RectangleShape2D_p4804")
+debug_color = Color(0, 0.6462937, 0.24779516, 0.41960785)
+
+[node name="atq_cooldown" type="Timer" parent="." index="13" unique_id=1216128977]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="atq_advertencia" type="Timer" parent="." index="14" unique_id=2130848914]
+wait_time = 3.0
+one_shot = true
+
+[node name="Marca_atq" type="Marker2D" parent="." index="15" unique_id=1858931317]
+
+[node name="Sprite2D" type="Sprite2D" parent="Marca_atq" index="0" unique_id=938848046]
+visible = false
+texture_filter = 1
+texture = ExtResource("5_3flcx")
+metadata/_edit_lock_ = true
+
+[connection signal="timeout" from="atq_cooldown" to="." method="_on_atq_cooldown_timeout"]
+[connection signal="timeout" from="atq_advertencia" to="." method="_on_atq_advertencia_timeout"]

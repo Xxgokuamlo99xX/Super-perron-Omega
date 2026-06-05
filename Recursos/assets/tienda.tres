@@ -1,0 +1,46 @@
+[gd_resource type="Theme" format=3 uid="uid://qsgtdcovw6lg"]
+
+[ext_resource type="FontFile" uid="uid://yd8xk01ffqtm" path="res://Recursos/literalmente cualquier cosa/ZeldaOracles.ttf" id="1_03h11"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tgtxa"]
+bg_color = Color(0.41551143, 0.7923846, 0.33361515, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.20558852, 0.4035885, 0.16259122, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ay1r7"]
+bg_color = Color(0, 0.3754775, 0.6492172, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.45950323, 0.5444358, 0.95255286, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aq0uo"]
+bg_color = Color(0.16469875, 0.6167729, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.25766784, 0.30943933, 0.8001019, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xsusu"]
+bg_color = Color(0, 0.3754775, 0.6492172, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.45950323, 0.5444358, 0.95255286, 1)
+
+[resource]
+Button/fonts/font = ExtResource("1_03h11")
+Button/styles/focus = SubResource("StyleBoxFlat_tgtxa")
+Button/styles/hover = SubResource("StyleBoxFlat_tgtxa")
+Button/styles/hover_pressed = SubResource("StyleBoxFlat_ay1r7")
+Button/styles/normal = SubResource("StyleBoxFlat_aq0uo")
+Button/styles/pressed = SubResource("StyleBoxFlat_xsusu")
+RichTextLabel/fonts/normal_font = ExtResource("1_03h11")
+RichTextLabel/styles/focus = null
+VBoxContainer/constants/separation = -1

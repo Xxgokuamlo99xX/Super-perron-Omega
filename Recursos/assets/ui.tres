@@ -1,0 +1,68 @@
+[gd_resource type="Theme" format=3 uid="uid://draw0phrsud7e"]
+
+[ext_resource type="Texture2D" uid="uid://brkx5vesbtqj2" path="res://Recursos/Sprite/Objetos/boton_menu_focus.png" id="1_o4u4e"]
+[ext_resource type="Texture2D" uid="uid://d4bnj53nn5osn" path="res://Recursos/Sprite/Objetos/Boton_de_Menu_Jugar_Mouse_Encima.png" id="2_l2hus"]
+[ext_resource type="Texture2D" uid="uid://1dh1ff5rq620" path="res://Recursos/Sprite/Objetos/Boton_de_Menu.png" id="3_khglx"]
+[ext_resource type="Texture2D" uid="uid://bn1aiiwsbs74r" path="res://Recursos/Sprite/Objetos/boton de opciones_Mouse_Encima.png" id="4_ykufp"]
+[ext_resource type="Texture2D" uid="uid://w8yyrf8sl3ic" path="res://Recursos/Sprite/Objetos/boton de opciones.png" id="5_ad403"]
+[ext_resource type="Texture2D" uid="uid://bdtcrev3bksyo" path="res://Recursos/Sprite/Objetos/Boton_de_Menu_Salir_Mouse_Encima.png" id="6_l2hus"]
+[ext_resource type="Texture2D" uid="uid://3d20is2x7nkt" path="res://Recursos/Sprite/Objetos/Boton_de_Menu_Salir.png" id="7_khglx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a1iog"]
+texture = ExtResource("1_o4u4e")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lu5ek"]
+texture = ExtResource("2_l2hus")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ocnu8"]
+texture = ExtResource("3_khglx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tcni7"]
+texture = ExtResource("2_l2hus")
+modulate_color = Color(0.5132329, 0.5132329, 0.5132329, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fel3x"]
+texture = ExtResource("1_o4u4e")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uag55"]
+texture = ExtResource("4_ykufp")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qxl5u"]
+texture = ExtResource("5_ad403")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_78kko"]
+texture = ExtResource("4_ykufp")
+modulate_color = Color(0.5132329, 0.5132329, 0.5132329, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0k0tn"]
+texture = ExtResource("1_o4u4e")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s4mos"]
+texture = ExtResource("6_l2hus")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l2hus"]
+texture = ExtResource("7_khglx")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_khglx"]
+load_path = "res://.godot/imported/Boton_de_Menu_Salir_Mouse_Encima.png-8446e6b067ca67d3678c22ec2e59f8cb.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ykufp"]
+texture = SubResource("CompressedTexture2D_khglx")
+modulate_color = Color(0.5132329, 0.5132329, 0.5132329, 1)
+
+[resource]
+jugar/base_type = &"Button"
+jugar/styles/focus = SubResource("StyleBoxTexture_a1iog")
+jugar/styles/hover = SubResource("StyleBoxTexture_lu5ek")
+jugar/styles/normal = SubResource("StyleBoxTexture_ocnu8")
+jugar/styles/pressed = SubResource("StyleBoxTexture_tcni7")
+opc/base_type = &"Button"
+opc/styles/focus = SubResource("StyleBoxTexture_fel3x")
+opc/styles/hover = SubResource("StyleBoxTexture_uag55")
+opc/styles/normal = SubResource("StyleBoxTexture_qxl5u")
+opc/styles/pressed = SubResource("StyleBoxTexture_78kko")
+salir/base_type = &"Button"
+salir/styles/focus = SubResource("StyleBoxTexture_0k0tn")
+salir/styles/hover = SubResource("StyleBoxTexture_s4mos")
+salir/styles/normal = SubResource("StyleBoxTexture_l2hus")
+salir/styles/pressed = SubResource("StyleBoxTexture_ykufp")

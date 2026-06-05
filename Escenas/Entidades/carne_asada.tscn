@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://bkwed4cnxx31t"]
+
+[ext_resource type="PackedScene" uid="uid://rajk1vi3mvgy" path="res://Escenas/Entidades/enemigo_platilla_debug.tscn" id="1_et1l3"]
+[ext_resource type="Texture2D" uid="uid://dpuo1g1aqd1q4" path="res://Recursos/Sprite/Enemigos/redisign/Carne.png" id="2_r58b8"]
+[ext_resource type="PackedScene" uid="uid://cqbaft31qj14b" path="res://Escenas/Entidades/hurtbox_enemigo.tscn" id="3_ure4e"]
+[ext_resource type="PackedScene" uid="uid://caisb0rnk1s0g" path="res://Escenas/Entidades/hit_box_enemigo.tscn" id="4_cy3tp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gvwv"]
+size = Vector2(19.887642, 28.426968)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2jxsi"]
+size = Vector2(14.382023, 21.573034)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cpud4"]
+radius = 5.8426967
+
+[node name="carne_asada" unique_id=2086595903 node_paths=PackedStringArray("sprite") instance=ExtResource("1_et1l3")]
+damage = 25.0
+vida_max = 100.0
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="9" unique_id=643772017]
+texture_filter = 1
+position = Vector2(0, -4.269663)
+texture = ExtResource("2_r58b8")
+
+[node name="hurtbox_enemigo" parent="." index="10" unique_id=784568597 instance=ExtResource("3_ure4e")]
+position = Vector2(0, -4.269663)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox_enemigo" index="0" unique_id=1627500106]
+position = Vector2(-0.056179523, 4.213484)
+shape = SubResource("RectangleShape2D_8gvwv")
+debug_color = Color(0, 0.6452975, 0.26969075, 0.41960785)
+
+[node name="hit_box_enemigo" parent="." index="11" unique_id=2055006096 node_paths=PackedStringArray("enemigo") instance=ExtResource("4_cy3tp")]
+position = Vector2(0, -4.269663)
+enemigo = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hit_box_enemigo" index="0" unique_id=413148500]
+texture_filter = 1
+position = Vector2(6.697151e-08, 3.5955055)
+shape = SubResource("RectangleShape2D_2jxsi")
+debug_color = Color(0.98959154, 0, 0.29409808, 0.41960785)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="12" unique_id=1844562844]
+shape = SubResource("CircleShape2D_cpud4")

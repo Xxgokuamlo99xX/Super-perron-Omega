@@ -1,0 +1,201 @@
+[gd_scene format=3 uid="uid://d2uvh5i2ouj2n"]
+
+[ext_resource type="PackedScene" uid="uid://rajk1vi3mvgy" path="res://Escenas/Entidades/enemigo_platilla_debug.tscn" id="1_j1gar"]
+[ext_resource type="Script" uid="uid://bdivateu13ywi" path="res://Scripts/enemigos/tentaculo.gd" id="2_vu03t"]
+[ext_resource type="Texture2D" uid="uid://d3clexokjkxg4" path="res://Recursos/Sprite/Enemigos/Tentáculo.png" id="3_hf67m"]
+[ext_resource type="Texture2D" uid="uid://qvkvrshv5veu" path="res://Recursos/Sprite/Objetos/grieta.png" id="4_c48te"]
+[ext_resource type="PackedScene" uid="uid://caisb0rnk1s0g" path="res://Escenas/Entidades/hit_box_enemigo.tscn" id="4_e6g65"]
+[ext_resource type="Shader" uid="uid://cee108kvw3qnn" path="res://Scripts/shaders/tentaculo.gdshader" id="5_c48te"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c48te"]
+radius = 5.4119525
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fquec"]
+size = Vector2(18.876406, 45.842697)
+
+[sub_resource type="Animation" id="Animation_fquec"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Grieta:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../hit_box_enemigo:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../sprite:material:shader_parameter/progreso")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../sprite:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.8988764, 31.460674)]
+}
+
+[sub_resource type="Animation" id="Animation_hf67m"]
+resource_name = "aparecer"
+length = 0.7
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Grieta:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../hit_box_enemigo:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../sprite:material:shader_parameter/progreso")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.4, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../sprite:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.4, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.8988764, 31.460674), Vector2(0, -13.033709)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e6g65"]
+_data = {
+&"RESET": SubResource("Animation_fquec"),
+&"aparecer": SubResource("Animation_hf67m")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fquec"]
+shader = ExtResource("5_c48te")
+shader_parameter/progreso = 0.0
+shader_parameter/color_borde = Color(1, 1, 1, 0)
+shader_parameter/grosor_borde = 0.0
+
+[node name="tentaculo" unique_id=2086595903 node_paths=PackedStringArray("sprite") instance=ExtResource("1_j1gar")]
+script = ExtResource("2_vu03t")
+sprite = NodePath("sprite")
+
+[node name="aparecer" parent="." index="6" unique_id=1554639512]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="9" unique_id=1446573026]
+position = Vector2(0, -8.5723536e-07)
+shape = SubResource("CircleShape2D_c48te")
+
+[node name="hit_box_enemigo" parent="." index="10" unique_id=2055006096 node_paths=PackedStringArray("enemigo") instance=ExtResource("4_e6g65")]
+position = Vector2(0, -11.505618)
+enemigo = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hit_box_enemigo" index="0" unique_id=1215596201]
+position = Vector2(-4.821949e-07, 0.71909714)
+shape = SubResource("RectangleShape2D_fquec")
+debug_color = Color(0.9873999, 0, 0.31841138, 0.41960785)
+
+[node name="expiracion" type="Timer" parent="." index="11" unique_id=1352417265]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="anim_aparecer" type="AnimationPlayer" parent="." index="12" unique_id=454662763]
+root_node = NodePath("../AnimationPlayer")
+libraries/ = SubResource("AnimationLibrary_e6g65")
+autoplay = &"aparecer"
+
+[node name="Grieta" type="Sprite2D" parent="." index="13" unique_id=999595228]
+texture_filter = 1
+position = Vector2(1.7977533, 5.842699)
+scale = Vector2(2.0168538, 2.0168538)
+texture = ExtResource("4_c48te")
+hframes = 4
+vframes = 2
+
+[node name="sprite" type="Sprite2D" parent="." index="14" unique_id=1784646015]
+visible = false
+texture_filter = 1
+material = SubResource("ShaderMaterial_fquec")
+position = Vector2(0.8988764, 31.460674)
+texture = ExtResource("3_hf67m")
+
+[connection signal="timeout" from="expiracion" to="." method="_on_expiracion_timeout"]

@@ -45,7 +45,7 @@ extends DialogicLayoutLayer
 @export_file('*.tscn') var choices_custom_button: String = ""
 
 func get_choices() -> VBoxContainer:
-	return $Choices
+	return $Panel/Choices
 
 
 func get_button_sound() -> DialogicNode_ButtonSound:

@@ -1,10 +1,13 @@
+res://Escenas/Entidades/
+res://Scripts/shaders/
+res://Scripts/enemigos/
+res://Recursos/assets/
+res://Recursos/literalmente cualquier cosa/
+res://Recursos/
+res://Dialogos/
 res://Recursos/Sprite/Armas/
 res://Escenas/Cosas/
 res://Scripts/jugador/
-res://Recursos/literalmente cualquier cosa/
-res://Escenas/Entidades/
-res://Recursos/
-res://Scripts/shaders/
 C:/Users/tgtrf/Desktop/wthist/
 res://Escenas/Niveles/
 res://
@@ -13,6 +16,4 @@ res://Dialogos/DefaultLayoutBase/
 res://Dialogos/Timelines/
 res://Scripts/varios/
 res://Recursos/Sprite/Objetos/
-res://Scripts/enemigos/
-res://Dialogos/
 res://Dialogos/CustomIntento5/

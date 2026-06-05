@@ -1,4 +1,5 @@
-res://Escenas/Entidades/enemigo_platilla_debug.tscn
+res://Escenas/Entidades/pollo.tscn
+res://Recursos/assets/tienda.tres
 res://Dialogos/estilo.tres
 res://addons/phantom_camera/themes/theme.tres
 res://Recursos/assets/bala_pistola.tres
@@ -8,7 +9,9 @@ res://Scripts/shaders/radial.gdshader
 res://Scripts/shaders/green_screen.gdshader
 res://Recursos/assets/debug_tilemap.tres
 res://Scripts/shaders/teleport.gdshader
+res://Scripts/shaders/tentaculo.gdshader
 res://Scripts/shaders/galaxia.gdshader
+res://Recursos/assets/ui.tres
 res://Scripts/shaders/glitch.gdshader
 res://Scripts/shaders/sobra.gdshader
 res://Scripts/shaders/luz.gdshader

@@ -1,15 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqpb3ie51rwl5"]
+[gd_scene format=3 uid="uid://cqpb3ie51rwl5"]
 
 [ext_resource type="Script" uid="uid://yivwmkfwrvfr" path="res://addons/dialogic/Modules/DefaultLayoutParts/Base_Default/default_layout_base.gd" id="1_ifsho"]
 [ext_resource type="PackedScene" uid="uid://bquja8jyk8kbr" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/vn_textbox_layer.tscn" id="2_0pjge"]
 [ext_resource type="Script" uid="uid://bl43m5qw8pso3" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/vn_textbox_layer.gd" id="3_pii3y"]
 [ext_resource type="PackedScene" uid="uid://cy1y14inwkplb" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Portraits/vn_portrait_layer.tscn" id="4_2wp7t"]
 [ext_resource type="Script" uid="uid://cx1i44s2olq2d" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Portraits/vn_portrait_layer.gd" id="5_cwjgv"]
+[ext_resource type="PackedScene" uid="uid://cn674foxwedqu" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Input/full_advance_input_layer.tscn" id="6_3kf3e"]
+[ext_resource type="Script" uid="uid://dwml743wmb7mn" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Input/full_advance_input_layer.gd" id="7_ouygq"]
+[ext_resource type="PackedScene" uid="uid://d2it0xiap3gnt" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Textbubble/text_bubble_layer.tscn" id="8_1h1kw"]
+[ext_resource type="Script" uid="uid://dcae6nsh8fgtp" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Textbubble/text_bubble_layer.gd" id="9_na411"]
 
-[node name="Custom" type="CanvasLayer"]
+[node name="Custom" type="CanvasLayer" unique_id=2039502674]
 script = ExtResource("1_ifsho")
 
-[node name="VN_TextboxLayer" type="Control" parent="." instance=ExtResource("2_0pjge")]
+[node name="VN_TextboxLayer" type="Control" parent="." unique_id=1733974468 instance=ExtResource("2_0pjge")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,7 +28,7 @@ name_label_box_panel = "res://addons/dialogic/Modules/DefaultLayoutParts/Layer_V
 name_label_box_modulate = Color(0, 0, 0, 1)
 apply_overrides_on_ready = true
 
-[node name="VN_PortraitLayer" type="Control" parent="." instance=ExtResource("4_2wp7t")]
+[node name="VN_PortraitLayer" type="Control" parent="." unique_id=1078490962 instance=ExtResource("4_2wp7t")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,4 +37,40 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("5_cwjgv")
+apply_overrides_on_ready = true
+
+[node name="FullAdvanceInputLayer" type="Control" parent="." unique_id=299010010 instance=ExtResource("6_3kf3e")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("7_ouygq")
+apply_overrides_on_ready = true
+
+[node name="TextBubbleLayer" type="Control" parent="." unique_id=1192377138 instance=ExtResource("8_1h1kw")]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+script = ExtResource("9_na411")
+apply_overrides_on_ready = true
+
+[node name="@Control@188288" type="Control" parent="." unique_id=45435334 instance=ExtResource("6_3kf3e")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("7_ouygq")
+apply_overrides_on_ready = true
+
+[node name="@Control@188289" type="Control" parent="." unique_id=635803316 instance=ExtResource("8_1h1kw")]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+script = ExtResource("9_na411")
 apply_overrides_on_ready = true

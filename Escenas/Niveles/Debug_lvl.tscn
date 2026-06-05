@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://vydnggbkhegb" path="res://Dialogos/Timelines/Prueba.dtl" id="7_0nx45"]
 [ext_resource type="PackedScene" uid="uid://dahg471noql4f" path="res://Escenas/Cosas/teleport.tscn" id="8_t0xsg"]
 [ext_resource type="PackedScene" uid="uid://bt76g0uul7mob" path="res://Escenas/Niveles/debug_lvl_2.tscn" id="9_qiy0t"]
+[ext_resource type="PackedScene" uid="uid://bo8def8nvveoj" path="res://Escenas/Entidades/pulpusio.tscn" id="10_4phhi"]
 
 [node name="debug" type="Node" unique_id=1454939437]
 
@@ -90,6 +91,10 @@ de prueba (con IA)
 
 [node name="Marker2D" type="Marker2D" parent="varios/Button2" unique_id=1697160063]
 position = Vector2(113.21768, 97.83213)
+
+[node name="enemigo_platillla_debug" parent="." unique_id=2086595903 instance=ExtResource("10_4phhi")]
+position = Vector2(431, 33)
+distancia_por_delante = 75.0
 
 [connection signal="pressed" from="varios/Button" to="varios" method="_on_button_pressed"]
 [connection signal="pressed" from="varios/Button2" to="varios" method="_on_button_2_pressed"]

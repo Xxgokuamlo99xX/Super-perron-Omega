@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b3k85ig21rpl2"]
+[gd_scene format=3 uid="uid://b3k85ig21rpl2"]
 
 [ext_resource type="Script" uid="uid://bl43m5qw8pso3" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/vn_textbox_layer.gd" id="1_8yfvu"]
 [ext_resource type="Script" uid="uid://bfc03rn8slceu" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/animations.gd" id="2_ff6qq"]
@@ -202,7 +202,7 @@ _data = {
 
 [sub_resource type="FontVariation" id="FontVariation_2ycg4"]
 
-[node name="_Control_55722" type="Control"]
+[node name="_Control_55722" type="Control" unique_id=1558790556]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 299.0
@@ -223,15 +223,13 @@ next_indicator_enabled = false
 autoadvance_progressbar = false
 typing_sounds_enabled = false
 
-[node name="Animations" type="AnimationPlayer" parent="."]
+[node name="Animations" type="AnimationPlayer" parent="." unique_id=1612719509]
 unique_name_in_owner = true
-libraries = {
-&"": SubResource("AnimationLibrary_c14kh")
-}
-autoplay = "RESET"
+libraries/ = SubResource("AnimationLibrary_c14kh")
+autoplay = &"RESET"
 script = ExtResource("2_ff6qq")
 
-[node name="Anchor" type="Control" parent="."]
+[node name="Anchor" type="Control" parent="." unique_id=1450045471]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -241,7 +239,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="AnimationParent" type="Control" parent="Anchor"]
+[node name="AnimationParent" type="Control" parent="Anchor" unique_id=1265647494]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -252,59 +250,57 @@ grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
 
-[node name="Sizer" type="Control" parent="Anchor/AnimationParent"]
+[node name="Sizer" type="Control" parent="Anchor/AnimationParent" unique_id=1971709429]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 12
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -150.0
-offset_top = -50.0
-offset_right = 150.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
 
-[node name="DialogTextPanel" type="PanelContainer" parent="Anchor/AnimationParent/Sizer"]
+[node name="DialogTextPanel" type="PanelContainer" parent="Anchor/AnimationParent/Sizer" unique_id=602591885]
 unique_name_in_owner = true
 self_modulate = Color(0.00784314, 0.00784314, 0.00784314, 0.843137)
 layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.296667
-anchor_top = -0.12
-anchor_right = 1.26
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -144.0
+offset_right = 248.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("3_r38hs")
 metadata/_edit_layout_mode = 1
-metadata/_edit_use_anchors_ = true
 
-[node name="DialogicNode_DialogText" type="RichTextLabel" parent="Anchor/AnimationParent/Sizer/DialogTextPanel" node_paths=PackedStringArray("textbox_root")]
+[node name="DialogicNode_DialogText" type="RichTextLabel" parent="Anchor/AnimationParent/Sizer/DialogTextPanel" unique_id=230577756 node_paths=PackedStringArray("textbox_root")]
 unique_name_in_owner = true
+texture_filter = 1
 layout_mode = 2
 mouse_filter = 1
 theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/bold_italics_font_size = 15
-theme_override_font_sizes/italics_font_size = 15
 theme_override_font_sizes/normal_font_size = 15
 theme_override_font_sizes/bold_font_size = 15
+theme_override_font_sizes/bold_italics_font_size = 15
+theme_override_font_sizes/italics_font_size = 15
 bbcode_enabled = true
 text = "Algo nose"
 visible_characters_behavior = 1
 script = ExtResource("4_xqfcg")
 textbox_root = NodePath("..")
 
-[node name="DialogicNode_TypeSounds" type="AudioStreamPlayer" parent="Anchor/AnimationParent/Sizer/DialogTextPanel/DialogicNode_DialogText"]
+[node name="DialogicNode_TypeSounds" type="AudioStreamPlayer" parent="Anchor/AnimationParent/Sizer/DialogTextPanel/DialogicNode_DialogText" unique_id=651867877]
 unique_name_in_owner = true
 script = ExtResource("5_65qq8")
 enabled = false
 play_every_character = 0
 
-[node name="NextIndicator" type="Control" parent="Anchor/AnimationParent/Sizer/DialogTextPanel"]
+[node name="NextIndicator" type="Control" parent="Anchor/AnimationParent/Sizer/DialogTextPanel" unique_id=1725854373]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -317,7 +313,7 @@ show_on_questions = true
 texture = ExtResource("7_pvo8l")
 metadata/_edit_layout_mode = 1
 
-[node name="AutoAdvanceProgressbar" type="ProgressBar" parent="Anchor/AnimationParent/Sizer/DialogTextPanel"]
+[node name="AutoAdvanceProgressbar" type="ProgressBar" parent="Anchor/AnimationParent/Sizer/DialogTextPanel" unique_id=2065670758]
 unique_name_in_owner = true
 visible = false
 modulate = Color(1, 1, 1, 0.188235)
@@ -331,25 +327,25 @@ value = 0.5
 show_percentage = false
 script = ExtResource("8_8pjjp")
 
-[node name="NameLabelHolder" type="Control" parent="Anchor/AnimationParent/Sizer/DialogTextPanel"]
+[node name="NameLabelHolder" type="Control" parent="Anchor/AnimationParent/Sizer/DialogTextPanel" unique_id=313630131]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="NameLabelPanel" type="PanelContainer" parent="Anchor/AnimationParent/Sizer/DialogTextPanel/NameLabelHolder"]
+[node name="NameLabelPanel" type="PanelContainer" parent="Anchor/AnimationParent/Sizer/DialogTextPanel/NameLabelHolder" unique_id=825440928]
 unique_name_in_owner = true
 self_modulate = Color(0.00784314, 0.00784314, 0.00784314, 0.843137)
 layout_mode = 1
-offset_left = -14.0
-offset_top = -153.0
-offset_right = 106.0
-offset_bottom = -108.0
+offset_left = -17.0
+offset_top = -69.0
+offset_right = 103.0
+offset_bottom = -24.0
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("9_tmhss")
 metadata/_edit_layout_mode = 1
 metadata/_edit_use_custom_anchors = true
 metadata/_edit_group_ = true
 
-[node name="DialogicNode_NameLabel" type="Label" parent="Anchor/AnimationParent/Sizer/DialogTextPanel/NameLabelHolder/NameLabelPanel" node_paths=PackedStringArray("name_label_root")]
+[node name="DialogicNode_NameLabel" type="Label" parent="Anchor/AnimationParent/Sizer/DialogTextPanel/NameLabelHolder/NameLabelPanel" unique_id=1354324582 node_paths=PackedStringArray("name_label_root")]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)

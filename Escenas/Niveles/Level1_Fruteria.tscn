@@ -234,7 +234,6 @@ color_linea = Color(1, 0, 0, 1)
 shape = SubResource("CircleShape2D_7rb5j")
 
 [node name="Jugador" parent="." unique_id=398366218 instance=ExtResource("6_5g1s2")]
-z_index = 1
 position = Vector2(734, 120)
 
 [node name="teleport_mark" type="Marker2D" parent="." unique_id=1523330306]

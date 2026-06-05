@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://rajk1vi3mvgy" path="res://Escenas/Entidades/enemigo_platilla_debug.tscn" id="1_ejavl"]
 [ext_resource type="PackedScene" uid="uid://caisb0rnk1s0g" path="res://Escenas/Entidades/hit_box_enemigo.tscn" id="2_ejavl"]
-[ext_resource type="Texture2D" uid="uid://cpdhiq8wfpnmf" path="res://Recursos/Sprite/Enemigos/Sandia.png" id="3_5uglw"]
+[ext_resource type="Texture2D" uid="uid://brlw6j4wnxm4x" path="res://Recursos/Sprite/Enemigos/redisign/sandia sprite.png" id="2_m7n25"]
 [ext_resource type="PackedScene" uid="uid://cqbaft31qj14b" path="res://Escenas/Entidades/hurtbox_enemigo.tscn" id="4_m7n25"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ejavl"]
@@ -21,9 +21,10 @@ sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="7" unique_id=462258609]
 texture_filter = 1
-texture = ExtResource("3_5uglw")
+texture = ExtResource("2_m7n25")
 
-[node name="hit_box_enemigo" parent="." index="8" unique_id=2055006096 instance=ExtResource("2_ejavl")]
+[node name="hit_box_enemigo" parent="." index="8" unique_id=2055006096 node_paths=PackedStringArray("enemigo") instance=ExtResource("2_ejavl")]
+enemigo = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hit_box_enemigo" index="0" unique_id=689913486]
 position = Vector2(-8.5723536e-07, -2.1430884e-07)

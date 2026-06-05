@@ -176,24 +176,28 @@ texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("5_p127u")
+stretch_mode = 5
 
 [node name="TextureRect2" type="TextureRect" parent="slots" unique_id=1202042037]
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("5_p127u")
+stretch_mode = 5
 
 [node name="TextureRect3" type="TextureRect" parent="slots" unique_id=1307088625]
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("5_p127u")
+stretch_mode = 5
 
 [node name="TextureRect4" type="TextureRect" parent="slots" unique_id=2052199315]
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("5_p127u")
+stretch_mode = 5
 
 [node name="slots2" type="HBoxContainer" parent="." unique_id=230017088]
 offset_left = 389.0
@@ -465,7 +469,6 @@ hover_color = Color(1, 0.4666667, 0, 0.4392157)
 hover_offset_start = 114
 hover_size_factor = 1.0999999999999996
 hover_children_radial_offset = 0.12599999999999945
-animated_pulse_enabled = true
 animated_pulse_intensity = 1
 animated_pulse_offset = -1
 animated_pulse_speed = 5
@@ -487,10 +490,10 @@ texture = ExtResource("17_5jsti")
 [node name="pistola" type="TextureRect" parent="Control/RadialMenuAdvanced" unique_id=1154167383]
 texture_filter = 1
 layout_mode = 0
-offset_left = 33.895695
-offset_top = 33.89577
-offset_right = 117.229034
-offset_bottom = 117.22911
+offset_left = 39.46416
+offset_top = 39.464237
+offset_right = 122.7975
+offset_bottom = 122.79758
 rotation = 6.2831855
 pivot_offset = Vector2(41.66667, 41.66667)
 texture = ExtResource("7_4fa2r")
@@ -510,12 +513,12 @@ texture = ExtResource("18_5jsti")
 [node name="granada" type="TextureRect" parent="Control/RadialMenuAdvanced" unique_id=1622227119]
 texture_filter = 1
 layout_mode = 0
-offset_left = 127.85251
-offset_top = 127.8526
-offset_right = 211.18585
-offset_bottom = 211.18594
+offset_left = 133.42096
+offset_top = 133.42105
+offset_right = 216.7543
+offset_bottom = 216.7544
 rotation = 6.2831855
-pivot_offset = Vector2(41.666664, 41.666664)
+pivot_offset = Vector2(41.66667, 41.66667)
 texture = ExtResource("8_5xenj")
 
 [connection signal="selection_changed" from="Control/RadialMenuAdvanced" to="." method="_on_radial_menu_advanced_selection_changed"]

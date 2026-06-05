@@ -21,7 +21,8 @@ sprite = NodePath("Sprite2D")
 texture_filter = 1
 texture = ExtResource("3_c04is")
 
-[node name="hit_box_enemigo" parent="." index="8" unique_id=2055006096 instance=ExtResource("2_5h8px")]
+[node name="hit_box_enemigo" parent="." index="8" unique_id=2055006096 node_paths=PackedStringArray("enemigo") instance=ExtResource("2_5h8px")]
+enemigo = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hit_box_enemigo" index="0" unique_id=1248542040]
 position = Vector2(1.0715442e-07, -2.1430884e-07)

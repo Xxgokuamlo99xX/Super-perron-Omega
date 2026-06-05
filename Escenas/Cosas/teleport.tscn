@@ -60,6 +60,7 @@ scale = Vector2(1.5625, 1.5625)
 texture = ExtResource("3_bjdfu")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1261762775]
+z_index = 3
 material = SubResource("ShaderMaterial_t3jos")
 offset_left = -174.0
 offset_top = -273.0

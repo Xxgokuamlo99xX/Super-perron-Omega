@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://c0j46s58k8gwt"]
+
+[ext_resource type="Theme" uid="uid://qsgtdcovw6lg" path="res://Recursos/assets/tienda.tres" id="1_q4dw1"]
+[ext_resource type="Script" uid="uid://bldt7xlfum7ov" path="res://addons/dialogic/Modules/Choice/node_choice_button.gd" id="1_xcpp3"]
+
+[node name="DialogicNode_ChoiceButton" type="Button" unique_id=979965261 node_paths=PackedStringArray("text_node")]
+offset_right = 52.0
+offset_bottom = 17.0
+size_flags_vertical = 3
+theme = ExtResource("1_q4dw1")
+script = ExtResource("1_xcpp3")
+text_node = NodePath("RichTextLabel")
+metadata/_custom_type_script = "uid://bldt7xlfum7ov"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1972942856]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "d"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
