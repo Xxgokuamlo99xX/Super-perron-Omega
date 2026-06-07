@@ -2,10 +2,14 @@
 
 [ext_resource type="Script" uid="uid://dxywqahed080g" path="res://Scripts/varios/menu_layout.gd" id="1_ao3qb"]
 [ext_resource type="Shader" uid="uid://cjticauql6o5q" path="res://Scripts/shaders/galaxia.gdshader" id="2_72ejy"]
+[ext_resource type="PackedScene" uid="uid://dyf0kopi3eles" path="res://Escenas/Cosas/musica_manager.tscn" id="2_a1iog"]
 [ext_resource type="FontFile" uid="uid://yd8xk01ffqtm" path="res://Recursos/literalmente cualquier cosa/ZeldaOracles.ttf" id="2_ao3qb"]
-[ext_resource type="AudioStream" uid="uid://dlljv8ogoyn45" path="res://Recursos/Sonidos/Musica/psychronic-pixel-booster-362955.wav" id="2_tcni7"]
 [ext_resource type="Texture2D" uid="uid://dcht8x1b0qc2u" path="res://Recursos/Sprite/Objetos/logoelsuper.png" id="3_6gt6a"]
 [ext_resource type="Theme" uid="uid://draw0phrsud7e" path="res://Recursos/assets/ui.tres" id="5_npbjw"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="7_npbjw"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="8_a1iog"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="9_ocnu8"]
+[ext_resource type="Script" uid="uid://dmcbf4lrsi7nw" path="res://Scripts/varios/Volume_bar.gd" id="10_a1iog"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_33njn"]
 shader = ExtResource("2_72ejy")
@@ -17,14 +21,31 @@ font_color = Color(1, 0.7313913, 0, 1)
 outline_size = 12
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="Resource" id="Resource_qxl5u"]
+script = ExtResource("9_ocnu8")
+transition = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a1iog"]
+bg_color = Color(0, 0, 0, 0.63900006)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ocnu8"]
+bg_color = Color(0, 0, 0, 0.63900006)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+corner_detail = 20
+
 [node name="menu_principal" type="Node" unique_id=1558201457]
 script = ExtResource("1_ao3qb")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1681289470]
-stream = ExtResource("2_tcni7")
-volume_db = -5.932
-autoplay = true
-bus = &"Musica"
+[node name="Musica" parent="." unique_id=1037165216 instance=ExtResource("2_a1iog")]
+musica_cambio = "menu"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=971209172]
 material = SubResource("ShaderMaterial_33njn")
@@ -57,10 +78,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -251.0
-offset_top = -85.0
-offset_right = 257.0
-offset_bottom = -25.0
+offset_left = -235.5
+offset_top = -90.0
+offset_right = 235.5
+offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 3
@@ -110,5 +131,171 @@ label_settings = SubResource("LabelSettings_0rm14")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=558200061]
+position = Vector2(288, 161)
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=1324526520]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("7_npbjw")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="arriba" type="Node2D" parent="." unique_id=914296152]
+position = Vector2(288, 161)
+script = ExtResource("8_a1iog")
+priority = 1
+tween_resource = SubResource("Resource_qxl5u")
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="abajo" type="Node2D" parent="." unique_id=827309485]
+position = Vector2(288, 486)
+script = ExtResource("8_a1iog")
+tween_resource = SubResource("Resource_qxl5u")
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="opciones" type="Control" parent="." unique_id=752067257]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 288.0
+offset_top = 486.0
+offset_right = 328.0
+offset_bottom = 526.0
+
+[node name="ColorRect" type="Panel" parent="opciones" unique_id=243193583]
+layout_mode = 0
+offset_left = -246.0
+offset_top = -97.0
+offset_right = -111.0
+offset_bottom = 83.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_a1iog")
+
+[node name="Volumenscrols" type="Node2D" parent="opciones/ColorRect" unique_id=1557903833]
+position = Vector2(-80, -151.00002)
+scale = Vector2(0.6986978, 0.6986978)
+
+[node name="Master" type="HSlider" parent="opciones/ColorRect/Volumenscrols" unique_id=765802472]
+offset_left = 128.0
+offset_top = 305.0
+offset_right = 301.0
+offset_bottom = 342.0
+max_value = 1.0
+step = 0.1
+script = ExtResource("10_a1iog")
+bus_name = "Master"
+
+[node name="Label" type="Label" parent="opciones/ColorRect/Volumenscrols/Master" unique_id=1418817397]
+layout_mode = 0
+offset_left = 31.0
+offset_top = -36.0
+offset_right = 101.0
+offset_bottom = -12.0
+scale = Vector2(1.545, 1.545)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "Master"
+horizontal_alignment = 1
+
+[node name="Musica" type="HSlider" parent="opciones/ColorRect/Volumenscrols" unique_id=1912069776]
+offset_left = 129.0
+offset_top = 366.0
+offset_right = 302.0
+offset_bottom = 403.0
+max_value = 1.0
+step = 0.1
+script = ExtResource("10_a1iog")
+bus_name = "Musica"
+
+[node name="Label" type="Label" parent="opciones/ColorRect/Volumenscrols/Musica" unique_id=1315662924]
+layout_mode = 0
+offset_left = 31.0
+offset_top = -36.0
+offset_right = 101.0
+offset_bottom = -12.0
+scale = Vector2(1.545, 1.545)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "Musica"
+horizontal_alignment = 1
+
+[node name="SFX" type="HSlider" parent="opciones/ColorRect/Volumenscrols" unique_id=1137182382]
+offset_left = 128.0
+offset_top = 428.0
+offset_right = 301.0
+offset_bottom = 465.0
+max_value = 1.0
+step = 0.1
+script = ExtResource("10_a1iog")
+bus_name = "SFX"
+
+[node name="Label" type="Label" parent="opciones/ColorRect/Volumenscrols/SFX" unique_id=74169547]
+layout_mode = 0
+offset_left = 31.0
+offset_top = -36.0
+offset_right = 101.0
+offset_bottom = -12.0
+scale = Vector2(1.545, 1.545)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "SFX"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="opciones/ColorRect/Volumenscrols" unique_id=1991319148]
+offset_left = 136.0
+offset_top = 216.0
+offset_right = 206.0
+offset_bottom = 240.0
+scale = Vector2(2.195, 2.195)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "Volumen"
+
+[node name="atras" type="Button" parent="opciones" unique_id=729044115]
+texture_filter = 1
+layout_mode = 0
+offset_left = -246.0
+offset_top = 92.0
+offset_right = -112.8387
+offset_bottom = 135.0
+focus_neighbor_left = NodePath("../Panel/Label")
+focus_neighbor_right = NodePath("../Panel/Label")
+theme = ExtResource("5_npbjw")
+theme_type_variation = &"atras"
+
+[node name="Panel" type="Panel" parent="opciones" unique_id=452436071]
+layout_mode = 0
+offset_left = -54.0
+offset_top = -131.0
+offset_right = 275.0
+offset_bottom = 138.0
+focus_behavior_recursive = 1
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ocnu8")
+
+[node name="Label" type="RichTextLabel" parent="opciones/Panel" unique_id=564189368]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_left = NodePath("../../atras")
+focus_neighbor_right = NodePath("../../atras")
+bbcode_enabled = true
+text = "CREDITOS
+[hr]
+Programacion
+- Oscar Ethianne Alvarado Torres [img]res://Recursos/literalmente cualquier cosa/Sprite_nuevo_pj2_duda.png[/img][hr]
+Lo demas
+- Otra gente :v
+(christian pon los creditos)"
+horizontal_alignment = 1
+
 [connection signal="pressed" from="HBoxContainer/jugar" to="." method="_on_jugar_pressed"]
+[connection signal="pressed" from="HBoxContainer/opc" to="." method="_on_opc_pressed"]
 [connection signal="pressed" from="HBoxContainer/salir" to="." method="_on_salir_pressed"]
+[connection signal="value_changed" from="opciones/ColorRect/Volumenscrols/Master" to="opciones/ColorRect/Volumenscrols/Master" method="_on_value_changed"]
+[connection signal="value_changed" from="opciones/ColorRect/Volumenscrols/Musica" to="opciones/ColorRect/Volumenscrols/Musica" method="_on_value_changed"]
+[connection signal="value_changed" from="opciones/ColorRect/Volumenscrols/SFX" to="opciones/ColorRect/Volumenscrols/SFX" method="_on_value_changed"]
+[connection signal="pressed" from="opciones/atras" to="." method="_on_button_pressed"]

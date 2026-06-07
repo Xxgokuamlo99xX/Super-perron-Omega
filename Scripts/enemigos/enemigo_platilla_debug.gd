@@ -12,7 +12,7 @@ var vida : float
 #borrar esta cuando sea enemigo normal
 @export var ia : bool = true
 @onready var agent: NavigationAgent2D = $NavigationAgent2D
-
+@onready var dmg_number = preload("res://Escenas/Cosas/dmg_marker.tscn")
 var siguiendo : bool = true
 @onready var centro: RayCast2D = $deteccion_raycast/centro
 @onready var deteccion: Area2D = $deteccion_raycast/Deteccion
@@ -28,9 +28,6 @@ func _ready() -> void:
 	vida = vida_max
 	recalc_timer.start() 
 
-func _process(delta: float) -> void:
-	debug()
-	
 func _physics_process(delta: float) -> void:
 	#for i in deteccion.get_overlapping_bodies():
 		#if i.is_in_group("jugador") and ia:
@@ -54,11 +51,6 @@ func _physics_process(delta: float) -> void:
 	velocity += calcular_vector_separacion() * fuerza_empuje * delta
 	move_and_slide()
 		
-func debug():
-	var progress_bar: ProgressBar = $Debug/ProgressBar
-	progress_bar.max_value = vida_max
-	progress_bar.value = vida
-	
 func calcular_vector_separacion() -> Vector2:
 	var direccion_empuje = Vector2.ZERO
 	var areas_solapadas = detector.get_overlapping_areas()
@@ -86,9 +78,13 @@ func morir():
 func _on_enemigo_hit(damage_recibido) -> void:
 	if !i_frames.is_stopped():
 		return
+	var numero = dmg_number.instantiate()
+	numero.global_position = global_position - Vector2(0, 20)
+	add_sibling(numero)
+	numero.mostrar(damage_recibido)
 	$AnimationPlayer.play("hit")
-	i_frames.start()
 	vida -= damage_recibido
+	i_frames.start()
 	#print("vida enemigo -> ",vida)
 	if vida <= 0:
 		morir()

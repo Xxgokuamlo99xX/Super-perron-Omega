@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dyf0kopi3eles"]
+
+[ext_resource type="Script" uid="uid://hm08bdul0pcu" path="res://Scripts/varios/musica_manager.gd" id="1_cbipy"]
+
+[node name="Musica" type="Node" unique_id=1037165216]
+script = ExtResource("1_cbipy")

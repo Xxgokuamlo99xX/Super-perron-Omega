@@ -33,4 +33,4 @@ func abrir_puerta():
 	var inst = tp.instantiate()
 	inst.global_position = tp_mark.global_position
 	inst.escena_cambio = load("res://Escenas/Cosas/mapa.tscn")
-	add_child(inst)
+	add_child.call_deferred(inst)

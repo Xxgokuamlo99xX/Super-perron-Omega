@@ -2,34 +2,81 @@ join GerenteTienda right
 GerenteTienda: Bienvenido
 label AbreTienda
 GerenteTienda: Que desea comprar?
-- Cuchillo | [if {Global.armas}.has("pistola") and !{Global.armas}.has("cuchillo")]
-	if {Global.dinero} == 375.0:
-		do Global.comprar("cuchillo")
-	else:
-		GerenteTienda: Pinche pobre
+- [img]res://Recursos/Sprite/Prota_Naranja/I_Cuchillo.png[/img] Cuchillo [img]res://Recursos/Sprite/Monedas/Moneda_5.png[/img] 100 | [if {Global.armas}.has("pistola") and !{Global.armas}.has("cuchillo")]
+	GerenteTienda: Cuchillo: Es un cuchillo para cocinar, es corto y podría ser letal, pero es solo para cocinar ¿Entiendes?
+	GerenteTienda: quieres comprarla?
+	- si
+		if {Global.dinero} >= 100.0:
+			do Global.comprar_arma("cuchillo")
+			set {Global.dinero} -= 100.0
+		else:
+			GerenteTienda: Pinche pobre
+	- no
+		jump AbreTienda
 
-- Pistola | [if {Global.armas}.has("cuchillo") and !{Global.armas}.has("pistola")]
-	if {Global.dinero} == 375.0:
-		do Global.comprar("pistola")
-	else:
-		GerenteTienda: Pinche pobre
+- [img]res://Recursos/Sprite/Prota_Naranja/I_Pistola.png[/img] Pistola [img]res://Recursos/Sprite/Monedas/Moneda_5.png[/img] 100 | [if {Global.armas}.has("cuchillo") and !{Global.armas}.has("pistola")]
+	GerenteTienda: Pistola: No se de donde salio esta pistola, Es real? parece tener un gran rango
+	GerenteTienda: quieres comprarla?
+	- si
+		if {Global.dinero} >= 100.0:
+			do Global.comprar_arma("pistola")
+			set {Global.dinero} -= 100.0
+		else:
+			GerenteTienda: Pinche pobre (No te alcanza)
+	- no
+		jump AbreTienda
 
-- [img]res://Recursos/Sprite/Armas/Pisstolita.png[/img]  Escopeta [img]res://Recursos/Sprite/Monedas/Moneda_5.png[/img] 375 | [if !{Global.armas}.has("escopeta")]
-	if {Global.dinero} == 375.0:
-		GerenteTienda: Muchas gracias por su compra
-		do Global.comprar("escopeta")
-	else:
-		GerenteTienda: Pinche pobre
+- [img]res://Recursos/Sprite/Armas/Pisstolita.png[/img]  Escopeta [img]res://Recursos/Sprite/Monedas/Moneda_5.png[/img] 200 | [if !{Global.armas}.has("escopeta")]
+	GerenteTienda: Escopeta: Una arma que es capaz de disparar pasta instantanea en un gran area, esta arma fue hecha por mi como podras notar
+	GerenteTienda: quieres comprarla?
+	- si
+		if {Global.dinero} >= 200.0:
+			GerenteTienda: Muchas gracias por su compra
+			do Global.comprar_arma("escopeta")
+			set {Global.dinero} -= 200.0
+		else:
+			GerenteTienda: Pinche pobre
+	- no
+		jump AbreTienda
 
-- Curacion | [if  !{Global.habilidades}.has("curacion")]
-	if {Global.dinero} == 375.0:
-		GerenteTienda: Muchas gracias por su compra
-	else:
-		GerenteTienda: Pinche pobre
+- [img]res://Recursos/Sprite/Objetos/paracetamol.png[/img] Paracetamol [img]res://Recursos/Sprite/Monedas/Moneda_5.png[/img] 100 | [if !{Global.habilidades}.has("curacion")]
+	GerenteTienda: Paracetamol: Si te sientes mal, prueba estas pastillas y te sentiras mejor, aunque solo 1 vez (Regenera vida)
+	GerenteTienda: quieres comprarla?
+	- si
+		if {Global.dinero} >= 100.0:
+			GerenteTienda: Muchas gracias por su compra
+			do Global.comprar_habilida("curacion")
+			set {Global.dinero} -= 100.0
+		else:
+			GerenteTienda: Pinche pobre
+	- no
+		jump AbreTienda
 
-- Dash | [if !{Global.habilidades}.has("dash")]
+- [img]res://Recursos/Sprite/Prota_Naranja/I_Agua_mineral_Sifon.png[/img] Agua mineral [img]res://Recursos/Sprite/Monedas/Moneda_5.png[/img] 100 | [if !{Global.habilidades}.has("dash")]
+	GerenteTienda: Agua mineral: Esta botella puede impulsarte hacia una direccion con su gas, evitando cualquier herida (Dash)
+	GerenteTienda: quieres comprarla?
+	- si
+		if {Global.dinero} >= 100.0:
+			GerenteTienda: Muchas gracias por su compra
+			do Global.comprar_habilida("dash")
+			set {Global.dinero} -= 100.0
+		else:
+			GerenteTienda: Pinche pobre
+	- no
+		jump AbreTienda
 
-- Granada | [if !{Global.habilidades}.has("granada")]
+- [img]res://Recursos/Sprite/Prota_Naranja/I_Cola_con_mentos.png[/img] Granada [img]res://Recursos/Sprite/Monedas/Moneda_5.png[/img] 100 | [if !{Global.habilidades}.has("granada")]
+	GerenteTienda: Coca con mentas: Si mezclas estos 2 objetos puedes generan una gran explosion que destruira todo en un area (Explosivo)
+	GerenteTienda: quieres comprarla?
+	- si
+		if {Global.dinero} >= 100.0:
+			GerenteTienda: Muchas gracias por su compra
+			do Global.comprar_habilida("granada")
+			set {Global.dinero} -= 100.0
+		else:
+			GerenteTienda: Pinche pobre
+	- no
+		jump AbreTienda
 
 - Nada (salir)
 	GerenteTienda: Hasta luego

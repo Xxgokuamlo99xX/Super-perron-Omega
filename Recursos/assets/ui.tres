@@ -1,15 +1,54 @@
 [gd_resource type="Theme" format=3 uid="uid://draw0phrsud7e"]
 
 [ext_resource type="Texture2D" uid="uid://brkx5vesbtqj2" path="res://Recursos/Sprite/Objetos/boton_menu_focus.png" id="1_o4u4e"]
+[ext_resource type="Texture2D" uid="uid://2qra5qpwbtvm" path="res://Recursos/Sprite/Objetos/Boton_de_rendirse_Mouse_Encima.png" id="2_05yqf"]
 [ext_resource type="Texture2D" uid="uid://d4bnj53nn5osn" path="res://Recursos/Sprite/Objetos/Boton_de_Menu_Jugar_Mouse_Encima.png" id="2_l2hus"]
+[ext_resource type="Texture2D" uid="uid://bn42yq07mps5i" path="res://Recursos/Sprite/Objetos/Boton_de_rendirse.png" id="3_b7cua"]
 [ext_resource type="Texture2D" uid="uid://1dh1ff5rq620" path="res://Recursos/Sprite/Objetos/Boton_de_Menu.png" id="3_khglx"]
+[ext_resource type="Texture2D" uid="uid://cxhhggrefkf8i" path="res://Recursos/Sprite/Objetos/Boton_de_continuar_Mouse_Encima.png" id="4_ddmr5"]
+[ext_resource type="Texture2D" uid="uid://c4vxkh4hpkvek" path="res://Recursos/Sprite/Objetos/Boton_de_Regresar_Mouse_Encima.png" id="4_ek4b5"]
 [ext_resource type="Texture2D" uid="uid://bn1aiiwsbs74r" path="res://Recursos/Sprite/Objetos/boton de opciones_Mouse_Encima.png" id="4_ykufp"]
 [ext_resource type="Texture2D" uid="uid://w8yyrf8sl3ic" path="res://Recursos/Sprite/Objetos/boton de opciones.png" id="5_ad403"]
+[ext_resource type="Texture2D" uid="uid://d2gam10wrtyap" path="res://Recursos/Sprite/Objetos/Boton_de_continuar.png" id="5_ek4b5"]
+[ext_resource type="Texture2D" uid="uid://cmomsa6oanuap" path="res://Recursos/Sprite/Objetos/Boton_de_Regresar.png" id="5_jblss"]
 [ext_resource type="Texture2D" uid="uid://bdtcrev3bksyo" path="res://Recursos/Sprite/Objetos/Boton_de_Menu_Salir_Mouse_Encima.png" id="6_l2hus"]
 [ext_resource type="Texture2D" uid="uid://3d20is2x7nkt" path="res://Recursos/Sprite/Objetos/Boton_de_Menu_Salir.png" id="7_khglx"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a1iog"]
 texture = ExtResource("1_o4u4e")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jblss"]
+texture = ExtResource("2_05yqf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h3ok6"]
+texture = ExtResource("3_b7cua")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3cekx"]
+texture = ExtResource("2_05yqf")
+modulate_color = Color(0.5132329, 0.5132329, 0.5132329, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a51jy"]
+texture = ExtResource("1_o4u4e")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_78k4s"]
+texture = ExtResource("4_ek4b5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mplqr"]
+texture = ExtResource("5_jblss")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m6le7"]
+texture = ExtResource("4_ek4b5")
+modulate_color = Color(0.5132329, 0.5132329, 0.5132329, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yojlt"]
+texture = ExtResource("4_ddmr5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ycct8"]
+texture = ExtResource("5_ek4b5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jrgqf"]
+texture = ExtResource("4_ddmr5")
+modulate_color = Color(0.5132329, 0.5132329, 0.5132329, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lu5ek"]
 texture = ExtResource("2_l2hus")
@@ -51,6 +90,21 @@ texture = SubResource("CompressedTexture2D_khglx")
 modulate_color = Color(0.5132329, 0.5132329, 0.5132329, 1)
 
 [resource]
+abandonar/base_type = &"Button"
+abandonar/styles/focus = SubResource("StyleBoxTexture_a1iog")
+abandonar/styles/hover = SubResource("StyleBoxTexture_jblss")
+abandonar/styles/normal = SubResource("StyleBoxTexture_h3ok6")
+abandonar/styles/pressed = SubResource("StyleBoxTexture_3cekx")
+atras/base_type = &"Button"
+atras/styles/focus = SubResource("StyleBoxTexture_a51jy")
+atras/styles/hover = SubResource("StyleBoxTexture_78k4s")
+atras/styles/normal = SubResource("StyleBoxTexture_mplqr")
+atras/styles/pressed = SubResource("StyleBoxTexture_m6le7")
+continuar/base_type = &"Button"
+continuar/styles/focus = SubResource("StyleBoxTexture_a1iog")
+continuar/styles/hover = SubResource("StyleBoxTexture_yojlt")
+continuar/styles/normal = SubResource("StyleBoxTexture_ycct8")
+continuar/styles/pressed = SubResource("StyleBoxTexture_jrgqf")
 jugar/base_type = &"Button"
 jugar/styles/focus = SubResource("StyleBoxTexture_a1iog")
 jugar/styles/hover = SubResource("StyleBoxTexture_lu5ek")

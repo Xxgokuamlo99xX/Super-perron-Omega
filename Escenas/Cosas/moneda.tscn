@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://dcol4dlrodrpu"]
 
 [ext_resource type="Script" uid="uid://6nhxl12qs53a" path="res://Scripts/varios/moneda.gd" id="1_lqlvv"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_lqlvv"]
+[ext_resource type="Texture2D" uid="uid://dde63ywa6v504" path="res://Recursos/Sprite/Objetos/moneda.png" id="2_88opy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lqlvv"]
 
@@ -25,7 +24,8 @@ noise = SubResource("FastNoiseLite_pb6yl")
 color_ramp = SubResource("Gradient_88opy")
 
 [sub_resource type="Gradient" id="Gradient_lqlvv"]
-colors = PackedColorArray(1, 1, 0.5294118, 1, 1, 1, 1, 0)
+offsets = PackedFloat32Array(0, 0.64830506, 1)
+colors = PackedColorArray(1, 0.6262097, 0.89471775, 1, 0.69008625, 0.90683234, 0.9630527, 0.693, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_88opy"]
 gradient = SubResource("Gradient_lqlvv")
@@ -48,8 +48,8 @@ gravity = Vector3(0, 0, 0)
 scale_min = 0.7
 scale_curve = SubResource("CurveTexture_51w7k")
 color_ramp = SubResource("GradientTexture1D_88opy")
-hue_variation_min = -0.09000002
-hue_variation_max = 0.13999997
+hue_variation_min = -0.100000024
+hue_variation_max = -2.2351742e-08
 
 [node name="moneda" type="Area2D" unique_id=1344270058]
 collision_layer = 0
@@ -57,11 +57,8 @@ collision_mask = 8
 script = ExtResource("1_lqlvv")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=159999268]
-modulate = Color(1, 0, 1, 1)
-self_modulate = Color(1, 1, 0.38431373, 1)
 texture_filter = 1
-scale = Vector2(10, 10)
-texture = SubResource("PlaceholderTexture2D_lqlvv")
+texture = ExtResource("2_88opy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=25092752]
 shape = SubResource("CircleShape2D_lqlvv")

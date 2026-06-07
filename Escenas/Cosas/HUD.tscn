@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://c2a5epensab4u"]
 
 [ext_resource type="Script" uid="uid://sgnc7tls1yxg" path="res://Scripts/jugador/hud.gd" id="1_xbpho"]
+[ext_resource type="Texture2D" uid="uid://dbdlcwmc6clhy" path="res://Recursos/Sprite/Objetos/cartera.png" id="2_hp8kk"]
 [ext_resource type="Material" uid="uid://c5tqgqfswjwfm" path="res://Recursos/assets/liquito.tres" id="2_slj6y"]
 [ext_resource type="Texture2D" uid="uid://clyoh20su5glq" path="res://Recursos/literalmente cualquier cosa/prueba_frasco_2.png" id="3_h2pb1"]
 [ext_resource type="Texture2D" uid="uid://cswqeyggtcj15" path="res://Recursos/literalmente cualquier cosa/prueba_frasco_1.png" id="4_hxui1"]
 [ext_resource type="Texture2D" uid="uid://bxsucutvs7day" path="res://Recursos/Sprite/Objetos/inventario_slot.png" id="5_p127u"]
 [ext_resource type="Shader" uid="uid://dvic33ak4nk1s" path="res://Scripts/shaders/radial.gdshader" id="6_4fa2r"]
-[ext_resource type="Texture2D" uid="uid://bb85kuip5taiw" path="res://Recursos/Sprite/Armas/Pistola.png" id="7_4fa2r"]
 [ext_resource type="Texture2D" uid="uid://dw5an10xhab36" path="res://Recursos/Sprite/Objetos/puto_cuadro_transparente.png" id="7_5xenj"]
 [ext_resource type="Texture2D" uid="uid://dkoar1c8pfgxj" path="res://Recursos/Sprite/Armas/Agua_mineral.png" id="8_5xenj"]
 [ext_resource type="Texture2D" uid="uid://cp7ivrx054qsx" path="res://Recursos/Sprite/Armas/speed.png" id="8_hp8kk"]
@@ -18,8 +18,9 @@
 [ext_resource type="Texture2D" uid="uid://c3yfoqbcnixqw" path="res://Recursos/Sprite/Objetos/inventario.png" id="14_bwvfi"]
 [ext_resource type="Script" uid="uid://r62jgcmacbru" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="15_bwvfi"]
 [ext_resource type="Script" uid="uid://hhd2s4ytyh76" path="res://addons/advanced_radial_menu/radial_menu_class.gd" id="16_ms671"]
-[ext_resource type="Texture2D" uid="uid://b8bek8ubpnj46" path="res://Recursos/Sprite/Armas/Cuchillo_de_platico.png" id="17_5jsti"]
-[ext_resource type="Texture2D" uid="uid://cjl35rneu1s42" path="res://Recursos/Sprite/Armas/Pisstolita.png" id="18_5jsti"]
+[ext_resource type="Texture2D" uid="uid://cen137tui3u4i" path="res://Recursos/Sprite/Prota_Naranja/I_Cuchillo.png" id="19_hp8kk"]
+[ext_resource type="Texture2D" uid="uid://dhw1fv6bynx7p" path="res://Recursos/Sprite/Prota_Naranja/I_Pistola.png" id="20_4syr6"]
+[ext_resource type="Texture2D" uid="uid://cta1b71yplc8c" path="res://Recursos/Sprite/Prota_Naranja/I_Escopeta.png" id="21_61lk1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o0slk"]
 
@@ -109,6 +110,7 @@ script = ExtResource("1_xbpho")
 layer = 2
 
 [node name="fps" type="Label" parent="C" unique_id=798735385]
+visible = false
 offset_left = 498.0
 offset_top = 10.0
 offset_right = 538.0
@@ -116,11 +118,21 @@ offset_bottom = 33.0
 text = "Fps: "
 
 [node name="El dinero" type="Label" parent="C" unique_id=59422458]
-offset_left = 499.0
+offset_left = 464.0
 offset_top = 29.0
-offset_right = 563.0
+offset_right = 529.0
 offset_bottom = 52.0
-text = "Dinero:"
+text = "9999999"
+horizontal_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="C/El dinero" unique_id=338872722]
+texture_filter = 1
+layout_mode = 0
+offset_left = 71.0
+offset_top = -16.0
+offset_right = 111.0
+offset_bottom = 24.0
+texture = ExtResource("2_hp8kk")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=594473686]
 visible = false
@@ -479,13 +491,13 @@ metadata/_edit_lock_ = true
 [node name="cuchillo" type="TextureRect" parent="Control/RadialMenuAdvanced" unique_id=1337034296]
 texture_filter = 1
 layout_mode = 0
-offset_left = 127.85251
-offset_top = 39.464245
-offset_right = 211.18585
-offset_bottom = 122.79758
+offset_left = 133.42097
+offset_top = 33.89578
+offset_right = 216.7543
+offset_bottom = 117.22911
 rotation = 6.2831855
-pivot_offset = Vector2(41.66667, 41.666664)
-texture = ExtResource("17_5jsti")
+pivot_offset = Vector2(41.666664, 41.666664)
+texture = ExtResource("19_hp8kk")
 
 [node name="pistola" type="TextureRect" parent="Control/RadialMenuAdvanced" unique_id=1154167383]
 texture_filter = 1
@@ -496,7 +508,7 @@ offset_right = 122.7975
 offset_bottom = 122.79758
 rotation = 6.2831855
 pivot_offset = Vector2(41.66667, 41.66667)
-texture = ExtResource("7_4fa2r")
+texture = ExtResource("20_4syr6")
 expand_mode = 1
 
 [node name="escopeta" type="TextureRect" parent="Control/RadialMenuAdvanced" unique_id=843432532]
@@ -508,15 +520,15 @@ offset_right = 122.7975
 offset_bottom = 211.18591
 rotation = 6.2831855
 pivot_offset = Vector2(41.666668, 41.666664)
-texture = ExtResource("18_5jsti")
+texture = ExtResource("21_61lk1")
 
 [node name="granada" type="TextureRect" parent="Control/RadialMenuAdvanced" unique_id=1622227119]
 texture_filter = 1
 layout_mode = 0
-offset_left = 133.42096
-offset_top = 133.42105
-offset_right = 216.7543
-offset_bottom = 216.7544
+offset_left = 127.85249
+offset_top = 127.852585
+offset_right = 211.18582
+offset_bottom = 211.18591
 rotation = 6.2831855
 pivot_offset = Vector2(41.66667, 41.66667)
 texture = ExtResource("8_5xenj")

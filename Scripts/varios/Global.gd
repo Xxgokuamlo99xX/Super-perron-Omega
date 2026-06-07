@@ -6,14 +6,14 @@ extends Node
 #3: escopeta
 #4: granada
 
-var dinero : int
+var dinero : int = 1000
 var dinero_temp : int
-var puede_mov : bool = true	
+var puede_mov : bool = true
 var moneda = preload("res://Escenas/Cosas/moneda.tscn")
 var pausa : bool = false
 var niveles_comp : Array 
 var armas : Array = ["cuchillo","escopeta"]
-var habilidades : Array = ["sprint"] 
+var habilidades : Array = ["sprint","curacion"] 
 var control : bool = false
 var arma_act : int = 1
 
@@ -31,5 +31,8 @@ func _input(event: InputEvent) -> void:
 func _ready() -> void:
 	get_tree().root.get_viewport().set_canvas_cull_mask_bit(10, false)
 
-func comprar(cosa : String):
+func comprar_arma(cosa : String):
 	armas.append(cosa)
+
+func comprar_habilida(cosa : String):
+	habilidades.append(cosa)

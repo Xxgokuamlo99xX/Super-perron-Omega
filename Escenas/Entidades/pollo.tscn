@@ -13,9 +13,10 @@ size = Vector2(26.067417, 42.696632)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xsx18"]
 size = Vector2(37.75281, 48.539326)
 
-[node name="pollo" unique_id=2086595903 instance=ExtResource("1_x8o2s")]
+[node name="pollo" unique_id=2086595903 node_paths=PackedStringArray("sprite") instance=ExtResource("1_x8o2s")]
 damage = 35.0
 vida_max = 300.0
+sprite = NodePath("Pollo")
 
 [node name="Pollo" type="Sprite2D" parent="." index="9" unique_id=154388360]
 texture_filter = 1

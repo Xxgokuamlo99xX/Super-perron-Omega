@@ -54,13 +54,18 @@ func _process(delta: float) -> void:
 		muerte()
 		return
 	if !Global.puede_mov:
-		atq_delay_melee.stop()
-		atq_delay_pistola.stop()
-		atq_delay_escopeta.stop()
+		atq_delay_melee.paused = true
+		atq_delay_pistola.paused = true
+		atq_delay_escopeta.paused = true
 		hurtbox.monitorable = false
 		hurtbox.monitoring = false
-
-		return
+	else:
+		atq_delay_melee.paused = false
+		atq_delay_pistola.paused = false
+		atq_delay_escopeta.paused = false
+		hurtbox.monitorable = true
+		hurtbox.monitoring = true
+		
 	var direccion_apuntado = Input.get_vector("apuntar_izq", "apuntar_der", "apuntar_arriba", "apuntar_abajo")
 	if Global.control:
 		if direccion_apuntado.length() > 0.5:
@@ -112,13 +117,15 @@ func _physics_process(delta) -> void:
 		hacer_dash()
 	
 	if Input.is_action_pressed("habilidad_3") and curacion_cooldown.is_stopped():
-		curacion()
+		if !curado:
+			curacion()
 	
 	if Input.is_action_pressed("habilidad_4") and granada_cooldown.is_stopped():
 		granada()
 	#endregion
 	
 func swift():
+	$swift.emitting = true
 	stamina_recover.start()
 	vel = 250
 	
@@ -134,6 +141,7 @@ func curacion():
 		return
 	if curado:
 		return
+	$GPUParticles2D.emitting = true
 	curacion_cooldown.start()
 	curacion_timer.start()
 	Global.puede_mov = false
@@ -205,6 +213,7 @@ func animaciones():
 	#print(direction)
 
 func _on_stamina_recover_timeout() -> void:
+	$swift.emitting = false
 	vel = 150
 	stamina_cooldown.start()
 
@@ -227,6 +236,7 @@ func _on_atq_delay_pistola_timeout() -> void:
 	#print("ataque_rango")
 
 func _on_atq_delay_escopeta_timeout() -> void:
+	#print(Global.arma_act)
 	if !Global.arma_act == 3:
 		return
 	else:
@@ -249,6 +259,7 @@ func _on_jugador_hit(enemigo_damage) -> void:
 	print("vida restante -> ",vida)
 
 func _on_curacion_timer_timeout() -> void:
+	$GPUParticles2D.emitting = false
 	Global.puede_mov = true
 	vida += 25
 	curado = true

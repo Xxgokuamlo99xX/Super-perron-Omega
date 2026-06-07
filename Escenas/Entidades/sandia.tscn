@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://rajk1vi3mvgy" path="res://Escenas/Entidades/enemigo_platilla_debug.tscn" id="1_ejavl"]
 [ext_resource type="PackedScene" uid="uid://caisb0rnk1s0g" path="res://Escenas/Entidades/hit_box_enemigo.tscn" id="2_ejavl"]
-[ext_resource type="Texture2D" uid="uid://brlw6j4wnxm4x" path="res://Recursos/Sprite/Enemigos/redisign/sandia sprite.png" id="2_m7n25"]
+[ext_resource type="Texture2D" uid="uid://cfh5spmciham2" path="res://Recursos/Sprite/Enemigos/sandia spritesheet.png" id="2_m7n25"]
 [ext_resource type="PackedScene" uid="uid://cqbaft31qj14b" path="res://Escenas/Entidades/hurtbox_enemigo.tscn" id="4_m7n25"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ejavl"]
@@ -14,6 +14,45 @@ size = Vector2(47.64045, 31.011238)
 [sub_resource type="CircleShape2D" id="CircleShape2D_o08o6"]
 radius = 6.9807763
 
+[sub_resource type="Animation" id="Animation_o08o6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_mcmen"]
+resource_name = "correr"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_74jfm"]
+_data = {
+&"RESET": SubResource("Animation_o08o6"),
+&"correr": SubResource("Animation_mcmen")
+}
+
 [node name="enemigo_platillla_debug" unique_id=2086595903 node_paths=PackedStringArray("sprite") instance=ExtResource("1_ejavl")]
 damage = 35.0
 vida_max = 300.0
@@ -22,6 +61,7 @@ sprite = NodePath("Sprite2D")
 [node name="Sprite2D" type="Sprite2D" parent="." index="7" unique_id=462258609]
 texture_filter = 1
 texture = ExtResource("2_m7n25")
+hframes = 4
 
 [node name="hit_box_enemigo" parent="." index="8" unique_id=2055006096 node_paths=PackedStringArray("enemigo") instance=ExtResource("2_ejavl")]
 enemigo = NodePath("..")
@@ -41,3 +81,7 @@ debug_color = Color(0, 0.6468942, 0.2334134, 0.41960785)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="10" unique_id=488976734]
 position = Vector2(0.22471824, 0)
 shape = SubResource("CircleShape2D_o08o6")
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="." index="13" unique_id=1292401798]
+libraries/ = SubResource("AnimationLibrary_74jfm")
+autoplay = &"correr"

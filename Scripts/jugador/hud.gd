@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 		#show()
 	$C/fps.text = "Fps:" + str(Engine.get_frames_per_second())
 	#$SubViewportContainer/SubViewport/Camera2D.position = jugador.position
-	$"C/El dinero".text = "Dinero: " + str(Global.dinero_temp) 
+	$"C/El dinero".text = str(Global.dinero_temp) + " :"
 	#$vida/vida_label.text = "%.1f " % jugador.vida + "/" + "%.1f " % jugador.vida_max
 	#print((jugador.vida) / jugador.vida_max)
 	$vida.material.set_shader_parameter("health",(jugador.vida) / jugador.vida_max)
@@ -84,12 +84,12 @@ func _ready() -> void:
 	$SubViewportContainer/SubViewport.world_2d = get_viewport().world_2d
 
 func _on_radial_menu_advanced_slot_selected(slot: Control, index: int) -> void:
-	match index:
-		0:
+	match slot.name:
+		"cuchillo":
 			Global.arma_act = 1
-		1:
+		"pistola":
 			Global.arma_act = 2
-		2:
+		"escopeta":
 			Global.arma_act = 3
-		3:
+		"nadaxddd":
 			Global.arma_act = 4

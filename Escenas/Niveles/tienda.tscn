@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://bdxsilqdnwysr" path="res://Escenas/Cosas/dialogo_trigger.tscn" id="2_36e0f"]
 [ext_resource type="Resource" uid="uid://dqu2tvnpxc5pa" path="res://Dialogos/Timelines/Tienda.dtl" id="3_36e0f"]
 [ext_resource type="Texture2D" uid="uid://jrjknsnvpvkb" path="res://Recursos/Sprite/images.jpeg" id="4_oa7lt"]
+[ext_resource type="PackedScene" uid="uid://dyf0kopi3eles" path="res://Escenas/Cosas/musica_manager.tscn" id="5_tqpte"]
+[ext_resource type="Texture2D" uid="uid://dbdlcwmc6clhy" path="res://Recursos/Sprite/Objetos/cartera.png" id="6_xmcg2"]
 
 [node name="tienda" type="Node" unique_id=205327691]
 script = ExtResource("1_oxt47")
@@ -17,7 +19,24 @@ position = Vector2(295.25, 162.75)
 scale = Vector2(3.0820897, 1.5318725)
 texture = ExtResource("4_oa7lt")
 
-[node name="dinero" type="Label" parent="." unique_id=2023561272]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "dinero: "
+[node name="Musica" parent="." unique_id=1037165216 instance=ExtResource("5_tqpte")]
+musica_cambio = "tienda"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1989442076]
+layer = 6
+
+[node name="dinero" type="Label" parent="CanvasLayer" unique_id=678201249]
+offset_left = 47.0
+offset_top = 16.0
+offset_right = 112.0
+offset_bottom = 39.0
+text = "9999999"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/dinero" unique_id=492280070]
+texture_filter = 1
+layout_mode = 0
+offset_left = -41.0
+offset_top = -16.0
+offset_right = -1.0
+offset_bottom = 24.0
+texture = ExtResource("6_xmcg2")

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bdogyei2tq1fi"]
+
+[ext_resource type="Script" uid="uid://clg4jgqkoiney" path="res://Scripts/varios/audio_stream_player.gd" id="1_qmvt4"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" unique_id=1670795310]
+volume_db = -80.0
+autoplay = true
+bus = &"Musica"
+script = ExtResource("1_qmvt4")

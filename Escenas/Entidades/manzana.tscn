@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://rajk1vi3mvgy" path="res://Escenas/Entidades/enemigo_platilla_debug.tscn" id="1_nhoj3"]
 [ext_resource type="PackedScene" uid="uid://caisb0rnk1s0g" path="res://Escenas/Entidades/hit_box_enemigo.tscn" id="2_yy0t0"]
-[ext_resource type="Texture2D" uid="uid://b7pimb61q5cy5" path="res://Recursos/Sprite/Enemigos/Manzana.png" id="3_ysowy"]
 [ext_resource type="PackedScene" uid="uid://cqbaft31qj14b" path="res://Escenas/Entidades/hurtbox_enemigo.tscn" id="3_yy0t0"]
+[ext_resource type="Texture2D" uid="uid://di325eg647ssh" path="res://Recursos/Sprite/Enemigos/manzana spritesheet.png" id="4_nhoj3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nhoj3"]
 radius = 2.6966293
@@ -13,6 +13,45 @@ radius = 5.8426967
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s2eb1"]
 radius = 8.988764
+
+[sub_resource type="Animation" id="Animation_nhoj3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_yy0t0"]
+resource_name = "camina"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s2eb1"]
+_data = {
+&"RESET": SubResource("Animation_nhoj3"),
+&"camina": SubResource("Animation_yy0t0")
+}
 
 [node name="manzana" unique_id=2086595903 node_paths=PackedStringArray("sprite") instance=ExtResource("1_nhoj3")]
 damage = 25.0
@@ -35,6 +74,13 @@ shape = SubResource("CircleShape2D_yy0t0")
 shape = SubResource("CircleShape2D_s2eb1")
 debug_color = Color(0.9811925, 0, 0.37724864, 0.41960785)
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="9" unique_id=720855899]
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="." index="9" unique_id=958126097]
+root_node = NodePath("../Sprite2D")
+libraries/ = SubResource("AnimationLibrary_s2eb1")
+autoplay = &"camina"
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="10" unique_id=720855899]
 texture_filter = 1
-texture = ExtResource("3_ysowy")
+texture = ExtResource("4_nhoj3")
+hframes = 4
+vframes = 2

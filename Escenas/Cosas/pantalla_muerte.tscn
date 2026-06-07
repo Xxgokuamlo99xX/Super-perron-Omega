@@ -1,6 +1,14 @@
 [gd_scene format=3 uid="uid://i1igmj376eev"]
 
 [ext_resource type="Script" uid="uid://cxgov7tll61ls" path="res://Scripts/varios/pantalla_muerte.gd" id="1_62gva"]
+[ext_resource type="FontFile" uid="uid://yd8xk01ffqtm" path="res://Recursos/literalmente cualquier cosa/ZeldaOracles.ttf" id="2_ue0wb"]
+[ext_resource type="Theme" uid="uid://draw0phrsud7e" path="res://Recursos/assets/ui.tres" id="3_gav4p"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rjcpp"]
+font = ExtResource("2_ue0wb")
+font_size = 47
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [node name="pantalla_muerte" type="CanvasLayer" unique_id=1914953523]
 layer = 4
@@ -12,7 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.66, 0.24200001, 0, 0.53333336)
+color = Color(0.75468147, 0, 0.16176972, 0.53300005)
 
 [node name="Label" type="Label" parent="." unique_id=781696366]
 anchors_preset = 8
@@ -20,26 +28,49 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -29.0
-offset_top = -11.5
-offset_right = 29.0
-offset_bottom = 11.5
+offset_left = -151.5
+offset_top = -145.0
+offset_right = 151.5
+offset_bottom = -92.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "muerto"
+text = "Has Muerto!!"
+label_settings = SubResource("LabelSettings_rjcpp")
 
-[node name="otra vez" type="Button" parent="." unique_id=152384495]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=626349508]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -36.5
-offset_top = 25.0
-offset_right = 36.5
-offset_bottom = 56.0
+offset_left = -238.0
+offset_top = 81.0
+offset_right = 238.0
+offset_bottom = 137.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Otra vez"
+theme_override_constants/separation = 71
 
-[connection signal="pressed" from="otra vez" to="." method="_on_otra_vez_pressed"]
+[node name="otra vez" type="Button" parent="HBoxContainer" unique_id=152384495]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../salir")
+focus_neighbor_right = NodePath("../salir")
+theme = ExtResource("3_gav4p")
+theme_type_variation = &"continuar"
+metadata/_edit_lock_ = true
+
+[node name="salir" type="Button" parent="HBoxContainer" unique_id=521065411]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../otra vez")
+focus_neighbor_right = NodePath("../otra vez")
+theme = ExtResource("3_gav4p")
+theme_type_variation = &"abandonar"
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="HBoxContainer/otra vez" to="." method="_on_otra_vez_pressed"]
+[connection signal="visibility_changed" from="HBoxContainer/otra vez" to="." method="_on_otra_vez_visibility_changed"]
+[connection signal="pressed" from="HBoxContainer/salir" to="." method="_on_salir_pressed"]

@@ -5,12 +5,14 @@ extends Node2D
 @onready var botanas: Button = $ColorRect/botanas
 @onready var cajas: Button = $ColorRect/cajas
 @onready var tiendas: Button = $ColorRect/tiendas
-
+func _ready() -> void:
+	$ColorRect/congeladores.grab_focus()
+	
 func _process(delta: float) -> void:
 	$"ColorRect/dinero".text = "Dinero: " + str(Global.dinero) 
 
-	#if Global.niveles_comp.has(2):
-		#congeladores.disabled = true
+	if Global.niveles_comp.has(2):
+		congeladores.disabled = true
 		#
 	#if Global.niveles_comp.has(3):
 		#cocina.disabled = true
@@ -26,7 +28,7 @@ func _process(delta: float) -> void:
 
 
 func _on_congeladores_pressed() -> void:
-	cambio_escena.cambio_escena_str("")
+	cambio_escena.cambio_escena_str("res://Escenas/Niveles/Level2_Congeladores.tscn")
 
 func _on_cocina_pressed() -> void:
 	cambio_escena.cambio_escena_str("")

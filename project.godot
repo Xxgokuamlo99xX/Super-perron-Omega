@@ -32,6 +32,7 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 Global="*res://Scripts/varios/Global.gd"
 PhantomCameraManager="*uid://duq6jhf6unyis"
 cambio_escena="*uid://c4n5pv5h2ecax"
+GlobalAudio="*uid://bdogyei2tq1fi"
 
 [dialogic]
 

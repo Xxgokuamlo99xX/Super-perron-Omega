@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cs55jipu83bs5" path="res://Escenas/Entidades/jugador.tscn" id="6_5g1s2"]
 [ext_resource type="PackedScene" uid="uid://b3581ifu3q83x" path="res://Escenas/Entidades/uvas.tscn" id="6_xq6yf"]
 [ext_resource type="PackedScene" uid="uid://cby7i78ey821p" path="res://Escenas/Entidades/sandia.tscn" id="7_2bbk6"]
+[ext_resource type="PackedScene" uid="uid://dyf0kopi3eles" path="res://Escenas/Cosas/musica_manager.tscn" id="13_80wwp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g6v40"]
 shader = ExtResource("2_wocxy")
@@ -136,6 +137,8 @@ offset_right = -58.0
 offset_bottom = 47.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_neighbor_left = NodePath("../cuchillo")
+focus_neighbor_right = NodePath("../cuchillo")
 text = "Pistola"
 icon = ExtResource("2_mw31m")
 icon_alignment = 1
@@ -155,6 +158,8 @@ offset_right = 165.0
 offset_bottom = 47.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_neighbor_left = NodePath("../pistola")
+focus_neighbor_right = NodePath("../pistola")
 text = "Cuchillo"
 icon = ExtResource("3_80wwp")
 icon_alignment = 1
@@ -239,5 +244,9 @@ position = Vector2(734, 120)
 [node name="teleport_mark" type="Marker2D" parent="." unique_id=1523330306]
 position = Vector2(876, 516)
 
+[node name="Musica" parent="." unique_id=1037165216 instance=ExtResource("13_80wwp")]
+musica_cambio = "lvl_1"
+
+[connection signal="visibility_changed" from="eleccion" to="eleccion" method="_on_visibility_changed"]
 [connection signal="pressed" from="eleccion/pistola" to="eleccion" method="_on_pistola_pressed"]
 [connection signal="pressed" from="eleccion/cuchillo" to="eleccion" method="_on_cuchillo_pressed"]

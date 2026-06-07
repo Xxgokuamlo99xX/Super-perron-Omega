@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bu8wbiwiukf2k"]
+
+[ext_resource type="Script" uid="uid://bxw4fa1rsf4i2" path="res://Scripts/varios/dmg_marker.gd" id="1_3l150"]
+[ext_resource type="FontFile" uid="uid://yd8xk01ffqtm" path="res://Recursos/literalmente cualquier cosa/ZeldaOracles.ttf" id="1_v0xn1"]
+
+[node name="dmg_marker" type="Marker2D" unique_id=1025063682]
+script = ExtResource("1_3l150")
+
+[node name="Label" type="Label" parent="." unique_id=720162160]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.22658296, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.633)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_v0xn1")
+text = "100"
+horizontal_alignment = 1
